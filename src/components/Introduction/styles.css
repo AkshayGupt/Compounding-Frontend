@@ -14,16 +14,6 @@
     max-width: 100%;
 }
 
- /* max-width: 80%;
-    min-height: 25vh;
-    max-height: 80%; */
-/* .image-slide{
-   
-    height:200px;
-    width:200px;
-    bottom:0;
-} */
-
 .left{
     top:85vh;
     position:absolute;
@@ -33,4 +23,23 @@
     top:85vh;
     position:absolute;
     right:0vw;
+}
+
+.lower-image{
+    max-height:80px;
+    max-width: 100px;
+}
+
+.text{
+    font-family: 'Roboto Mono', monospace;
+}
+
+#light{
+    color:yellow,
+}
+
+#heading{
+    font-family: 'Lora', serif;
+font-family: 'Palette Mosaic', cursive;
+font-family: 'Roboto Mono', monospace;
 }
