@@ -1,0 +1,36 @@
+.slide-outer-div{
+    margin: auto;
+    width: 60%;
+    padding: 5px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:270px;
+    width:400px;
+    max-height: 50%;
+    max-width: 100%;
+}
+
+ /* max-width: 80%;
+    min-height: 25vh;
+    max-height: 80%; */
+/* .image-slide{
+   
+    height:200px;
+    width:200px;
+    bottom:0;
+} */
+
+.left{
+    top:85vh;
+    position:absolute;
+    left:0vw;
+}
+.right{
+    top:85vh;
+    position:absolute;
+    right:0vw;
+}
