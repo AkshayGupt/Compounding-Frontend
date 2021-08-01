@@ -41,7 +41,7 @@ const LandingScreen = () => {
     ]   
 
     return (
-        <div className="pt-5" style={{minHeight:"100vh",minWidth:"100%",backgroundColor:"#6a0dad",border:"2px solid black"}} >
+        <div className="pt-5 " style={{minHeight:"100vh",minWidth:"100%",backgroundColor:"#6a0dad",border:"2px solid black"}} >
 
             {/* SLIDES */}
             <p style={{fontSize:"20px"}} className="text-center" id="heading-top" >Welcome to</p>

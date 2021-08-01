@@ -2,4 +2,16 @@
     .btn-text {
       display: none;
     }
+    .monster-section{
+      width:50%;
+      margin:auto;
+      height:300px;
+      overflow:scroll
+    }
+  }
+
+  @media only screen and (min-width: 900px) {
+    .btn-mobile{
+      display: none;
+    }
   }

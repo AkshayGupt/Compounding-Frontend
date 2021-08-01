@@ -15,7 +15,7 @@ const Slides = ({
         <div style={{width:"100%"}}>
         <Carousel autoPlay showThumbs={false} width="50vw" infiniteLoop showArrows={false} showStatus={false}>
             <div>
-                <img src={img1.src} className="image-slide "/>
+                <img src={img1.src} className="image-slide" width="100px"/>
                 <p className="pt-3 text-white text">{img1.text}</p>
                 <p className="pb-1 text-center" >{icon1}</p>
             </div>
