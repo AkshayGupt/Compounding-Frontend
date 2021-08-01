@@ -1,10 +1,10 @@
 .image-slide{
-    height:370px;
-    width:10px;
-    max-height: 40vh;
-    max-width: 80vw;
+    max-height: 40vh; 
+    max-width: 30vw;
 }
-
+/* .verically-align{
+    margin-top: 10%;
+} */
 .text{
     font-family: 'Roboto Mono', monospace;
 }
