@@ -1,0 +1,20 @@
+.image-slide{
+    height:370px;
+    width:10px;
+    max-height: 40vh;
+    max-width: 80vw;
+}
+
+.text{
+    font-family: 'Roboto Mono', monospace;
+}
+
+#heading-top{
+    font-family: 'Lora', serif;
+    font-family: 'Palette Mosaic', cursive;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn-outline{
+    border-width: 3px;
+}
