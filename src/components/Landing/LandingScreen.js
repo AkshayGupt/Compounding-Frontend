@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
 import Slides from "./Slides";
 import './styles.css'
+import {Redirect} from 'react-router-dom';
 
 const LandingScreen = () => {
+
+    const [redirect, setRedirect] = useState(false);
 
     const images = [
         {
@@ -38,7 +41,15 @@ const LandingScreen = () => {
             <i class="fas fa-bullseye px-1"  style={{color:"yellow",fontSize:"30px"}}></i>,
             <i class="fas fa-dice px-1"  style={{color:"lightpurple",fontSize:"30px"}}></i>
         ]
-    ]   
+    ]  
+
+    const handleRegister = () =>{
+        setRedirect(true);
+    }
+    
+    if(redirect){
+        return <Redirect to="/details" />
+    }
 
     return (
         <div className="pt-5 " style={{minHeight:"100vh",minWidth:"100%",backgroundColor:"#6a0dad",border:"2px solid black"}} >
@@ -62,7 +73,7 @@ const LandingScreen = () => {
                 <div style={{width:"400px",maxWidth:"80%",margin:"auto"}}>
                     <p className="p-2 btn btn-outline-success btn-block btn-outline">Login</p>
                 </div>
-                <div style={{width:"400px",maxWidth:"80%",margin:"auto"}}>
+                <div style={{width:"400px",maxWidth:"80%",margin:"auto"}} onClick={()=>{handleRegister()}}>
                     <p className="p-2 btn btn-outline-primary btn-block btn-outline">Register</p>
                 </div>
             </div>
