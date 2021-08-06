@@ -1,0 +1,14 @@
+@media only screen and (max-width: 600px) {
+  .text-mobile {
+    display: none;
+  }
+}
+
+.tab-header {
+  font-weight: bold !important;
+  font-family: serif !important;
+  font-size: larger !important;
+  text-transform: capitalize !important;
+  background-color: #6e48aa !important;
+  color: #f5f8fb !important;
+}
