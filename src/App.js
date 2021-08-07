@@ -6,6 +6,8 @@ import TransactionView from "./components/Transactions/TransactionView";
 import QuestionsBot from "./components/Details/QuestionsBot";
 import QuestDetails from "./components/Quests/GroupQuests/QuestDetails";
 import RewardsTabs from "./components/club/rewards";
+import Dashboard from "./components/club/dashboard";
+import SimpleDialogDemo from "./components/club/dialog";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/details" exact component={QuestionsBot} />
           <Route path="/groupQuest" exact component={QuestDetails} />
           <Route path="/rewards" exact component={RewardsTabs} />
+          <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/dialog-test" exact component={SimpleDialogDemo} />
         </Switch>
       </Router>
     </div>

@@ -39,10 +39,12 @@ const RewardsTabs = () => {
   return (
     <div>
       <Tabs
-        variant={"fullWidth"}
         value={tabIndex}
-        indicatorColor="secondary"
         onChange={(e, index) => setTabIndex(index)}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label="full width tabs example"
       >
         <Tab className="tab-header" label={"Rewards"}>
           First Tab
