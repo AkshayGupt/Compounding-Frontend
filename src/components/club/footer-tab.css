@@ -1,0 +1,7 @@
+.navigation-tab {
+  bottom: 0;
+  font-size: 13px;
+  border-top: 2px solid white;
+  position: fixed;
+  width: 100%;
+}
