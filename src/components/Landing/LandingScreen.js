@@ -85,7 +85,7 @@ const LandingScreen = () => {
     }
     
     if(redirect){
-        return <Redirect to="/details" />
+        return <Redirect to="/avatar" />
     }
 
     return (
