@@ -1,0 +1,48 @@
+.main-screen{
+    background-color:  #F5F8FB;
+    height: 100vh;
+   
+      
+
+}
+.select-quest-header{
+
+    background-color:  #6e48aa;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.h5,h5{
+    font-size: 1.25rem;
+    color: #F5F8FB; 
+    
+}
+
+.select-quest-body{
+    background-color:  #F5F8FB;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.card{
+    position: static;
+    margin: 10px;
+    height: fit-content;
+    min-height: auto;
+    flex-direction: row;
+    width: auto;
+}
+.card img {
+    width: 30%;
+  }
+.card-title{
+    background-color: #6e48aa;
+}  
+.card-header{
+    background-color: #6e48aa;
+}

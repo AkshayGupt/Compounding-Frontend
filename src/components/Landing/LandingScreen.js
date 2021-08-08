@@ -1,11 +1,48 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Slides from "./Slides";
 import './styles.css'
 import {Redirect} from 'react-router-dom';
+import firebase from '../../Config/FirebaseConfig'
 
 const LandingScreen = () => {
 
     const [redirect, setRedirect] = useState(false);
+
+
+
+
+    const loginWithGoogle = () => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                var credential = result.credential;
+
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // ...
+            }).catch((error) => {
+                console.log(error)
+            });
+    }
+
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var uid = user.uid;
+                console.log(user)
+                handleRegister()
+                // User is signed in
+            } else {
+                // User is signed out
+
+            }
+        });
+    }, [])
 
     const images = [
         {
@@ -69,12 +106,10 @@ const LandingScreen = () => {
             </div>
 
             {/* LOGIN & REGISTER buttons */}
-            <div className="mx-auto mt-5 " >
-                <div style={{width:"400px",maxWidth:"80%",margin:"auto"}}>
-                    <p className="p-2 btn btn-outline-success btn-block btn-outline">Login</p>
-                </div>
-                <div style={{width:"400px",maxWidth:"80%",margin:"auto"}} onClick={()=>{handleRegister()}}>
-                    <p className="p-2 btn btn-outline-primary btn-block btn-outline">Register</p>
+            <div className="mx-auto mt-5 " style={{textAlign:"center", backgroundColor: "#6a0dad"}} >
+                <div style={{maxWidth: "80%", margin: "auto", backgroundColor: "#6a0dad" }} onClick={() => { loginWithGoogle() }}>
+                    <a href="#" className="google btn" ><i class="fa fa-google fa-fw"style={{backgroundColor: "#dd4b39"}}>
+                    </i> Login with Google+</a>
                 </div>
             </div>
         </div>
