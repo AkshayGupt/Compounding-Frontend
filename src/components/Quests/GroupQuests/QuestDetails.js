@@ -1,82 +1,120 @@
 import React from "react";
 import icon from "../../../monster_icons/2.png";
-const QuestDetails = ({
-  name = "Rakesh Roshan",
-  questName = "Summer Quest",
-  level = "12",
-}) => {
-  const showMonsterDetails = () => {
-    return (
-      <div className="card mb-3 shadow p-3  bg-body rounded">
-        <div className="container">
-          <div className="row">
-            <div className="col text-center pt-3">
-              <img
-                src={icon}
-                className="card-img-top"
-                alt="..."
-                style={{ maxHeight: "90%", maxWidth: "70%", width: "100px" }}
-              />
-            </div>
+import "./QuestDetails.css";
+import { useHistory } from "react-router-dom";
 
-            <div className="col">
-              <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-
-                <p className="card-text">
-                  <small className="text-muted">Level {level}</small>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const showNarrativeAndDescription = () => {
-    return (
-      <div className="card mb-3 p-5 text-center shadow p-3 mb-5 bg-body rounded">
-        <h3>Narration</h3>
-      </div>
-    );
-  };
-
-  const showStatsUpdate = () => {
-    return (
-        <div className="card  p-1 shadow-lg p-3 mb-5 bg-body rounded">
-            <p> Stats Update</p>
-            <img 
-            height="300px"
-            src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/35736722/596be81bf67c698a4c9fa56591c4f7196478f71b.png"/>
-        </div>
-    );
-  };
-
-  const showOfferThatUnlocks = () => {
-    return (
-        <div className="card p-1 shadow-lg p-3 mb-5 bg-body rounded">
-            <p> Offers that unlocks</p>
-            <img
-             height="300px"
-            src="https://www.gamerefinery.com/wp-content/uploads/2020/06/Piggy-Bank-2.jpg"
-            />
-        </div>
-    );
-  };
+const QuestDetails = () => {
+  const history = useHistory();
 
   return (
-    <div className="container">
-      <h2 className="text-center mb-5 p-3">{questName}</h2>
-
-      {showMonsterDetails()}
-      {showNarrativeAndDescription()}
-      {/* <div className="container"> */}
-        <div className="row">
-          <div  className="col-md-6 col-sm-12">{showStatsUpdate()}</div>
-          <div className="col-md-6 col-sm-12">{showOfferThatUnlocks()}</div>
+    <div className="questDetails__main-screen">
+      <div className="select-quest-header">
+        <h5
+          className="groupQuest__h5"
+          style={{ fontSize: "25px", fontFamily: "fantasy" }}
+        >
+          Quest Details
+        </h5>
+      </div>
+      <div className="select-quest-body">
+        <div className="card groupQuest__card avatar">
+          <img
+            src="images/avatars/Avatar1_cooldude.png"
+            style={{ borderRadius: "50%" }}
+            className="card-img-top"
+            alt="..."
+          />
+          <div className="card-body">
+            <h5
+              className="card-title groupQuest__card-title groupQuest__h5 groupQuest__card-title"
+              style={{ color: "#F5F8FB", borderRadius: "10px" }}
+            >
+              john
+            </h5>
+            <p className="card-text">Age : 24</p>
+            <p className="card-text">Gender : Male</p>
+            <p className="card-text">Level : 11</p>
+          </div>
         </div>
-      {/* </div> */}
+        <div className="card groupQuest__card Narration">
+          <h5
+            className="groupQuest__h5"
+            style={{
+              fontSize: "25px",
+              fontFamily: "fantasy",
+              backgroundColor: " #6e48aa",
+            }}
+          >
+            Narration
+          </h5>
+          <div className="card-body">
+            <p className="card-text">
+              You are a successful investment banker living in a huge mansion in
+              Mumbai. You drive a different car everyday from your your luxury
+              car collection. But fortune hasn’t been kind to your lately. Due
+              to some really bad investments, your financial situation is now
+              hanging by a shoe string. You thought that your good times have
+              come to an end until you came across a genie. He promised to
+              change your life forever.
+            </p>
+          </div>
+          <div
+            className="card-footer"
+            style={{ backgroundColor: " #6e48aa" }}
+          ></div>
+        </div>
+
+        <div className="card groupQuest__card h-100 mb-4 Narration">
+          <h5
+            className="groupQuest__h5"
+            style={{
+              fontSize: "25px",
+              fontFamily: "fantasy",
+              backgroundColor: " #6e48aa",
+            }}
+          >
+            Stats
+          </h5>
+          <div className="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Assets</li>
+              <li class="list-group-item">Contingencies </li>
+              <li class="list-group-item">Awareness</li>
+              <li class="list-group-item">Health</li>
+              <li class="list-group-item">Debt</li>
+            </ul>
+          </div>
+        </div>
+        <div className="card groupQuest__card h-100 Narration">
+          <h5
+            className="groupQuest__h5"
+            style={{
+              fontSize: "25px",
+              fontFamily: "fantasy",
+              backgroundColor: " #6e48aa",
+            }}
+          >
+            Offers
+          </h5>
+          <div className="card-body">
+            <img
+              src="images/offers/boat.jpg"
+              style={{ width: "100%", height: "100%" }}
+              className="card-img-top"
+              alt="..."
+            />
+          </div>
+        </div>
+        <a
+          href="#"
+          className="btn btn-primary mt-2"
+          onClick={() => {
+            history.push("/fixed-deposit");
+          }}
+        >
+          Move To Chat
+        </a>
+      </div>
     </div>
   );
 };

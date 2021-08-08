@@ -1,0 +1,52 @@
+.questDetails__main-screen {
+  background-color: #f5f8fb;
+  height: 100vh;
+}
+.select-quest-header {
+  background-color: #6e48aa;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupQuest__h5 {
+  font-size: 1.25rem;
+  color: #f5f8fb;
+}
+
+.select-quest-body {
+  background-color: #f5f8fb;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.groupQuest__card {
+  position: static;
+  margin: 10px;
+  min-height: 100%;
+  flex-direction: row;
+}
+
+.Narration {
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.groupQuest__card img {
+  width: 30%;
+}
+.groupQuest__card-title {
+  background-color: #6e48aa;
+}
+.groupQuest__card-header {
+  background-color: #6e48aa;
+}
+
+.questDetails__main-screen > div {
+  flex: 1 0 20%;
+  overflow: hidden;
+}
