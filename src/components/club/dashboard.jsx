@@ -1,16 +1,10 @@
 import React from "react";
 import "./dashboard.css";
 
-
-
-
 const Dashboard = () => {
-
-
-  
   return (
     <div className="dashboard-container">
-      <div className="header">
+      <div className="dashboard__header">
         <div className="dropdown">
           <button
             class="btn btn-secondary dropdown-toggle"
@@ -48,15 +42,15 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="content">
-        <div className="card card1">
+      <div className="dashboard__content">
+        <div className="card dashboard__card card1">
           <div className="card-body">
             <h6 className="card-title">Buy Bitcoin with your freedom coins</h6>
             <div>
               <img
                 className="card-img-top"
                 src="/images/bitcoin-logo.png"
-                alt="Card cap"
+                alt="card dashboard__card cap"
               />
             </div>
             <a href="/" class="btn btn-primary">
@@ -64,7 +58,7 @@ const Dashboard = () => {
             </a>
           </div>
         </div>
-        <div className="card card2">
+        <div className="card dashboard__card card2">
           <div>
             My Total Investments &nbsp;&nbsp;
             <i class="fa fa-angle-right menu-icon"></i>
@@ -111,7 +105,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="card card3">
+        <div className="card dashboard__card card3">
           <div>
             My Insurances &nbsp;&nbsp;
             <i class="fa fa-angle-right menu-icon"></i>
@@ -132,7 +126,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="card card2">
+        <div className="card dashboard__card card2">
           <div>
             Fetch my credit score &nbsp;&nbsp;
             <i class="fa fa-angle-right menu-icon"></i>
@@ -161,41 +155,41 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <h3 className="card-sub-heading">
             Plan your financial goals and see how soon you can retire
           </h3>
           <img className="image" src="images/images.svg" alt="test" />
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <img
             className="recommented-offer"
             src="images/dashboard/1.png"
             alt="test"
           />
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <img
             className="recommented-offer"
             src="images/dashboard/2.png"
             alt="test"
           />
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <img
             className="recommented-offer"
             src="images/dashboard/3.png"
             alt="test"
           />
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <img
             className="recommented-offer"
             src="images/dashboard/4.png"
             alt="test"
           />
         </div>
-        <div className="card">
+        <div className="card dashboard__card">
           <img
             className="recommented-offer"
             src="images/dashboard/5.png"

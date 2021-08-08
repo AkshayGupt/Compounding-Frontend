@@ -1,51 +1,47 @@
-* {
+/* * {
   box-sizing: border-box;
   background-color: whitesmoke
+} */
+
+.tutorial {
+  text-align: center;
+  height: 100%;
+}
+.youtube {
+  margin-top: 20px;
+  display: inline-flex;
+  /* align-items items in column */
+  flex-direction: column;
+  /* center items horizontally */
+  align-items: center;
+  /* center items vertically */
+  justify-content: center;
+  width: 100%;
+  height: 500px;
 }
 
+.video-completed-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgb(110, 104, 151);
+  border-radius: 25px;
+  color: whitesmoke;
+  font-size: 15px;
+}
 
+.coinsqtybox {
+  position: relative;
+  margin: 10px;
+}
 
-.tutorial{
-    text-align: center;
-    height: 100%;
+.coinsimg {
+  position: absolute;
+  top: 8px;
+  right: 60px;
+}
 
-  }
-  .youtube{
-    margin-top: 20px;
-    display: inline-flex;
-    /* align-items items in column */
-    flex-direction: column;
-    /* center items horizontally */
-    align-items: center;
-    /* center items vertically */
-    justify-content: center;
-    width: 100%;
-    height: 500px;
-  }
-
-  .video-completed-button{
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: rgb(110, 104, 151);
-    border-radius: 25px;
-    color: whitesmoke;
-    font-size: 15px;
-  }
-  
-
-  .coinsqtybox{
-    position: relative;
-    margin: 10px;
-  }
-
-  .coinsimg{
-    position: absolute;
-    top: 8px;
-    right: 60px;
-  }
-
-  .coinsqty{
-    position: absolute;
-    top: 13px;
-    right: 25px;
-  }
+.coinsqty {
+  position: absolute;
+  top: 13px;
+  right: 25px;
+}

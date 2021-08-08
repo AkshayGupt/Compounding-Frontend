@@ -1,63 +1,52 @@
-.main-screen{
-    background-color:  #F5F8FB;
-    height: 100vh;
-
+.questDetails__main-screen {
+  background-color: #f5f8fb;
+  height: 100vh;
 }
-.select-quest-header{
-
-    background-color:  #6e48aa;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-.h5,h5{
-    font-size: 1.25rem;
-    color: #F5F8FB; 
-    
+.select-quest-header {
+  background-color: #6e48aa;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.select-quest-body{
-    background-color:  #F5F8FB;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-}
-.card{
-    position: static;
-    margin: 10px;
-    min-height: 100%;
-    flex-direction: row;
+.groupQuest__h5 {
+  font-size: 1.25rem;
+  color: #f5f8fb;
 }
 
-.card.Narration{
-    flex-direction:column;
-    overflow: hidden;
+.select-quest-body {
+  background-color: #f5f8fb;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.groupQuest__card {
+  position: static;
+  margin: 10px;
+  min-height: 100%;
+  flex-direction: row;
 }
 
-.row > div
-{
-   flex: 1 0 50%;
-   text-align: center;
-   padding: 10px;
-   overflow: hidden;
+.Narration {
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.card img {
-    width: 30%;
-  }
-.card-title{
-    background-color: #6e48aa;
-}  
-.card-header{
-    background-color: #6e48aa;
+.groupQuest__card img {
+  width: 30%;
+}
+.groupQuest__card-title {
+  background-color: #6e48aa;
+}
+.groupQuest__card-header {
+  background-color: #6e48aa;
 }
 
-.main-screen>div{
-    flex: 1 0 20%;
-    overflow: hidden;
+.questDetails__main-screen > div {
+  flex: 1 0 20%;
+  overflow: hidden;
 }

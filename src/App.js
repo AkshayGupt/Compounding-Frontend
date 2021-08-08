@@ -7,13 +7,13 @@ import QuestionsBot from "./components/Details/QuestionsBot";
 import QuestDetails from "./components/Quests/GroupQuests/QuestDetails";
 import RewardsTabs from "./components/club/rewards";
 import Dashboard from "./components/club/dashboard";
-import SimpleDialogDemo from "./components/club/dialog";
-import SelectQuest from "./components/Quests/SelectQuest/SelectQuest"
-import FixedDeposit from "./components/Details/FixedDepositBot"
-import Stocks from "./components/Details/StocksBot"
-import MutualFund from "./components/Details/MutualFundBot"
-import Youtube from './components/Main/VideoTutorial/Youtube';
-import AvatarCreator from './components/AvatarCreator/AvatarCreator';
+// import SimpleDialogDemo from "./components/club/dialog";
+import SelectQuest from "./components/Quests/SelectQuest/SelectQuest";
+import FixedDeposit from "./components/Details/FixedDepositBot";
+import Stocks from "./components/Details/StocksBot";
+import MutualFund from "./components/Details/MutualFundBot";
+import Youtube from "./components/Main/VideoTutorial/Youtube";
+import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 
 function App() {
   return (
@@ -28,13 +28,13 @@ function App() {
           <Route path="/detail-quest" exact component={QuestDetails} />
           <Route path="/rewards" exact component={RewardsTabs} />
           <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/dialog-test" exact component={SimpleDialogDemo} />
+          {/* <Route path="/dialog-test" exact component={SimpleDialogDemo} /> */}
           <Route path="/select-quest" exact component={SelectQuest} />
           <Route path="/fixed-deposit" exact component={FixedDeposit} />
           <Route path="/stocks" exact component={Stocks} />
           <Route path="/mutual-fund" exact component={MutualFund} />
-          <Route path="/youtube" exact component={Youtube}/>
-          <Route path="/avatar"  exact component={AvatarCreator}/>
+          <Route path="/youtube" exact component={Youtube} />
+          <Route path="/avatar" exact component={AvatarCreator} />
         </Switch>
       </Router>
     </div>
