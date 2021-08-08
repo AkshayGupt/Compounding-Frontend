@@ -2,22 +2,24 @@ import React from "react";
 import "./dashboard.css";
 
 const Dashboard = () => {
+  const user = {
+    username: "Clark Walters",
+  };
+
   return (
     <div className="dashboard-container">
       <div className="dashboard__header">
         <div className="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="btn btn-secondary"
             type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="dropdown-button-span">S</span>
-            Member
+            <span className="dropdown-button-span">{user.username[0]}</span>
+            {user.username}
           </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a className="dropdown-item" href="/">
               Action
             </a>
@@ -27,7 +29,7 @@ const Dashboard = () => {
             <a className="dropdown-item" href="/">
               Something else here
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="search-icon">
           <i class="fa fa-search"></i>
@@ -90,12 +92,14 @@ const Dashboard = () => {
                 <i class="fa fa-suitcase" aria-hidden="true"></i>
               </div>
               EPF
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
             <div className="option">
               <div>
                 <i class="fa fa-money" aria-hidden="true"></i>
               </div>
               Saving A/C
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
             <div className="option">
               <div>

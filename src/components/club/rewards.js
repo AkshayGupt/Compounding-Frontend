@@ -1,7 +1,6 @@
 import React from "react";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-// import { Box, Typography } from "@material-ui/core";
 import AdvancedImageList from "./Offers";
 import "./rewards.css";
 
@@ -46,15 +45,9 @@ const RewardsTabs = () => {
         variant="fullWidth"
         aria-label="full width tabs example"
       >
-        <Tab className="tab-header" label={"Rewards"}>
-          First Tab
-        </Tab>
-        <Tab className="tab-header" label={"Savings"}>
-          Second Tab
-        </Tab>
-        <Tab className="tab-header" label={"Investments"}>
-          Content for third Tab
-        </Tab>
+        <Tab className="tab-header" label={"Rewards"}></Tab>
+        <Tab className="tab-header" label={"Savings"}></Tab>
+        <Tab className="tab-header" label={"Investments"}></Tab>
       </Tabs>
       <TabPanel value={tabIndex} index={0}>
         {RewardComponent}

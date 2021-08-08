@@ -14,6 +14,7 @@ import Stocks from "./components/Details/StocksBot";
 import MutualFund from "./components/Details/MutualFundBot";
 import Youtube from "./components/Main/VideoTutorial/Youtube";
 import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
+import FooterTabs from "./components/club/footer-tabs";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/youtube" exact component={Youtube} />
           <Route path="/avatar" exact component={AvatarCreator} />
         </Switch>
+        <FooterTabs />
       </Router>
     </div>
   );
