@@ -85,6 +85,15 @@ const QuestDetails = () => {
             </ul>
           </div>
         </div>
+        <a
+          href="#"
+          className="btn btn-primary mt-2"
+          onClick={() => {
+            history.push("/fixed-deposit");
+          }}
+        >
+          Chat
+        </a>
         <div className="card groupQuest__card h-100 Narration">
           <h5
             className="groupQuest__h5"
@@ -105,15 +114,6 @@ const QuestDetails = () => {
             />
           </div>
         </div>
-        <a
-          href="#"
-          className="btn btn-primary mt-2"
-          onClick={() => {
-            history.push("/fixed-deposit");
-          }}
-        >
-          Chat
-        </a>
       </div>
     </div>
   );
