@@ -4,13 +4,13 @@ const Monsters = ({
    selectMonster
 }) => {
 
-
     return (
-        <div className="row">
+        <div className="row shadow">
             {
                 monsters.map((monster)=>{
-                   return <div className="col-md-12 col-lg-6 btn" style={{border:"2px solid black",padding:"10px"}} colkey={monster.id} onClick={()=>selectMonster(monster.id)}>
-                        <img src={monster.icon} alt="monster 1" width="90%" height="auto"/>
+                   return <div className="col mt-2  pt-2 bg-white rounded mx-auto text-center" colkey={monster.id} onClick={()=>selectMonster(monster.id)}>
+                        <img src={monster.icon} alt="monster 1" width="70%" height="60%" />
+                        <p className="text-center pt-1">{monster.subtext}</p>
                     </div>
                 })
             }

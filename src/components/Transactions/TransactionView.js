@@ -3,8 +3,6 @@ import Monsters from "./Monsters";
 import './styles.css';
 import icon1 from '../../monster_icons/1.png';
 import icon2 from '../../monster_icons/2.png';
-import icon3 from '../../monster_icons/3.png';
-import icon4 from '../../monster_icons/4.png';
 
 const TransactionView = ({
   id = "",
@@ -21,20 +19,22 @@ const TransactionView = ({
   const monsters = [
     {
       icon:icon1,
-      id:0
+      id:0,
+      subtext:"Liability"
     },
     {
       icon:icon2,
-      id:1
+      id:1,
+      subtext:"Extras"
     },
-    {
-      icon:icon3,
-      id:2
-    },
-    {
-      icon:icon4,
-      id:3
-    },
+    // {
+    //   icon:icon3,
+    //   id:2
+    // },
+    // {
+    //   icon:icon4,
+    //   id:3
+    // },
 
   ]
 
@@ -116,25 +116,27 @@ const TransactionView = ({
   }
 
   return (
-    <div className="container">
+    <div className="container p-3">
         <div className="row">
-              <div className="col-md-12 col-lg-7 col-lg-push-5" >
-              <div className="card mx-auto mt-5 shadow-lg p-3 mb-5 bg-white rounded" style={{maxWidth:"90%",width:"800px"}}>
-                <div className="card-body">
-                    <h3 className="text-center">Transaction Details {showMonster()}</h3>
-                    <div style={{ width: "70%" }} className="mx-auto mt-5">
-                      {showForm()}
-                    </div>
-                </div>
-              </div>
-              </div>
-              <div className="col-md-12 col-lg-5  col-lg-pull-7 my-auto monster-section " >
-                <h4 className="text-center">Choose a monster</h4>
+              <div className="col-12 my-auto monster-section" >
+                <h4 className="text-center">Select a monster</h4>
+                <div style={{width:"400px",maxWidth:"70vw",margin:"auto"}}>
                 <Monsters
                   monsters={monsters}
                   selectMonster={selectMonster}
                 />
+                </div>
                 <br/>
+              </div>
+              <div className="col-12" >
+              <div className="card mx-auto  shadow-lg p-1 mb-5 bg-white rounded" style={{maxWidth:"90%",width:"800px"}}>
+                <div className="card-body">
+                    <h3 className="text-center"> {showMonster()}</h3>
+                    <div style={{ width: "70%" }} className="mx-auto mt-2">
+                      {showForm()}
+                    </div>
+                </div>
+              </div>
               </div>
         </div>
     </div>

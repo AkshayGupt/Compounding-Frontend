@@ -3,10 +3,9 @@
       display: none;
     }
     .monster-section{
-      width:50%;
+      width:80%;
       margin:auto;
       height:300px;
-      overflow:scroll
     }
   }
 
