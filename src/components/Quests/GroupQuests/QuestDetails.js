@@ -77,11 +77,11 @@ const QuestDetails = () => {
           </h5>
           <div className="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Assets</li>
-              <li class="list-group-item">Contingencies </li>
-              <li class="list-group-item">Awareness</li>
-              <li class="list-group-item">Health</li>
-              <li class="list-group-item">Debt</li>
+              <li class="list-group-item">Assets :60+</li>
+              <li class="list-group-item">Contingencies : 30+ </li>
+              <li class="list-group-item">Awareness : 103+</li>
+              <li class="list-group-item">Health : 70+</li>
+              <li class="list-group-item">Debt : 31+</li>
             </ul>
           </div>
         </div>
@@ -112,7 +112,7 @@ const QuestDetails = () => {
             history.push("/fixed-deposit");
           }}
         >
-          Move To Chat
+          Chat
         </a>
       </div>
     </div>
