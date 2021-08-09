@@ -73,7 +73,7 @@ const FixedDeposit = () => {
             id: 'awayorstay',
             options: [
               { value: 'Continue', label: 'Continue', trigger: '8' },
-              { value: 'Walk Away from Genie', label: 'Walk Away from Genie', trigger: '8' },
+              { value: 'Walk Away from Genie', label: 'Walk Away from Genie', trigger: '10' },
             ],
           },
           {
