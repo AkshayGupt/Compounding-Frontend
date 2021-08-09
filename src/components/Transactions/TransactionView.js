@@ -25,7 +25,7 @@ const TransactionView = ({
     {
       icon:icon2,
       id:1,
-      subtext:"Extras"
+      subtext:"Risk"
     },
     // {
     //   icon:icon3,
