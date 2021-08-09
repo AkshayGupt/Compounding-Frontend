@@ -5,9 +5,9 @@ import Transactions from "./components/Transactions/Transactions";
 import TransactionView from "./components/Transactions/TransactionView";
 import QuestionsBot from "./components/Details/QuestionsBot";
 import QuestDetails from "./components/Quests/GroupQuests/QuestDetails";
+import OffersComponent from "./components/club/Offers";
 import RewardsTabs from "./components/club/rewards";
 import Dashboard from "./components/club/dashboard";
-// import SimpleDialogDemo from "./components/club/dialog";
 import SelectQuest from "./components/Quests/SelectQuest/SelectQuest";
 import FixedDeposit from "./components/Details/FixedDepositBot";
 import Stocks from "./components/Details/StocksBot";
@@ -27,9 +27,8 @@ function App() {
           <Route path="/transaction/:id" exact component={TransactionView} />
           <Route path="/details" exact component={QuestionsBot} />
           <Route path="/detail-quest" exact component={QuestDetails} />
-          <Route path="/rewards" exact component={RewardsTabs} />
+          <Route path="/rewards" exact component={OffersComponent} />
           <Route path="/dashboard" exact component={Dashboard} />
-          {/* <Route path="/dialog-test" exact component={SimpleDialogDemo} /> */}
           <Route path="/select-quest" exact component={SelectQuest} />
           <Route path="/fixed-deposit" exact component={FixedDeposit} />
           <Route path="/stocks" exact component={Stocks} />

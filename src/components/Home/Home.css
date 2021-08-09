@@ -21,7 +21,12 @@
 
 .centre-item {
   margin: auto 10px;
-  width: 50%;
+  width: 33%;
+  text-align: center;
+}
+
+.center-item-img-container {
+  max-height: 95px;
 }
 
 .game-stats {
@@ -53,7 +58,7 @@
 }
 
 .monster-img {
-  width: 25%;
+  width: 60%;
   animation: shake 0.8s;
   animation-iteration-count: infinite;
 }
@@ -96,7 +101,11 @@
 
 .coin-animated-img {
   max-height: 90px;
-  margin: -30px 8px 10px 0;
+  margin: -15px 8px 10px 0;
+}
+
+.learn_earn-img {
+  max-height: 85px;
 }
 
 .game-title {

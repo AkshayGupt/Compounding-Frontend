@@ -5,6 +5,7 @@ import React from "react";
 // import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 // import IconButton from "@material-ui/core/IconButton";
 // import { DialogTitle, Grid } from "@material-ui/core";
+import gold from "../Main/VideoTutorial/gold.svg";
 import "./Offers.css";
 
 // const itemData = [
@@ -41,12 +42,17 @@ import "./Offers.css";
 //   },
 // }));
 
-export default function AdvancedImageList() {
+export default function OffersComponent() {
   return (
     <div className="main-container">
       <div>
-        <span> Freedom Coins </span>
-        <span> 82145 </span>
+        <div className="coinsqtybox pb-2">
+          {/* 
+          TODO: create component to show coins and diamond, so it can be used everywhere
+          <div> Freedom Coins </div> */}
+          <img src={gold} className="coinsimg" alt="coin_img" />
+          <h6 className="coinsqty">20</h6>
+        </div>
       </div>
 
       <h5 className="section-header"> Assured mystery rewards</h5>
