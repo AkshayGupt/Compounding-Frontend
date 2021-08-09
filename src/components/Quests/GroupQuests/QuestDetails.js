@@ -77,14 +77,23 @@ const QuestDetails = () => {
           </h5>
           <div className="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Assets</li>
-              <li class="list-group-item">Contingencies </li>
-              <li class="list-group-item">Awareness</li>
-              <li class="list-group-item">Health</li>
-              <li class="list-group-item">Debt</li>
+              <li class="list-group-item">Assets :60+</li>
+              <li class="list-group-item">Contingencies : 30+ </li>
+              <li class="list-group-item">Awareness : 103+</li>
+              <li class="list-group-item">Health : 70+</li>
+              <li class="list-group-item">Debt : 31+</li>
             </ul>
           </div>
         </div>
+        <a
+          href="#"
+          className="btn btn-primary mt-2"
+          onClick={() => {
+            history.push("/fixed-deposit");
+          }}
+        >
+          Chat
+        </a>
         <div className="card groupQuest__card h-100 Narration">
           <h5
             className="groupQuest__h5"
@@ -105,15 +114,6 @@ const QuestDetails = () => {
             />
           </div>
         </div>
-        <a
-          href="#"
-          className="btn btn-primary mt-2"
-          onClick={() => {
-            history.push("/fixed-deposit");
-          }}
-        >
-          Move To Chat
-        </a>
       </div>
     </div>
   );

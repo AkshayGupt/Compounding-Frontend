@@ -27,11 +27,10 @@ const SelectQuest = () => {
               className="select-quest_h5 card-title selectQuest__card-title"
               style={{ color: "#F5F8FB" }}
             >
-              Mutual Fund
+              The banker and the Genie
             </h5>
             <p className="card-text">
-              A mutual fund is an investment vehicle where many investors pool
-              their money to earn returns on their capital over a period.
+            You are a successful investment banker living in a huge mansion in Mumbai. You drive a different car everyday from your your luxury car collection.
             </p>
             <a
               href="#"
@@ -40,7 +39,7 @@ const SelectQuest = () => {
                 history.push("/detail-quest");
               }}
             >
-              Move To Chat
+              Details
             </a>
           </div>
         </div>
@@ -68,7 +67,7 @@ const SelectQuest = () => {
                 history.push("/detail-quest");
               }}
             >
-              Move To Chat
+              Details
             </a>
           </div>
         </div>
@@ -96,7 +95,7 @@ const SelectQuest = () => {
                 history.push("/detail-quest");
               }}
             >
-              Move To Chat
+              Details
             </a>
           </div>
         </div>
