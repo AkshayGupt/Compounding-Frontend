@@ -12,6 +12,70 @@ const Transactions = ()  => {
             date:"14/07/21"   
         },
         {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
+            id:"asd213133wqdasdasdad",
+            name:"Shopping",
+            payment:"Amazon",
+            cost:"733",
+            description:"This is a payment done in amazon.com ",
+            date:"14/07/21"   
+        },
+        {
             id:"asd213133aasdsawqdasdasdad",
             name:"Study",
             payment:"Amazon",
@@ -45,7 +109,7 @@ const Transactions = ()  => {
     transactions.map((transaction) => {
       let { id, description, cost, date, name } = transaction;
       return (
-        <div className="my-1" md="12  mb-2"  key={id}>
+        <div  key={id}>
           <TransactionCard
             name={name}
             description={description}
@@ -59,12 +123,17 @@ const Transactions = ()  => {
     });
 
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <h2 className="text-center jumbotron">All transactions</h2>
-               {showTransactions}
+            <div style={{height:"100%",overflowY:"scroll",overflowX:"hidden"}}>
+                <div className="row">
+                <div className="transaction_header">
+                    <h4 className="text-center mt-5 text-white">Transaction Receipts</h4>
+                </div>
+                <div className="my-4" style={{paddingBottom:"100px"}}>
+                {showTransactions}
+
+                </div>
+                </div>
             </div>
-        </div>
     )
 }
 

@@ -14,3 +14,10 @@
       display: none;
     }
   }
+
+/* header */
+.transaction_header {
+  background-color: #6e48aa;
+  min-height: 100px;
+  position: relative;
+}

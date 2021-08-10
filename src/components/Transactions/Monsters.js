@@ -8,7 +8,7 @@ const Monsters = ({
         <div className="row shadow">
             {
                 monsters.map((monster)=>{
-                   return <div className="col mt-2  pt-2 bg-white rounded mx-auto text-center" colkey={monster.id} onClick={()=>selectMonster(monster.id)}>
+                   return <div className="col-4  pt-2 bg-white rounded mx-auto text-center" colkey={monster.id} onClick={()=>selectMonster(monster.id)}>
                         <img src={monster.icon} alt="monster 1" width="70%" height="60%" />
                         <p className="text-center pt-1">{monster.subtext}</p>
                     </div>

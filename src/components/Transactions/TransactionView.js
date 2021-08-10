@@ -1,8 +1,10 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import Monsters from "./Monsters";
 import './styles.css';
 import icon1 from '../../monster_icons/1.png';
 import icon2 from '../../monster_icons/2.png';
+import icon3 from '../../monster_icons/3.png';
+// import icon4 from '../../monster_icons/4.png';
 
 const TransactionView = ({
   id = "",
@@ -20,29 +22,44 @@ const TransactionView = ({
     {
       icon:icon1,
       id:0,
-      subtext:"Liability"
+      subtext:"Ignorance"
     },
     {
       icon:icon2,
       id:1,
+      subtext:"Liability"
+    },
+    {
+      icon:icon3,
+      id:2,
       subtext:"Risk"
     },
-    // {
-    //   icon:icon3,
-    //   id:2
-    // },
-    // {
-    //   icon:icon4,
-    //   id:3
-    // },
+  ];
 
-  ]
+  useEffect(() => {
+   setForm({name, cost, date, payment, description})
+  }, [])
 
   const [monster,setMonster] = useState();
-  // const [viewMonsterInMobile,setViewMonsterInMobile] = useState(false);
+  const [form, setForm] = useState({
+    name:"",
+    cost:"",
+    date:"",
+    payment:"",
+    description:""
+  })
+  
 
   const selectMonster = (id) =>{
     setMonster(id);
+  }
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setForm({
+      ...form,
+      [evt.target.name]: value
+    });
   }
 
   const showForm = () =>{
@@ -52,11 +69,12 @@ const TransactionView = ({
         <div class="form-group col-md-12 col-lg-4">
           <label for="exampleFormControlInput1">Name</label>
           <input
-            type="email"
+            type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            value={name}
-            placeholder="name@example.com"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
           />
         </div>
         
@@ -66,7 +84,9 @@ const TransactionView = ({
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            value={cost}
+            name="cost"
+            value={form.cost}
+            onChange={handleChange}
           />
         </div>
         <div class="form-group col-md-12 col-lg-4">
@@ -76,18 +96,19 @@ const TransactionView = ({
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            value={date}
+            value={form.date}
           />
         </div>
       </div>
       <div class="form-group">
           <label for="exampleFormControlInput1">Payment Gateway</label>
           <input
-            disabled
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            value={payment}
+            name="payment"
+            value={form.payment}
+            onChange={handleChange}
           />
         </div>
       <div class="form-group">
@@ -100,8 +121,7 @@ const TransactionView = ({
           {description}
         </textarea>
       </div>
-      <div className="text-center">
-          {/* <p onClick={()=>setViewMonsterInMobile(viewMonsterInMobile=> {return !viewMonsterInMobile})} className="btn btn-mobile btn-sm btn-primary mx-1"> <span class="btn-text">select monster</span> <i class="fab fa-optin-monster"></i></p> */}
+      <div className="text-center" onChange={handleChange}>
           <p className="btn btn-sm btn-success mx-1"> <span class="btn-text">Update</span> <i class="fas fa-pencil-alt"></i></p>
           <p className="btn btn-sm btn-danger mx-1"> <span class="btn-text">Delete</span> <i class="fas fa-trash"></i></p>
       </div>
@@ -118,7 +138,7 @@ const TransactionView = ({
   return (
     <div className="container p-3">
         <div className="row">
-              <div className="col-12 my-auto monster-section" >
+              <div className="col-12 my-auto monster-section mb-5" style={{height:"100%"}} >
                 <h4 className="text-center">Select a monster</h4>
                 <div style={{width:"400px",maxWidth:"70vw",margin:"auto"}}>
                 <Monsters
