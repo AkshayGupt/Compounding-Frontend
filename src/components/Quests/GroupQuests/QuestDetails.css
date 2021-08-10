@@ -50,3 +50,16 @@
   flex: 1 0 20%;
   overflow: hidden;
 }
+
+.questDetail__stat_title {
+  width: 15%;
+  font-size: 10px;
+  font-weight: bold;
+}
+.questDetail__progressbar {
+  width: 85%;
+}
+
+.questDetails_stat-table {
+  text-align: left;
+}

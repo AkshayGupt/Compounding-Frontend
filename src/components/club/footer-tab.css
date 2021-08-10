@@ -5,3 +5,16 @@
   position: fixed;
   width: 100%;
 }
+
+.MuiBottomNavigationAction-root.Mui-selected {
+  color: #6e48aa !important;
+  padding-top: 6px;
+}
+
+.MuiBottomNavigation-root {
+  height: 56px;
+  border: 2px solid #6e48aa;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
