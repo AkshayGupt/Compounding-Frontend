@@ -1,19 +1,18 @@
 @media only screen and (max-width: 600px) {
-    .btn-text {
-      display: none;
-    }
-    .monster-section{
-      width:80%;
-      margin:auto;
-      height:300px;
-    }
+  .btn-text {
+    display: none;
   }
+  .monster-section {
+    width: 80%;
+    margin: auto;
+  }
+}
 
-  @media only screen and (min-width: 900px) {
-    .btn-mobile{
-      display: none;
-    }
+@media only screen and (min-width: 900px) {
+  .btn-mobile {
+    display: none;
   }
+}
 
 /* header */
 .transaction_header {

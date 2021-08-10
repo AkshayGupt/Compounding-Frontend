@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarGraph from "./bar-graph";
+import CarouselComponent from "./carousel";
 
 const Home = () => {
-  const userStats = {
-    health: 100,
+  const [userStats, setUserStats] = useState({
+    health: 83,
     assets: 75,
     contingencies: 47,
     debt: 74,
     awareness: 54,
-  };
+  });
+
+  localStorage.setItem("userStats", JSON.stringify(userStats));
 
   return (
     <div>
@@ -36,7 +39,7 @@ const Home = () => {
             Contingencies 
             <ProgressBar
               now={userStats.contingencies}
-              label={`${userStats.contingencies}`}
+              label={`${userStats.contingencies}%`}
               variant="success"
             />
           </div>
@@ -107,15 +110,13 @@ const Home = () => {
         <div className="content-item">
           <BarGraph />
         </div>
-        <div className="content-item">
-          <img
-            className="bigImages"
-            src="/images/offers/watch_offer.jpeg"
-            alt="test"
-          />
-        </div>
+
         <div className="content-item">Offers and savings</div>
-        <div className="content-item">Investments opportunities</div>
+
+        <div className="content-item">
+          <CarouselComponent />
+          Advisory
+        </div>
       </div>
     </div>
   );
