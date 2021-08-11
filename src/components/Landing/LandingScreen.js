@@ -31,17 +31,17 @@ const LandingScreen = () => {
 
 
     useEffect(() => {
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     if (user) {
-        //         var uid = user.uid;
-        //         console.log(user)
-        //         handleRegister()
-        //         // User is signed in
-        //     } else {
-        //         // User is signed out
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var uid = user.uid;
+                console.log(user)
+                handleRegister()
+                // User is signed in
+            } else {
+                // User is signed out
 
-        //     }
-        // });
+            }
+        });
     }, [])
 
     const images = [
@@ -110,10 +110,8 @@ const LandingScreen = () => {
             <div className="mx-5 my-5" style={{ textAlign: "center", backgroundColor: "#6a0dad" }} >
             <div className="btn btn-lg btn-google btn-block btn-outline" style={{fontSize:"smaller"}} onClick={() => { loginWithGoogle() }}href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Log in with Google</div>        
             </div>
-            
-
         </div>
-    )
-}
+  );
+};
 
 export default LandingScreen;

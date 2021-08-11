@@ -29,18 +29,18 @@ const Youtube = () => {
     return (
 
         <>
-            <div className="coinsqtybox">
-            <img src={gold} className="coinsimg"></img>
+            <div className="coinsqtybox pb-2">
+             <img src={gold} className="coinsimg"/>
              <h6 className="coinsqty">{coins}</h6>    
             </div>
 
 
-            <div className="tutorial">
+            <div className="tutorial ">
 
                 {
                     youtubeChannelList.map((link, i) => {
                         // eslint-disable-next-line
-                        var frame = <div key={i} className="youtube">
+                        var frame = <div key={i} className="youtube mx-auto text-center">
                             <ReactPlayer url={link} onEnded={updateCoins} config={{
                                 youtube: {
                                     playerVars: {
@@ -49,9 +49,9 @@ const Youtube = () => {
                                     }
                                 }
 
-                            }} height={650} width={800} />
+                            }} height={"50vh"} width={"80vw"} />
 
-                            <button className="video-completed-button" > Did you completed the video ?</button>
+                            {/* <button className="video-completed-button" style={{width:"80vw"}} > Did you completed the video ?</button> */}
 
                         </div>
                         return frame;

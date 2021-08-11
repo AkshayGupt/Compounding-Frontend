@@ -1,0 +1,11 @@
+.carousel img {
+  height: 150px !important;
+  border-radius: 15px;
+  width: 95%;
+}
+
+.carousel_images {
+  border-radius: 15px;
+  width: 95%;
+  height: 140px !important;
+}

@@ -1,11 +1,11 @@
 import React from "react";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import AdvancedImageList from "./Offers";
+import OffersComponent from "./Offers";
 import "./rewards.css";
 
 function RewardComponent() {
-  return <AdvancedImageList />;
+  return <OffersComponent />;
 }
 
 function SavingsComponent() {
