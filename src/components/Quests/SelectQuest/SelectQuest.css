@@ -1,6 +1,6 @@
 .selectQuest__main-screen {
   background-color: #f5f8fb;
-  height: 100vh;
+  display: block;
 }
 .select-quest-header {
   background-color: #6e48aa;
@@ -26,16 +26,22 @@
 }
 
 .selectQuest__card {
-  position: static;
-  margin: 10px;
+
   height: fit-content;
-  min-height: auto;
+  min-height: 225px;
   flex-direction: row;
-  width: auto;
+  margin-top: 10px;
+  width: 80%;
+  margin: 10%;
+  border: 1px solid #6e48aa;
+  box-shadow: 0px 0px 10px #6e48aa;
+  border-radius: 15px;
 }
 
 .selectQuest__card img {
   width: 30%;
+  height:150px ;
+  padding-top:5%;
 }
 
 .selectQuest__card-title {
