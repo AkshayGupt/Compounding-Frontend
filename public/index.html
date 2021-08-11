@@ -51,14 +51,10 @@
   <script>
     function updateFromNative(Jsonobject) {
       console.log(Jsonobject);
-      var log = "";
       for (var i = 0; i < Jsonobject.length; i++) {
         Jsonobject[i].id =i;
-
       }
       localStorage.setItem("dataSMS",JSON.stringify(Jsonobject));
-     console.log("log");
-     alert(log);
     }
   </script>
 </head>
