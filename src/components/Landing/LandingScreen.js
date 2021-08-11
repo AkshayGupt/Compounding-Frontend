@@ -1,7 +1,7 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Slides from "./Slides";
 import './styles.css'
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import firebase from '../../Config/FirebaseConfig'
 
 const LandingScreen = () => {
@@ -31,70 +31,70 @@ const LandingScreen = () => {
 
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                var uid = user.uid;
-                console.log(user)
-                handleRegister()
-                // User is signed in
-            } else {
-                // User is signed out
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         var uid = user.uid;
+        //         console.log(user)
+        //         handleRegister()
+        //         // User is signed in
+        //     } else {
+        //         // User is signed out
 
-            }
-        });
+        //     }
+        // });
     }, [])
 
     const images = [
         {
-            src:"https://img.icons8.com/doodle/240/000000/shoyo_hinata.png",
-            color:"#6a0dad",
-            text:`Its time to earn with fun`
+            src: "/images/avatars/Avatar1_cooldude.png",
+            color: "#6a0dad",
+            text: `Its time to earn with fun`
 
         },
         {
-            src:"https://img.icons8.com/doodle/480/000000/super-mario.png",
-            color:"#00ccff",
-            text:"Play games, earn coin"
+            src: "/images/avatars/Avatar2_noob_girl.png",
+            color: "#00ccff",
+            text: "Play games, earn coin"
         },
         {
-            src:"https://img.icons8.com/doodle/480/000000/iron-man.png",
-            color:"#ff6666",
-            text:"Unlock the power of trading by setting goals"
+            src: "/images/avatars/Avatar3_Noob.png",
+            color: "#ff6666",
+            text: "Unlock the power of trading by setting goals"
         }
     ]
-  
+
     const icons = [
         [
-            <i class="fas fa-bolt px-2" style={{color:"yellow"}}></i>,
-            <i class="fas fa-bolt px-2" style={{color:"yellow"}}></i>,  
+            <i class="fas fa-bolt px-2" style={{ color: "yellow" }}></i>,
+            <i class="fas fa-bolt px-2" style={{ color: "yellow" }}></i>,
         ],
         [
-            <i class="fab fa-bitcoin px-1" style={{color:"yellow",fontSize:"30px"}}></i>,
-            <i class="fab fa-bitcoin px-1" style={{color:"orange",fontSize:"30px"}}></i>,
-            <i class="fab fa-bitcoin px-1" style={{color:"green",fontSize:"30px"}}></i>,
+            <i class="fab fa-bitcoin px-1" style={{ color: "yellow", fontSize: "30px" }}></i>,
+            <i class="fab fa-bitcoin px-1" style={{ color: "orange", fontSize: "30px" }}></i>,
+            <i class="fab fa-bitcoin px-1" style={{ color: "green", fontSize: "30px" }}></i>,
         ],
         [
-            <i class="fas fa-chess-king px-1" style={{color:"brown",fontSize:"30px"}}></i>,
-            <i class="fas fa-bullseye px-1"  style={{color:"yellow",fontSize:"30px"}}></i>,
-            <i class="fas fa-dice px-1"  style={{color:"lightpurple",fontSize:"30px"}}></i>
+            <i class="fas fa-chess-king px-1" style={{ color: "brown", fontSize: "30px" }}></i>,
+            <i class="fas fa-bullseye px-1" style={{ color: "yellow", fontSize: "30px" }}></i>,
+            <i class="fas fa-dice px-1" style={{ color: "lightpurple", fontSize: "30px" }}></i>
         ]
-    ]  
+    ]
 
-    const handleRegister = () =>{
+    const handleRegister = () => {
         setRedirect(true);
     }
-    
-    if(redirect){
+
+    if (redirect) {
         return <Redirect to="/avatar" />
     }
 
     return (
-        <div className="pt-5 " style={{minHeight:"100vh",minWidth:"100%",backgroundColor:"#6a0dad",border:"2px solid black"}} >
+        <div className="pt-5 " style={{ minHeight: "100vh", minWidth: "100%", backgroundColor: "#6a0dad",overflow:"hidden" }} >
 
             {/* SLIDES */}
-            <p style={{fontSize:"20px"}} className="text-center" id="heading-top" >Welcome to</p>
-            <p style={{fontSize:"30px",marginTop:"-20px"}} className="text-center" id="heading" >Compounding</p>
-            <div style={{width:"fit-content",margin:"auto"}}>
+            <p style={{ fontSize: "20px" }} className="text-center" id="heading-top" >Welcome to</p>
+            <p style={{ fontSize: "30px", marginTop: "-20px" }} className="text-center" id="heading" >Compounding</p>
+            <div style={{ width: "fit-content", margin: "auto" }}>
                 <Slides
                     img1={images[0]}
                     img2={images[1]}
@@ -102,16 +102,16 @@ const LandingScreen = () => {
                     icon1={icons[0]}
                     icon2={icons[1]}
                     icon3={icons[2]}
+
                 />
             </div>
 
             {/* LOGIN & REGISTER buttons */}
-            <div className="mx-auto mt-5 " style={{textAlign:"center", backgroundColor: "#6a0dad"}} >
-                <div style={{maxWidth: "80%", margin: "auto", backgroundColor: "#6a0dad" }} onClick={() => { loginWithGoogle() }}>
-                    <a href="#" className="google btn" ><i class="fa fa-google fa-fw"style={{backgroundColor: "#dd4b39"}}>
-                    </i> Login with Google+</a>
-                </div>
+            <div className="mx-5 my-5" style={{ textAlign: "center", backgroundColor: "#6a0dad" }} >
+            <div className="btn btn-lg btn-google btn-block btn-outline" style={{fontSize:"smaller"}} onClick={() => { loginWithGoogle() }}href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Log in with Google</div>        
             </div>
+            
+
         </div>
     )
 }

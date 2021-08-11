@@ -25,9 +25,9 @@ const SelectQuest = () => {
           <div className="card-body">
             <h5
               className="select-quest_h5 card-title selectQuest__card-title"
-              style={{ color: "#F5F8FB" }}
+              style={{ color: "#F5F8FB", borderRadius: "10px" }}
             >
-              The banker and the Genie
+              The Banker And The Genie
             </h5>
             <p className="card-text">
             You are a successful investment banker living in a huge mansion in Mumbai. You drive a different car everyday from your your luxury car collection.
@@ -35,6 +35,7 @@ const SelectQuest = () => {
             <a
               href="#"
               className="btn btn-primary"
+              style={{ borderRadius: "10px" }}
               onClick={() => {
                 history.push("/detail-quest");
               }}
@@ -52,7 +53,7 @@ const SelectQuest = () => {
           <div className="card-body">
             <h5
               className="card-title selectQuest__card-title select-quest_h5"
-              style={{ color: "#F5F8FB" }}
+              style={{ color: "#F5F8FB", borderRadius: "10px" }}
             >
               Fixed Deposit
             </h5>
@@ -63,6 +64,7 @@ const SelectQuest = () => {
             <a
               href="#"
               className="btn btn-primary"
+              style={{ borderRadius: "10px" }}
               onClick={() => {
                 history.push("/detail-quest");
               }}
@@ -80,7 +82,7 @@ const SelectQuest = () => {
           <div className="card-body">
             <h5
               className="card-title selectQuest__card-title select-quest_h5"
-              style={{ color: "#F5F8FB" }}
+              style={{ color: "#F5F8FB", borderRadius: "10px" }}
             >
               Stock
             </h5>
@@ -90,7 +92,7 @@ const SelectQuest = () => {
             </p>
             <a
               href="#"
-              className="btn btn-primary"
+              className="btn btn-primary"  style={{ borderRadius: "10px" }}
               onClick={() => {
                 history.push("/detail-quest");
               }}

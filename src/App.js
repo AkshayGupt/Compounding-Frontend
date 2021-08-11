@@ -1,6 +1,6 @@
 import LandingScreen from "./components/Landing/LandingScreen";
 import Home from "./components/Home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 import Transactions from "./components/Transactions/Transactions";
 import TransactionView from "./components/Transactions/TransactionView";
 import QuestionsBot from "./components/Details/QuestionsBot";
@@ -16,31 +16,33 @@ import Youtube from "./components/Main/VideoTutorial/Youtube";
 import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 import FooterTabs from "./components/club/footer-tabs";
 
-function App() {
+function App(props) {
+
+
+
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact component={LandingScreen} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/transactions" exact component={Transactions} />
-          <Route path="/transaction/:id" exact component={TransactionView} />
-          <Route path="/details" exact component={QuestionsBot} />
-          <Route path="/detail-quest" exact component={QuestDetails} />
-          <Route path="/rewards" exact component={RewardsTabs} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          {/* <Route path="/dialog-test" exact component={SimpleDialogDemo} /> */}
-          <Route path="/select-quest" exact component={SelectQuest} />
-          <Route path="/fixed-deposit" exact component={FixedDeposit} />
-          <Route path="/stocks" exact component={Stocks} />
-          <Route path="/mutual-fund" exact component={MutualFund} />
-          <Route path="/youtube" exact component={Youtube} />
-          <Route path="/avatar" exact component={AvatarCreator} />
-        </Switch>
-        <FooterTabs />
-      </Router>
+      <Switch>
+        <Route path="/" exact component={LandingScreen} />
+        <Route path="/home" exact component={Home} />
+        <Route path="/transactions" exact component={Transactions} />
+        <Route path="/transaction/:id" exact component={TransactionView} />
+        <Route path="/details" exact component={QuestionsBot} />
+        <Route path="/detail-quest" exact component={QuestDetails} />
+        <Route path="/rewards" exact component={RewardsTabs} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/select-quest" exact component={SelectQuest} />
+        <Route path="/fixed-deposit" exact component={FixedDeposit} />
+        <Route path="/stocks" exact component={Stocks} />
+        <Route path="/mutual-fund" exact component={MutualFund} />
+        <Route path="/youtube" exact component={Youtube} />
+        <Route path="/avatar" exact component={AvatarCreator} />
+      </Switch>
+      {
+        props.location.pathname !== '/' && props.location.pathname !== '/avatar' ? <FooterTabs /> : null
+      }
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
