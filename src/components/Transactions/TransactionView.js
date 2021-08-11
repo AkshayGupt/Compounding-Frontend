@@ -162,6 +162,7 @@ const TransactionView = ({
           <p className="btn btn-sm btn-success mx-1" onClick={()=>updateTransaction(form.name,form.cost, form.date, form.payment, form.description, form.isMonster, form.monsterId)}> <span class="">Update</span> <i class="fas fa-pencil-alt"></i></p>
           {/* <p className="btn btn-sm btn-danger mx-1"> <span class="btn-text">Delete</span> <i class="fas fa-trash"></i></p> */}
       </div>
+      <input type="hidden" autofocus="true" />
     </form>
     )
   }

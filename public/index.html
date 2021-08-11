@@ -51,10 +51,33 @@
   <script>
     function updateFromNative(Jsonobject) {
       console.log(Jsonobject);
-      for (var i = 0; i < Jsonobject.length; i++) {
-        Jsonobject[i].id =i;
+      let obj = [];
+      let set;
+      let ptr;
+
+      if(localStorage.getItem("dataSMS")){
+        obj = JSON.parse(localStorage.getItem("dataSMS"));
+        set = JSON.parse(localStorage.getItem("setSMS"));
+        ptr = parseInt(localStorage.getItem("ptr"));
       }
-      localStorage.setItem("dataSMS",JSON.stringify(Jsonobject));
+      else{
+        set =[];
+        ptr=0;
+      }
+
+      for (var i = 0; i < Jsonobject.length; i++) {
+        if(!set.find(element => element == Jsonobject[i].refNo)){
+          console.log("new added", Jsonobject[i].refNo);
+          Jsonobject[i].id =ptr;
+          obj.push(Jsonobject[i]);
+          ptr=ptr+1;
+          set.push(Jsonobject[i].refNo);
+          console.log(set);
+        }
+      }
+      localStorage.setItem("dataSMS",JSON.stringify(obj));
+      localStorage.setItem("ptr",JSON.stringify(ptr));
+      localStorage.setItem("setSMS",JSON.stringify(set));
     }
   </script>
 </head>
