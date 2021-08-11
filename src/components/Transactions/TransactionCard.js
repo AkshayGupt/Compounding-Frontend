@@ -54,7 +54,7 @@ const [transaction, setTransaction] = useState(false);
   {
     // openTransaction({id, name, description, cost, date, isMonster, monsterId, payment})
     return <div className="card shadow-lg" style={{width:"95%",margin:"auto"}}>
-      <h6 className="p-3" onClick={()=>handleClose()}>Close <i class="far fa-times-circle"></i></h6>
+      <h6 style={{border:"2px solid black",width:"fit-content"}} className="p-3" onClick={()=>handleClose()}>Close <i class="far fa-times-circle"></i></h6>
       <TransactionView
       id={id}
       name={name}
