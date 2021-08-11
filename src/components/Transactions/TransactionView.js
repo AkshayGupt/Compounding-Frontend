@@ -13,7 +13,9 @@ const TransactionView = ({
   cost = "123",
   date = "07/12/21",
   payment="Amazon",
-  isMonster=false
+  isMonster=false,
+  monsterId=-1,
+  setTransaction
 }) => {
 
   
@@ -37,16 +39,18 @@ const TransactionView = ({
   ];
 
   useEffect(() => {
-   setForm({name, cost, date, payment, description})
+   setForm({name, cost, date, payment, description, isMonster, monsterId})
   }, [])
 
-  const [monster,setMonster] = useState();
+  const [monster,setMonster] = useState(-1);
   const [form, setForm] = useState({
     name:"",
     cost:"",
     date:"",
     payment:"",
-    description:""
+    description:"",
+    isMonster:"",
+    monsterId:""
   })
   
 
@@ -60,6 +64,37 @@ const TransactionView = ({
       ...form,
       [evt.target.name]: value
     });
+  }
+
+  const updateTransaction = (newName, newCost, newDate, newPayment, newDescription, newIsMonster, newMonster) =>{
+    let newtransaction = {id, newName,newCost,newDate,newPayment,newDescription,newIsMonster,newMonster};
+    const allTransactions = JSON.parse(localStorage.getItem("dataSMS"));
+    let newTransactions =[];
+    {
+      allTransactions.map((transaction)=>{
+        if(transaction.id == id){
+          transaction.transactionType =newName;
+          transaction.fullBody =newDescription;
+          transaction.amount = newCost;
+          transaction.date = newDate;
+          transaction.isMonster =newIsMonster;
+          transaction.monsterId =newMonster;
+          transaction.typeCard =newPayment;
+          newTransactions.push(transaction);
+          if(monster > -1){
+            transaction.isMonster =true;
+            transaction.monsterId =monster;
+          }
+          console.log("Found..")
+        }
+        else{
+          newTransactions.push(transaction);
+        }
+      })
+    }
+    localStorage.setItem("dataSMS", JSON.stringify(newTransactions));
+    alert("Updated Successfully")
+    console.log("newTransactions", newTransactions);
   }
 
   const showForm = () =>{
@@ -117,13 +152,15 @@ const TransactionView = ({
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
+          name="description"
+          onChange={handleChange}
         >
           {description}
         </textarea>
       </div>
       <div className="text-center" onChange={handleChange}>
-          <p className="btn btn-sm btn-success mx-1"> <span class="btn-text">Update</span> <i class="fas fa-pencil-alt"></i></p>
-          <p className="btn btn-sm btn-danger mx-1"> <span class="btn-text">Delete</span> <i class="fas fa-trash"></i></p>
+          <p className="btn btn-sm btn-success mx-1" onClick={()=>updateTransaction(form.name,form.cost, form.date, form.payment, form.description, form.isMonster, form.monsterId)}> <span class="">Update</span> <i class="fas fa-pencil-alt"></i></p>
+          {/* <p className="btn btn-sm btn-danger mx-1"> <span class="btn-text">Delete</span> <i class="fas fa-trash"></i></p> */}
       </div>
     </form>
     )
@@ -134,6 +171,14 @@ const TransactionView = ({
       return <img src={monsters[monster].icon} alt="monster" height="50px" width="auto"/>
     }
   }
+  const showMonsterIfPresent = () =>{
+    console.log(monsterId)
+    if(monsterId>= 0 && monster <0){
+     
+      return <img src={monsters[monsterId].icon} alt="monster" height="50px" width="auto"/>
+    }
+  }
+   
 
   return (
     <div className="container p-3">
@@ -151,6 +196,8 @@ const TransactionView = ({
               <div className="col-12" >
               <div className="card mx-auto  shadow-lg p-1 mb-5 bg-white rounded" style={{maxWidth:"90%",width:"800px"}}>
                 <div className="card-body">
+                    {/* <small onClick={()=>setTransaction(false)}> close </small> */}
+                    <h3 className="text-center"> {showMonsterIfPresent()}</h3>
                     <h3 className="text-center"> {showMonster()}</h3>
                     <div style={{ width: "70%" }} className="mx-auto mt-2">
                       {showForm()}

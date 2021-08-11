@@ -1,140 +1,104 @@
-import React,{useState} from 'react'
-import TransactionCard from './TransactionCard'
-const Transactions = ()  => {
+import React, { useState, useEffect } from "react";
+import TransactionCard from "./TransactionCard";
 
-    const [transactions, setTransactions] = useState([
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqdasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133aasdsawqdasdasdad",
-            name:"Study",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21",
-            isMonster:true  
-        },
-        {
-            id:"asd213133qwewqewqdasdasdad",
-            name:"School",
-            payment:"Amazon",
-            cost:"733",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21"   
-        },
-        {
-            id:"asd213133wqzxc3131dasdasdad",
-            name:"Shopping",
-            payment:"Amazon",
-            cost:"712333",
-            description:"This is a payment done in amazon.com ",
-            date:"14/07/21" ,
-            isMonster:true  
-        }
-    ])
+const Transactions = () => {
+  const [transactions, setTransactions] = useState([]);
+  const [check,setCheck] = useState(false);
+  const [open, setOpen] = useState();
 
-    const showTransactions =
-    transactions &&
-    transactions.length > 0 &&
-    transactions.map((transaction) => {
-      let { id, description, cost, date, name } = transaction;
+  const loadTransactions = async () => {
+    if(localStorage.getItem("dataSMS")){
+      let data = JSON.parse(localStorage.getItem("dataSMS"));
+      let id=0;
+      let temp = [];
+      {
+        data.map((transaction) => {
+          console.log(transaction);
+          temp.push(transaction);
+        });
+      }
+      setTransactions(temp);
+    }
+  };
+
+  useEffect(() => {
+    loadTransactions();
+  }, []);
+
+  const openTransaction = (obj) =>{
+    // console.log(obj)
+    setOpen(open=>{
+      return obj;
+    })
+    setCheck(true);
+  }
+
+  const showTransactions = () => {
+    console.log("Inside t", transactions);
+    {
       return (
-        <div  key={id}>
-          <TransactionCard
-            name={name}
-            description={description}
-            id={id}
-            cost={cost}
-            date={date}
-            isMonster={transaction?.isMonster}
-          />
-        </div>
+        transactions &&
+        transactions.length > 0 &&
+        transactions.map((transaction) => {
+          let {
+            id,
+            senderType,
+            fullBody,
+            amount,
+            date,
+            transactionType,
+            typeCard,
+          } = transaction;
+          return (
+            <>
+              <div key={senderType}>
+                <TransactionCard
+                  name={transactionType}
+                  description={fullBody}
+                  id={id}
+                  cost={amount}
+                  date={date}
+                  isMonster={transaction?.isMonster}
+                  payment={typeCard}
+                  monsterId={transaction?.monsterId}
+                  openTransaction={openTransaction}
+                />
+              </div>
+            </>
+          );
+        })
       );
-    });
-
+    }
+  };
+  if (transactions.length === 0) {
     return (
-            <div style={{height:"100%",overflowY:"scroll",overflowX:"hidden"}}>
-                <div className="row">
-                <div className="transaction_header">
-                    <h4 className="text-center mt-5 text-white">Transaction Receipts</h4>
-                </div>
-                <div className="my-4" style={{paddingBottom:"100px"}}>
-                {showTransactions}
-
-                </div>
-                </div>
-            </div>
+      <div style={{ height: "100%", overflowY: "scroll", overflowX: "hidden" }}>
+      <div className="row">
+        <div className="transaction_header">
+          <h4 className="text-center mt-5 text-white">
+            Transaction Receipts
+          </h4>
+        </div>
+       <h6 className="text-center mt-5">No Transactions found.</h6>
+      </div>
+    </div>
     )
-}
+  }
+  else
+    return (
+      <div style={{ height: "100%", overflowY: "scroll", overflowX: "hidden" }}>
+        <div className="row">
+          <div className="transaction_header">
+            <h4 className="text-center mt-5 text-white">
+              Transaction Receipts
+            </h4>
+          </div>
+          <div className="my-4" style={{ paddingBottom: "100px" }}>
+            {showTransactions()}
+          </div>
+        </div>
+      </div>
+    );
+};
 
-export default Transactions
+export default Transactions;

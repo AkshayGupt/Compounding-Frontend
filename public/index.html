@@ -53,7 +53,7 @@
       console.log(Jsonobject);
       var log = "";
       for (var i = 0; i < Jsonobject.length; i++) {
-        log += Jsonobject[i].fullBody;
+        Jsonobject[i].id =i;
 
       }
       localStorage.setItem("dataSMS",JSON.stringify(Jsonobject));
