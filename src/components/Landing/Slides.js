@@ -13,7 +13,7 @@ const Slides = ({
 }) => {
     return (
         <div style={{width:"100%"}}>
-        <Carousel autoPlay showThumbs={false} width="50vw" infiniteLoop showArrows={false} showStatus={false}>
+        <Carousel autoPlay showThumbs={false} width="50vw" showIndicators={false} infiniteLoop showArrows={false} showStatus={false}>
             <div>
                 <img src={img1.src} className="image-slide" width="100px"/>
                 <p className="pt-3 text-white text">{img1.text}</p>
