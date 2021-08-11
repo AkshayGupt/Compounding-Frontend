@@ -15,7 +15,8 @@ const TransactionView = ({
   payment="Amazon",
   isMonster=false,
   monsterId=-1,
-  setTransaction
+  setTransaction,
+  handleClose
 }) => {
 
   
@@ -94,62 +95,58 @@ const TransactionView = ({
     }
     localStorage.setItem("dataSMS", JSON.stringify(newTransactions));
     alert("Updated Successfully")
-    console.log("newTransactions", newTransactions);
+    handleClose();
   }
 
   const showForm = () =>{
     return(
       <form>
       <div className="row">
-        <div class="form-group col-md-12 col-lg-4">
+        <div className="form-group col-md-12 col-lg-4">
           <label for="exampleFormControlInput1">Name</label>
           <input
             type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
+            className="form-control"
             name="name"
             value={form.name}
             onChange={handleChange}
           />
         </div>
         
-        <div class="form-group col-md-12 col-lg-4">
+        <div className="form-group col-md-12 col-lg-4">
           <label for="exampleFormControlInput1">Cost $</label>
           <input
             type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
+            className="form-control"
             name="cost"
             value={form.cost}
             onChange={handleChange}
           />
         </div>
-        <div class="form-group col-md-12 col-lg-4">
+        <div className="form-group col-md-12 col-lg-4">
           <label for="exampleFormControlInput1">Date</label>
           <input
             disabled
             type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
+            className="form-control"
             value={form.date}
           />
         </div>
       </div>
-      <div class="form-group">
+      <div className="form-group">
           <label for="exampleFormControlInput1">Payment Gateway</label>
           <input
             type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
+            className="form-control"
             name="payment"
             value={form.payment}
             onChange={handleChange}
           />
         </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="exampleFormControlTextarea1">Description</label>
         <textarea
-          class="form-control"
+          className="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
           name="description"
@@ -162,7 +159,6 @@ const TransactionView = ({
           <p className="btn btn-sm btn-success mx-1" onClick={()=>updateTransaction(form.name,form.cost, form.date, form.payment, form.description, form.isMonster, form.monsterId)}> <span class="">Update</span> <i class="fas fa-pencil-alt"></i></p>
           {/* <p className="btn btn-sm btn-danger mx-1"> <span class="btn-text">Delete</span> <i class="fas fa-trash"></i></p> */}
       </div>
-      <input type="hidden" autofocus="true" />
     </form>
     )
   }
@@ -195,7 +191,7 @@ const TransactionView = ({
                 <br/>
               </div>
               <div className="col-12" >
-              <div className="card mx-auto  shadow-lg p-1 mb-5 bg-white rounded" style={{maxWidth:"90%",width:"800px"}}>
+              <div className="card mx-auto shadow-sm p-1 mb-5 bg-white rounded" style={{maxWidth:"90%",width:"800px"}}>
                 <div className="card-body">
                     {/* <small onClick={()=>setTransaction(false)}> close </small> */}
                     <h3 className="text-center"> {showMonsterIfPresent()}</h3>
