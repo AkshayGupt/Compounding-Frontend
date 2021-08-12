@@ -4,12 +4,11 @@ import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarGraph from "./bar-graph";
 import CarouselComponent from "./carousel";
-import createPersistedState from 'use-persisted-state';
+import createPersistedState from "use-persisted-state";
 import DistributedTreeMap from "./distributed-tree-map";
 import DisplayScore from "../score/score";
 
-const useSelectedAvatarState = createPersistedState('selectedAvatar');
-
+const useSelectedAvatarState = createPersistedState("selectedAvatar");
 
 const Home = () => {
   const [userStats, setUserStats] = useState({
@@ -20,14 +19,10 @@ const Home = () => {
     awareness: 54,
   });
 
-
   const [avatar, setAvatar] = useSelectedAvatarState();
-  const selectAvatarPath='/images/avatars/'+avatar+".png"
+  const selectAvatarPath = "/images/avatars/" + avatar + ".png";
 
-  
   const username = JSON.parse(localStorage.getItem("name"))?.value || "";
-  const coin = 0;
-
   localStorage.setItem("userStats", JSON.stringify(userStats));
 
   let ignorance = localStorage.getItem("ignorance");
@@ -41,14 +36,13 @@ const Home = () => {
           <img
             className="avatar-img"
             src={selectAvatarPath}
-
             alt="user_avatar"
           />
           <div style={{ paddingTop: 10, fontSize: 15 }}>{username}</div>
           <DisplayScore
             className="home_displayScore_container"
-            coin={coin}
-            diamond={coin}
+            coin={97}
+            diamond={26}
           />
         </div>
         <div className="game-stats">
@@ -95,55 +89,56 @@ const Home = () => {
         </div>
       </div>
       <div className="text-center">
-      <div className="center-container2 content-item">
-        <div
-          className="center-container2 mt-2"
-          style={{ width: "95%", margin: "auto" }}
-        >
-          <div className="centre-item mb-3">
-            <div className="center-item-img-container">
-              <img
-                className="monster"
-                src="/images/amount-monsters/monster_icons/1.png"
-                alt="monster"
-                height="90px"
-              />
-            </div>
+        <div className="center-container2 content-item">
+          <div
+            className="center-container2 mt-2"
+            style={{ width: "95%", margin: "auto" }}
+          >
+            <div className="centre-item mb-3">
+              <div className="center-item-img-container">
+                <img
+                  className="monster"
+                  src="/images/amount-monsters/monster_icons/1.png"
+                  alt="monster"
+                  height="90px"
+                />
+              </div>
 
-            <div className="game-title">Ignorance</div>
-            <h6 className="text-success pt-2">
-              <i class="fas fa-arrow-up"></i> Rs.{ignorance ? ignorance : 0}{" "}
-            </h6>
-          </div>
-          <div className="centre-item expense-tracker mt-3">
-            <div className="center-item-img-container">
-              <img
-                className="monster"
-                src="/images/amount-monsters/monster_icons/2.png"
-                alt="monster"
-                height="60px"
-              />
+              <div className="game-title">Ignorance</div>
+              <h6 className="text-success pt-2">
+                <i class="fas fa-arrow-up"></i> Rs.{ignorance ? ignorance : 0}{" "}
+              </h6>
             </div>
-            <div className="game-title pt-3">Liability</div>
-            <h6 className="text-success pt-2">
-              <i className="fas fa-fire text-danger"></i> Rs.{lia ? lia : 0}
-            </h6>
-          </div>
-          <div className="centre-item">
-            <div className="center-item-img-container">
-              <img
-                className="monster"
-                src="/images/amount-monsters/monster_icons/3.png"
-                alt="monster"
-                height="60px"
-              />
+            <div className="centre-item expense-tracker mt-3">
+              <div className="center-item-img-container">
+                <img
+                  className="monster"
+                  src="/images/amount-monsters/monster_icons/2.png"
+                  alt="monster"
+                  height="60px"
+                />
+              </div>
+              <div className="game-title pt-3">Liability</div>
+              <h6 className="text-success pt-2">
+                <i className="fas fa-fire text-danger"></i> Rs.{lia ? lia : 0}
+              </h6>
             </div>
-            <div className="game-title pt-3">Risk</div>
-            <h6 className="text-success pt-2">
-              <i class="fas fa-chart-line text-info"></i> Rs. {risk ? risk : 0}
-            </h6>
+            <div className="centre-item">
+              <div className="center-item-img-container">
+                <img
+                  className="monster"
+                  src="/images/amount-monsters/monster_icons/3.png"
+                  alt="monster"
+                  height="60px"
+                />
+              </div>
+              <div className="game-title pt-3">Risk</div>
+              <h6 className="text-success pt-2">
+                <i class="fas fa-chart-line text-info"></i> Rs.{" "}
+                {risk ? risk : 0}
+              </h6>
+            </div>
           </div>
-        </div>
         </div>
         {/* <div className="centre-item">
           <div className="center-item-img-container">
@@ -195,7 +190,13 @@ const Home = () => {
           <DistributedTreeMap />
         </div>
 
-        <div className="content-item">Offers and savings</div>
+        <div className="content-item">
+          <img
+            className="bigImages"
+            src="/images/offers/watch_offer.jpeg"
+            alt="test"
+          />
+        </div>
         <div className="content-item">
           <CarouselComponent />
           Advisory

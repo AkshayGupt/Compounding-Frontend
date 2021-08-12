@@ -12,11 +12,10 @@ export default function OffersComponent() {
           </h5>
         </div>
         <div className="reward_displayScore_container">
-          <DisplayScore coin={0} diamond={0} />
+          <DisplayScore coin={97} diamond={26} />
         </div>
       </div>
 
-      <h5 className="section-header"> Assured mystery rewards</h5>
       <div className="box-container">
         <img
           className="bigImages"

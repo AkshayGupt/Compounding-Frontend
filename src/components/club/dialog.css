@@ -1,0 +1,12 @@
+.dialog_container {
+  padding: 15px;
+  width: 275px;
+  margin: auto;
+  text-align: center;
+  display: grid;
+}
+
+.add-balance-button {
+  width: 85px;
+  margin: 7px auto 0 !important;
+}

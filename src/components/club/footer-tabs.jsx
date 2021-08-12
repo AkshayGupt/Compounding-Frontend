@@ -9,14 +9,14 @@ import "./footer-tab.css";
 
 const FooterTabs = () => {
   const history = useHistory();
-  const handleTabChange = (e, index) => {
-    setValue(index);
-    history.push(index);
+  const handleTabChange = (e, path) => {
+    setValue(path);
+    history.push(path);
   };
 
   const [value, setValue] = React.useState("/home");
 
-  return !!true ? (
+  return (
     <BottomNavigation
       value={value}
       onChange={(e, newValue) => handleTabChange(e, newValue)}
@@ -39,7 +39,7 @@ const FooterTabs = () => {
         icon={<QuestionAnswerIcon />}
       />
     </BottomNavigation>
-  ) : null;
+  );
 };
 
 export default FooterTabs;
