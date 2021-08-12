@@ -154,7 +154,7 @@ const AvatarCreator = () => {
         class="btn btn-primary sticky-sm-top"
         style={{ marginBottom: "10px" }}
         onClick={() => {
-          history.push("/home");
+          history.push("/details");
         }}
       >
         select
