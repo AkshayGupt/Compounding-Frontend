@@ -118,7 +118,8 @@ const Dashboard = () => {
             <div className="card3option">
               <div>
                 <i class="fa fa-shield" aria-hidden="true"></i>
-              </div>
+              </div>TODAY
+
               Life
             </div>
             <div className="card3option">

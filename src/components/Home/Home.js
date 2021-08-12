@@ -4,6 +4,10 @@ import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarGraph from "./bar-graph";
 import CarouselComponent from "./carousel";
+import createPersistedState from 'use-persisted-state';
+
+
+const useSelectedAvatarState = createPersistedState('selectedAvatar');
 
 const Home = () => {
   const [userStats, setUserStats] = useState({
@@ -14,6 +18,11 @@ const Home = () => {
     awareness: 54,
   });
 
+
+  const [avatar, setAvatar] = useSelectedAvatarState();
+
+  const selectAvatarPath='/images/avatars/'+avatar+".jpg"
+
   localStorage.setItem("userStats", JSON.stringify(userStats));
 
   return (
@@ -22,7 +31,7 @@ const Home = () => {
         <div className="avatar-pic">
           <img
             className="avatar-img"
-            src="/images/avatars/game-avatar01.jpg"
+            src={selectAvatarPath}
             alt="user_avatar"
           />
         </div>
