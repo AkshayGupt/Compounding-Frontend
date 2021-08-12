@@ -51,7 +51,7 @@ class BarGraph extends React.Component {
           show: false,
         },
         title: {
-          text: "Compare progress with your friends",
+          text: "Leaderboard",
           align: "center",
         },
         xaxis: {
