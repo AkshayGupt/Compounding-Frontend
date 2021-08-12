@@ -56,6 +56,12 @@
   justify-content: space-around;
   border: 10px solid #6e48aa;
 }
+.center-container2 {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-around;
+  /* border: 1  px solid #6e48aa; */
+}
 
 .monster-img {
   width: 60%;

@@ -16,6 +16,10 @@ const Home = () => {
 
   localStorage.setItem("userStats", JSON.stringify(userStats));
 
+  let ignorance =localStorage.getItem("ignorance");
+  let lia =localStorage.getItem("lia");
+  let risk =localStorage.getItem("risk");
+
   return (
     <div>
       <div className="home-header">
@@ -106,10 +110,55 @@ const Home = () => {
           </Link>
         </div>
       </div>
+      {/* --------------------------------------------------------------------------------------- */}
+      
       <div className="main-content">
-        <div className="content-item">
+      <div className="content-item">
           <BarGraph />
         </div>
+        <div className="center-container2 mt-2" style={{width:"95%",margin:"auto"}}>
+        <div className="centre-item mb-3">
+          <div className="center-item-img-container">
+            <img
+              className="monster"
+              src="/images/amount-monsters/monster_icons/1.png"
+              alt="monster"
+              height="90px"
+            />
+          </div>
+
+          <div className="game-title">Ignorance</div>
+          <h6 className="text-success pt-2"><i class="fas fa-arrow-up"></i> Rs.{ignorance?ignorance:0} </h6>
+        </div>
+        <div className="centre-item expense-tracker mt-3">
+          <div className="center-item-img-container">
+          <img
+              className="monster"
+              src="/images/amount-monsters/monster_icons/2.png"
+              alt="monster"
+              height="60px"
+            />
+          </div>
+          <div className="game-title pt-3">Liability</div>
+          <h6 className="text-success pt-2"><i className="fas fa-fire text-danger"></i> Rs.{lia?lia:0}</h6>
+            {/* <Link className="game-title pt-3" to="/transactions">
+              Liability
+            </Link> */}
+        </div>
+        <div className="centre-item">
+          <div className="center-item-img-container">
+          <img
+              className="monster"
+              src="/images/amount-monsters/monster_icons/3.png"
+              alt="monster"
+              height="60px"
+            />
+          </div>
+          <div className="game-title pt-3">Risk</div>
+          <h6 className="text-success pt-2"><i class="fas fa-chart-line text-info"></i> Rs. {risk?risk:0}</h6>
+        </div>
+      </div>
+     
 
         <div className="content-item">Offers and savings</div>
 
