@@ -1,6 +1,11 @@
 import LandingScreen from "./components/Landing/LandingScreen";
 import Home from "./components/Home/Home";
-import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 import Transactions from "./components/Transactions/Transactions";
 import TransactionView from "./components/Transactions/TransactionView";
 import QuestionsBot from "./components/Details/QuestionsBot";
@@ -17,9 +22,6 @@ import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 import FooterTabs from "./components/club/footer-tabs";
 
 function App(props) {
-
-
-
   return (
     <div className="App">
       <Switch>
@@ -29,7 +31,7 @@ function App(props) {
         <Route path="/transaction/:id" exact component={TransactionView} />
         <Route path="/details" exact component={QuestionsBot} />
         <Route path="/detail-quest" exact component={QuestDetails} />
-        <Route path="/rewards" exact component={RewardsTabs} />
+        <Route path="/rewards" exact component={OffersComponent} />
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/select-quest" exact component={SelectQuest} />
         <Route path="/fixed-deposit" exact component={FixedDeposit} />
@@ -38,9 +40,10 @@ function App(props) {
         <Route path="/youtube" exact component={Youtube} />
         <Route path="/avatar" exact component={AvatarCreator} />
       </Switch>
-      {
-        props.location.pathname !== '/' && props.location.pathname !== '/avatar' ? <FooterTabs /> : null
-      }
+      {props.location.pathname !== "/" &&
+      props.location.pathname !== "/avatar" ? (
+        <FooterTabs />
+      ) : null}
     </div>
   );
 }
