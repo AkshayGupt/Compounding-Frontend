@@ -13,9 +13,9 @@ const colors = [
 ];
 
 const clients = [
-  "Dheeraj",
+  "You",
   "Akshay",
-  "David",
+  "Dheeraj",
   "Varun",
   "Shivam",
   "Gourav",
@@ -49,6 +49,10 @@ class BarGraph extends React.Component {
         },
         legend: {
           show: false,
+        },
+        title: {
+          text: "Compare progress with your friends",
+          align: "center",
         },
         xaxis: {
           categories: clients,
