@@ -2,47 +2,40 @@ import React, { useState, useEffect } from 'react';
 import Slides from "./Slides";
 import './styles.css'
 import { Redirect } from 'react-router-dom';
+import { GoogleLogin } from "react-google-login";
 import firebase from '../../Config/FirebaseConfig'
 
 const LandingScreen = () => {
 
     const [redirect, setRedirect] = useState(false);
 
-
-
-
-    const loginWithGoogle = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth()
-            .signInWithPopup(provider)
-            .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
-                var credential = result.credential;
-
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                // ...
-            }).catch((error) => {
-                console.log(error)
-            });
-    }
-
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                var uid = user.uid;
-                console.log(user)
-                handleRegister()
-                // User is signed in
-            } else {
-                // User is signed out
-
-            }
-        });
-    }, [])
+      
+      useEffect(() => {
+        if(localStorage.getItem("data")!= null && JSON.parse(localStorage.getItem("data")).user != null ){
+          setSuccess(true);
+        }
+      }, [])
+    
+      const [success,setSuccess] =useState(false);
+    
+      const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+        const data = {
+          user: result,
+          token: token,
+        };
+        try {
+          localStorage.setItem("data", JSON.stringify(data));
+          setSuccess(true);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    
+      const googleFailure = () => {
+        console.log("Google Failure...");
+      };
 
     const images = [
         {
@@ -88,6 +81,10 @@ const LandingScreen = () => {
         return <Redirect to="/avatar" />
     }
 
+    if(success){
+        return <Redirect to="/avatar" />
+    }
+
     return (
         <div className="pt-5 " style={{ minHeight: "100vh", minWidth: "100%", backgroundColor: "#6a0dad",overflow:"hidden" }} >
 
@@ -107,9 +104,29 @@ const LandingScreen = () => {
             </div>
 
             {/* LOGIN & REGISTER buttons */}
-            <div className="mx-5 my-5" style={{ textAlign: "center", backgroundColor: "#6a0dad" }} >
+            {/* <div className="mx-5 my-5" style={{ textAlign: "center", backgroundColor: "#6a0dad" }} >
             <div className="btn btn-lg btn-google btn-block btn-outline" style={{fontSize:"smaller"}} onClick={() => { loginWithGoogle() }}href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Log in with Google</div>        
-            </div>
+            </div> */}
+            <div className="text-center">
+     
+            <GoogleLogin
+            clientId="457983326950-qa8tau8a2dsjdga1uh1hrv6fofqpfrtg.apps.googleusercontent.com"
+            render={(renderProps) => (
+              <button
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                className="btn btn-primary btn my-2 mx-auto text-center"
+              >
+                <i className="fab fa-google" aria-hidden="true"></i>
+                {"  "}Login with Google
+              </button>
+            )}
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy={"single_host_origin"}
+          />
+                     
+        </div>
         </div>
   );
 };

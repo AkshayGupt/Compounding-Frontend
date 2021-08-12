@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'
 import ChatBot from 'react-simple-chatbot';
+import FooterTabs from "../club/footer-tabs";
 import { ThemeProvider } from 'styled-components';
 
 class Review extends Component {
@@ -34,7 +35,11 @@ class Review extends Component {
     return (
       <div style={{ width: '100%' }}>
         <h3>Summary</h3>
-       
+        <p>name: {name}</p>
+        <p>gender: {gender}</p>
+        <p>age: {age}</p>
+        <p>city: {city}</p>
+        <p>Salaried: {salaried}</p>
       </div>
     );
   }
@@ -87,10 +92,10 @@ const QuestionBot = () => {
   }
 
     return (
-      // <ThemeProvider theme={theme}>
+      <div style={{background:"#6e48aa"}}>
                 <ChatBot
+                style={{borderRadius:"0px"}}
                   headerTitle="Welcome to compounding"
-                  // speechSynthesis={{ enable: true, lang: 'en' }}
                   handleEnd={handleEnd}
                   width={"100vw"}
                   height={"100vh"}
@@ -167,14 +172,16 @@ const QuestionBot = () => {
                     },
                     {
                       id: '7',
-                      message: 'Great! Check out your summary',
-                      trigger: 'review',
+                      message: 'Thank for spending time with me!',
+                      trigger: 'redirecting',
                     },
                     {
                       id: 'review',
-                      component: <Review />,
+                      component: (
+                        <Review/>
+                      ),
                       asMessage: true,
-                      trigger: 'update',
+                      trigger:'update',
                     },
                     {
                       id: 'update',
@@ -228,7 +235,8 @@ const QuestionBot = () => {
                     }
                   ]}
                 />
-      // </ThemeProvider>
+
+                </div>
     );
   }
 

@@ -9,14 +9,21 @@
 .avatar-img {
   border-radius: 15px;
   border: 2px solid;
-  width: 100%;
+  width: 90px;
+  height: 90px;
+  border-radius: 20%;
+}
+
+.home_displayScore_container {
+  margin: auto;
 }
 
 .avatar-pic {
   display: block;
   padding: 10px;
-  width: 50%;
-  align-self: center;
+  width: 25%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .centre-item {
@@ -31,7 +38,7 @@
 
 .game-stats {
   padding: 10px;
-  width: 50%;
+  width: 70%;
   margin: auto 10px;
   font-size: 12px;
 }
@@ -55,6 +62,12 @@
   display: flex;
   justify-content: space-around;
   border: 10px solid #6e48aa;
+}
+.center-container2 {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-around;
+  /* border: 1  px solid #6e48aa; */
 }
 
 .monster-img {

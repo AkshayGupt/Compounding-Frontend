@@ -1,0 +1,11 @@
+.scoreImg {
+  width: 50px;
+}
+
+.scoreContainer {
+  display: inline-flex;
+  font-weight: bold;
+  font-size: 35px;
+  transform: scale(0.6);
+  margin-left: -20px;
+}

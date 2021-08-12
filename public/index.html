@@ -49,20 +49,36 @@
     rel="stylesheet">
   <title>React App</title>
   <script>
+    // if(!localStorage.getItem("loyality")){
+    //   localStorage.setItem("loyality ",JSON.stringify(0));
+    // }
+    // if(!localStorage.getItem("risk")){
+    //   localStorage.setItem("risk ",JSON.stringify(0));
+    // }
+    // if(!localStorage.getItem("ignorance")){
+    //   localStorage.setItem("ignorance ",JSON.stringify(0));
+    // }
     function updateFromNative(Jsonobject) {
       console.log(Jsonobject);
       let obj = [];
       let set;
       let ptr;
+      let lia;
+      let risk;
+      let ignorance;
 
       if(localStorage.getItem("dataSMS")){
         obj = JSON.parse(localStorage.getItem("dataSMS"));
         set = JSON.parse(localStorage.getItem("setSMS"));
         ptr = parseInt(localStorage.getItem("ptr"));
+        lia  = parseFloat(localStorage.getItem("lia"));
+        risk = parseFloat(localStorage.getItem("risk"));
+        ignorance = parseFloat(localStorage.getItem("ignorance"));
       }
       else{
         set =[];
         ptr=0;
+        lia=risk=ignorance=0;
       }
 
       for (var i = 0; i < Jsonobject.length; i++) {
@@ -75,9 +91,14 @@
           console.log(set);
         }
       }
+      // liability
       localStorage.setItem("dataSMS",JSON.stringify(obj));
       localStorage.setItem("ptr",JSON.stringify(ptr));
       localStorage.setItem("setSMS",JSON.stringify(set));
+      
+      localStorage.setItem("lia ",(lia));
+      localStorage.setItem("risk",(risk));
+      localStorage.setItem("ignorance",(ignorance));
     }
   </script>
 </head>

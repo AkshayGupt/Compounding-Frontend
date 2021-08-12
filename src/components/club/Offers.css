@@ -7,21 +7,23 @@
 .smallImages {
   width: 45%;
   margin: 2%;
-  border-radius: 5px;
-  box-shadow: 0px 0px 7px #f5f8fb;
+  border-radius: 10px;
+  border: 2px solid #6e48aa;
+  box-shadow: 0px 0px 10px #6e48aa;
 }
 
 .bigImages {
   width: 95%;
   display: block;
   margin: 10px auto;
-  border-radius: 5px;
-  box-shadow: 0px 0px 7px #f5f8fb;
+  border-radius: 10px;
+  border: 2px solid #6e48aa;
+  box-shadow: 0px 0px 10px #6e48aa;
 }
 
 .box-container {
-  background-color: #6e48aa;
-  box-shadow: 0px 0px 10px #f5f8fb;
+  /* background-color: #6e48aa; */
+  box-shadow: 0px 0px 10px #6e48aa;
   border-radius: 10px;
   padding: 5px;
   margin: auto;
@@ -33,4 +35,17 @@
   margin-top: 15px;
   color: black;
   font-weight: bold;
+}
+
+.rewards_header {
+  height: 75px;
+  padding: 20px;
+  background-color: #6e48aa;
+  color: white;
+  text-align: center;
+  margin: -20px -20px 0;
+}
+
+.reward_displayScore_container {
+  margin-left: 72%;
 }
