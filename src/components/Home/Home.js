@@ -84,7 +84,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="center-container">
+      <div className="text-center">
+      <div className="center-container2 content-item">
         <div
           className="center-container2 mt-2"
           style={{ width: "95%", margin: "auto" }}
@@ -117,9 +118,6 @@ const Home = () => {
             <h6 className="text-success pt-2">
               <i className="fas fa-fire text-danger"></i> Rs.{lia ? lia : 0}
             </h6>
-            {/* <Link className="game-title pt-3" to="/transactions">
-              Liability
-            </Link> */}
           </div>
           <div className="centre-item">
             <div className="center-item-img-container">
@@ -136,7 +134,7 @@ const Home = () => {
             </h6>
           </div>
         </div>
-
+        </div>
         {/* <div className="centre-item">
           <div className="center-item-img-container">
             <img
@@ -175,8 +173,8 @@ const Home = () => {
       </div>
 
       <div className="main-content">
-        <Link className="game-title" to="/transactions">
-          Expense Tracker
+        <Link className="game-title btn btn-info" to="/transactions">
+          Track my expenses <i className="fas fa-coins"></i>
         </Link>
 
         <div className="content-item">
