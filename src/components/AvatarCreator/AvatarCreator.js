@@ -1,46 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, prevState } from "react";
 import "./Avatar.css";
-import avatar1 from "./avatar1.png";
-import avatar2 from "./avatar2.png";
-import avatar3 from "./avatar3.png";
+import createPersistedState from 'use-persisted-state';
 import { useHistory } from "react-router-dom";
 
 
+const useSelectedAvatarState = createPersistedState('selectedAvatar');
+
+
+
+
 const AvatarCreator = () => {
+
   console.log("hello");
+
   const history = useHistory();
 
 
-  const avatars = [
-    {
-      avatarIcon: avatar1,
-    },
-    {
-      avatarIcon: avatar2,
-    },
-    {
-      avatarIcon: avatar3,
-    },
-    {
-      avatarIcon: avatar1,
-    },
-    {
-      avatarIcon: avatar2,
-    },
-    {
-      avatarIcon: avatar3,
-    },
-    {
-      avatarIcon: avatar1,
-    },
-    {
-      avatarIcon: avatar2,
-    },
-    {
-      avatarIcon: avatar3,
-    },
-  ];
+  const [Avatar1_cooldude, setAvatar1_cooldude] = useState('#f5f8fb')
 
+  const [Avatar2_noob_girl, setAvatar2_noob_girl] = useState('#f5f8fb')
+
+  const [Avatar4_savvy_business_lday, setAvatar4_savvy_business_lday] = useState('#f5f8fb')
+
+  const [Avatar3_Noob, setAvatar3_Noob] = useState('#f5f8fb')
+
+  const [avatar, setAvatar] = useSelectedAvatarState('');
+
+  const selectAvatar = (name) => {
+
+    if (name === 'Avatar1_cooldude') {
+      setAvatar1_cooldude('#6e48aa')
+      setAvatar2_noob_girl('#f5f8fb')
+      setAvatar3_Noob('#f5f8fb')
+      setAvatar4_savvy_business_lday('#f5f8fb')
+      setAvatar(name)
+    }
+
+    else if (name === 'Avatar2_noob_girl') {
+      setAvatar2_noob_girl('#6e48aa')
+      setAvatar1_cooldude('#f5f8fb')
+      setAvatar3_Noob('#f5f8fb')
+      setAvatar4_savvy_business_lday('#f5f8fb')
+      setAvatar(name)
+    }
+
+    else if (name === 'Avatar3_Noob') {
+      setAvatar3_Noob('#6e48aa')
+      setAvatar1_cooldude('#f5f8fb')
+      setAvatar2_noob_girl('#f5f8fb')
+      setAvatar4_savvy_business_lday('#f5f8fb')
+      setAvatar(name)
+    }
+
+    else {
+      setAvatar4_savvy_business_lday('#6e48aa')
+      setAvatar2_noob_girl('#f5f8fb')
+      setAvatar3_Noob('#f5f8fb')
+      setAvatar1_cooldude('#f5f8fb')
+      setAvatar(name)
+    }
+
+    console.log(avatar)
+  }
 
   return (
     <div className="avatarCreator__main-screen" >
@@ -48,13 +69,15 @@ const AvatarCreator = () => {
         <h5
           className="select-quest_h5"
           style={{ fontSize: "25px", fontFamily: "fantasy" }}
-         >
-         Select Avatar
+        >
+          Select Avatar
         </h5>
       </div>
       <div className="avatar-image-screen">
         <div className="avatar-image-row">
-          <div className="card avatarCard_card">
+          <div className="card avatarCard_card" style={{ backgroundColor: Avatar1_cooldude }} onClick={() => {
+            selectAvatar("Avatar1_cooldude")
+          }}>
 
             <img
               src="images/avatars/Avatar1_cooldude.png"
@@ -69,13 +92,15 @@ const AvatarCreator = () => {
               >
                 Description
             </h5>
-              <p style={{ fontSize: "0.7em", margin: "0", padding: '0' }}>
-                starting of game.
+              <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
+                Mohit, CEO of his second startup, became financially independent at 26.
             </p>
             </div>
 
           </div>
-          <div className="card avatarCard_card">
+          <div className="card avatarCard_card" style={{ backgroundColor: Avatar2_noob_girl }} onClick={() => {
+            selectAvatar("Avatar2_noob_girl")
+          }}>
             <img
               src="images/avatars/Avatar2_noob_girl.png"
               style={{ width: "60px", height: "80px" }}
@@ -89,8 +114,8 @@ const AvatarCreator = () => {
               >
                 Description
             </h5>
-              <p style={{ fontSize: "0.7em", margin: "0", padding: '0' }}>
-                starting of game.
+              <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
+                Keerthi, college student, fights regularly with parents for pocket money.
             </p>
             </div>
 
@@ -100,7 +125,9 @@ const AvatarCreator = () => {
         </div>
 
         <div className="avatar-image-row">
-          <div className="card avatarCard_card">
+          <div className="card avatarCard_card" style={{ backgroundColor: Avatar4_savvy_business_lday }} onClick={() => {
+            selectAvatar("Avatar4_savvy_business_lday")
+          }}>
 
             <img
               src="images/avatars/Avatar4_savvy_business_lday.png"
@@ -115,13 +142,15 @@ const AvatarCreator = () => {
               >
                 Description
 </h5>
-              <p style={{ fontSize: "0.7em", margin: "0", padding: '0' }}>
-                starting of game.
+              <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
+                Philip, two years work exp, doesn’t know a thing about mutual funds.
 </p>
             </div>
 
           </div>
-          <div className="card avatarCard_card">
+          <div className="card avatarCard_card" style={{ backgroundColor: Avatar3_Noob }} onClick={() => {
+            selectAvatar("Avatar3_Noob")
+          }}>
             <img
               src="images/avatars/Avatar3_Noob.png"
               style={{ width: "60px", height: "80px" }}
@@ -135,8 +164,8 @@ const AvatarCreator = () => {
               >
                 Description
              </h1>
-              <p style={{ fontSize: "0.7em", margin: "0", padding: '0' }}>
-                starting of game.
+              <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
+                Samantha, financially independent, spends all her time in libraries.
            </p>
             </div>
 
