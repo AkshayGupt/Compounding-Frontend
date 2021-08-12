@@ -4,8 +4,12 @@ import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarGraph from "./bar-graph";
 import CarouselComponent from "./carousel";
+import createPersistedState from 'use-persisted-state';
 import DistributedTreeMap from "./distributed-tree-map";
 import DisplayScore from "../score/score";
+
+const useSelectedAvatarState = createPersistedState('selectedAvatar');
+
 
 const Home = () => {
   const [userStats, setUserStats] = useState({
@@ -16,6 +20,11 @@ const Home = () => {
     awareness: 54,
   });
 
+
+  const [avatar, setAvatar] = useSelectedAvatarState();
+  const selectAvatarPath='/images/avatars/'+avatar+".png"
+
+  
   const username = JSON.parse(localStorage.getItem("name"))?.value || "";
   const coin = 0;
 
@@ -31,7 +40,8 @@ const Home = () => {
         <div className="avatar-pic">
           <img
             className="avatar-img"
-            src="/images/Avatar3_Noob.png"
+            src={selectAvatarPath}
+
             alt="user_avatar"
           />
           <div style={{ paddingTop: 10, fontSize: 15 }}>{username}</div>
