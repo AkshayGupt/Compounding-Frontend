@@ -49,7 +49,7 @@ export default class DistributedTreeMap extends React.Component {
           type: "treemap",
         },
         title: {
-          text: "Suggested Asset Allocation",
+          text: "Suggested Asset Allocation (in %)",
           align: "center",
         },
         colors: [
