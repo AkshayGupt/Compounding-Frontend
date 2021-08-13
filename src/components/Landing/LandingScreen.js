@@ -34,7 +34,7 @@ const LandingScreen = () => {
       };
     
       const googleFailure = () => {
-        console.log("Google Failure...");
+      alert("Google Failure...");
       };
 
     const images = [
@@ -107,6 +107,8 @@ const LandingScreen = () => {
      
             <GoogleLogin
             clientId="457983326950-qa8tau8a2dsjdga1uh1hrv6fofqpfrtg.apps.googleusercontent.com"
+            uxMode="redirect"
+            redirectUri="https://compounding.netlify.app/avatar"
             render={(renderProps) => (
               <button
                 onClick={renderProps.onClick}
