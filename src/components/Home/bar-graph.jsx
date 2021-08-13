@@ -65,7 +65,7 @@ class BarGraph extends React.Component {
         },
         yaxis: {
           title: {
-            text: "Legend of thousands",
+            text: "Weekly coins earned",
           },
         },
       },
