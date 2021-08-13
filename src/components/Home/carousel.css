@@ -1,11 +1,35 @@
-.carousel img {
-  height: 150px !important;
-  border-radius: 15px;
-  width: 95%;
-}
-
 .carousel_images {
   border-radius: 15px;
   width: 95%;
   height: 140px !important;
+}
+
+.carousel_container {
+  color: black;
+  height: 200px;
+  display: flex;
+  text-align: left;
+  padding: 15px;
+}
+
+.carousel_container p {
+  color: grey;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.advisory-one {
+  background-color: #f9f1d2;
+}
+
+.advisory-two {
+  background-color: #c8d3fd;
+}
+
+.advisory-three {
+  background-color: #fab8a3;
+}
+
+.advisory-four {
+  background-color: #b2d5d0;
 }
