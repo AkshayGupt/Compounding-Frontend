@@ -178,8 +178,12 @@ const Home = () => {
       </div>
 
       <div className="main-content">
-        <Link className="game-title btn btn-info" to="/transactions">
+        <Link className="game-title btn btn-info btn-block" to="/transactions" style={{width:"80%"}}>
           Track my expenses <i className="fas fa-coins"></i>
+        </Link>
+        <br/>
+        <Link className="game-title btn btn-info btn-block" to="/youtube"  style={{width:"80%"}}>
+         Learn and Earn <i class="fas fa-graduation-cap"></i>
         </Link>
 
         <div className="content-item">
