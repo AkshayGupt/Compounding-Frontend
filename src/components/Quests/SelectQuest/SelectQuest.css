@@ -42,7 +42,8 @@
 .selectQuest__card img {
   width: 30%;
   height:150px ;
-  padding-top:5%;
+  padding-top:10%;
+  padding-left: 5%;
 }
 
 .selectQuest__card-title {

@@ -23,6 +23,17 @@ const FixedDeposit = () => {
     return <Redirect to="/dashboard" />;
   }
 
+  const Redirecting = () =>{
+    return(
+      <>
+                  <p> Redirecting to home page  </p>
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </>
+    )
+  }
+
   return (
     // <ThemeProvider theme={theme}>
     <ChatBot
@@ -241,8 +252,18 @@ const FixedDeposit = () => {
         {
           id: "29",
           message: "10000 coins added to your wallet” ",
-          end: true,
+          trigger: "end-message",
         },
+        {
+          id: 'end-message',
+          message: 'Thank You For Playing Quest!',
+          trigger: 'redirecting'
+        },
+        {
+          id: 'redirecting',
+          component: <Redirecting />,
+          end: true,
+        }
       ]}
     />
     // </ThemeProvider>

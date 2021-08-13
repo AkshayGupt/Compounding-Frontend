@@ -18,7 +18,7 @@ const SelectQuest = () => {
       <div className="select-quest-body">
         <div className="card selectQuest__card">
           <img
-            src="images/questimages/mutualfund.png"
+            src="images/questimages/geniequest.jpg"
             className="card-img-top"
             alt="..."
           />
@@ -46,7 +46,7 @@ const SelectQuest = () => {
         </div>
         <div className="card selectQuest__card">
           <img
-            src="images/questimages/fixeddeposit.png"
+            src="images/questimages/sherlock.png"
             className="card-img-top"
             alt="..."
           />
@@ -55,28 +55,24 @@ const SelectQuest = () => {
               className="card-title selectQuest__card-title select-quest_h5"
               style={{ color: "#F5F8FB", borderRadius: "10px" }}
             >
-              Fixed Deposit
+              Sherlock And Unicorns
             </h5>
             <p className="card-text">
-              Fixed deposit allows you to invest your funds for a fixed term and
-              earn returns at a fixed interest rate.
-            </p>
+            There have been many startups which mysteriously turned into unicorns in the last one month. While everyone is busy celebrating the occasion, Sherlock believes something fishy is going on.</p>
             <a
               href="#"
               className="btn btn-primary"
               style={{ borderRadius: "10px" ,backgroundColor:"#6e48aa"}}
-              onClick={() => {
-                history.push("/detail-quest");
-              }}
             >
-              Explore Quest
+              In Progress
             </a>
           </div>
         </div>
         <div className="card selectQuest__card">
           <img
-            src="images/questimages/invest.png"
+            src="images/questimages/ipo.jpg"
             className="card-img-top"
+            
             alt="..."
           />
           <div className="card-body">
@@ -84,20 +80,16 @@ const SelectQuest = () => {
               className="card-title selectQuest__card-title select-quest_h5"
               style={{ color: "#F5F8FB", borderRadius: "10px" }}
             >
-              Stock
+              The Cursed IPO
             </h5>
             <p className="card-text">
-              Investing in stocks just means buying tiny shares of ownership in
-              a public company.
+            A mysterious startup that was developing a reverse-ageing serum for the last ten years, finally launchesld it to a raving success. The shareholders want the IPO to happen as soon as possible. But there is something shocking that is filed in the red herring prospectus.
             </p>
             <a
               href="#"
               className="btn btn-primary"  style={{ borderRadius: "10px",backgroundColor:"#6e48aa" }}
-              onClick={() => {
-                history.push("/detail-quest");
-              }}
             >
-              Explore Quest
+             In Progress
             </a>
           </div>
         </div>
