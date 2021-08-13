@@ -8,7 +8,12 @@
 .text{
     font-family: 'Roboto Mono', monospace;
 }
-
+#heading{
+/* font-family: 'Gowun Dodum', sans-serif; */
+font-family: 'STIX Two Text', serif;
+color:wheat
+/* font-family: 'Gowun Dodum', sans-serif; */
+}
 #heading-top{
     font-family: 'Lora', serif;
     font-family: 'Palette Mosaic', cursive;

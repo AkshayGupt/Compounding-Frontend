@@ -89,8 +89,7 @@ const LandingScreen = () => {
         <div className="pt-5 " style={{ minHeight: "100vh", minWidth: "100%", backgroundColor: "#6a0dad",overflow:"hidden" }} >
 
             {/* SLIDES */}
-            <p style={{ fontSize: "20px" }} className="text-center" id="heading-top" >Welcome to</p>
-            <p style={{ fontSize: "30px", marginTop: "-20px" }} className="text-center" id="heading" >Compounding</p>
+            <p style={{ fontSize: "30px", marginTop: "8vh" }} className="text-center" id="heading" >Compounding</p>
             <div style={{ width: "fit-content", margin: "auto" }}>
                 <Slides
                     img1={images[0]}
@@ -104,9 +103,6 @@ const LandingScreen = () => {
             </div>
 
             {/* LOGIN & REGISTER buttons */}
-            {/* <div className="mx-5 my-5" style={{ textAlign: "center", backgroundColor: "#6a0dad" }} >
-            <div className="btn btn-lg btn-google btn-block btn-outline" style={{fontSize:"smaller"}} onClick={() => { loginWithGoogle() }}href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Log in with Google</div>        
-            </div> */}
             <div className="text-center">
      
             <GoogleLogin
