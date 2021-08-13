@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./Home.css";
 import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarGraph from "./bar-graph";
@@ -7,6 +6,7 @@ import CarouselComponent from "./carousel";
 import createPersistedState from "use-persisted-state";
 import DistributedTreeMap from "./distributed-tree-map";
 import DisplayScore from "../score/score";
+import "./Home.css";
 
 const useSelectedAvatarState = createPersistedState("selectedAvatar");
 
@@ -140,41 +140,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* <div className="centre-item">
-          <div className="center-item-img-container">
-            <img
-              className="monster-img"
-              src="/images/monsters/monster-4.png"
-              alt="monster"
-            />
-          </div>
-
-          <div className="game-title">Kill monster</div>
-        </div>
-        <div className="centre-item expense-tracker">
-          <div className="center-item-img-container">
-            <img
-              className="coin-animated-img"
-              src="/images/expense-tracker.gif"
-              alt="expense-tracker"
-            />
-          </div>
-          <Link className="game-title" to="/transactions">
-            Expense Tracker
-          </Link>
-        </div>
-        <div className="centre-item">
-          <div className="center-item-img-container">
-            <img
-              className="learn_earn-img"
-              src="/images/learn_earn.png"
-              alt="learn_earn"
-            />
-          </div>
-          <Link className="game-title" to="/youtube">
-            Learn and Earn
-          </Link>
-        </div> */}
       </div>
 
       <div className="main-content">
@@ -203,7 +168,6 @@ const Home = () => {
         </div>
         <div className="content-item">
           <CarouselComponent />
-          Advisory
         </div>
       </div>
     </div>

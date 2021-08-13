@@ -29,7 +29,7 @@ class BarGraph extends React.Component {
     this.state = {
       series: [
         {
-          data: [29, 56, 20, 54, 64, 54, 39],
+          data: [40, 56, 20, 54, 64, 54, 39],
         },
       ],
       options: {
@@ -61,6 +61,11 @@ class BarGraph extends React.Component {
               colors: colors,
               fontSize: "12px",
             },
+          },
+        },
+        yaxis: {
+          title: {
+            text: "Legend of thousands",
           },
         },
       },
