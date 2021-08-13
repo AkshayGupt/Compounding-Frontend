@@ -26,7 +26,7 @@ const Slides = ({
             </div>
             <div>
                 <img src={img3.src} className="image-slide " />
-                <p className="pt-3 text-white ">{img3.text}</p>
+                <p className="pt-3 text-white text">{img3.text}</p>
                 <p className="pb-4  text-center " >{icon3}</p>
             </div>
         </Carousel>
