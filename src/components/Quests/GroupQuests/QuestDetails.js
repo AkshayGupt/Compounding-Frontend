@@ -28,29 +28,18 @@ const QuestDetails = () => {
           className="groupQuest__h5"
           style={{ fontSize: "25px", fontFamily: "fantasy" }}
         >
-          Quest Details
+           The Banker And The Genie
         </h5>
       </div>
       <div className="select-quest-body">
-        <div className="card groupQuest__card avatar">
+      
           <img
-            src="images/avatars/Avatar1_cooldude.png"
-            style={{ borderRadius: "50%" }}
+            src="images/questimages/genie.jpg"
+            style={{ borderRadius: "10%" ,width:"100%",padding:"10px"}}
             className="card-img-top"
             alt="..."
           />
-          <div className="card-body">
-            <h5
-              className="card-title groupQuest__card-title groupQuest__h5 groupQuest__card-title"
-              style={{ color: "#F5F8FB", borderRadius: "10px" }}
-            >
-              john
-            </h5>
-            <p className="card-text">Age : 24</p>
-            <p className="card-text">Gender : Male</p>
-            <p className="card-text">Level : 11</p>
-          </div>
-        </div>
+     
         <div className="card groupQuest__card Narration">
           <h5
             className="groupQuest__h5"
@@ -60,7 +49,7 @@ const QuestDetails = () => {
               backgroundColor: " #6e48aa",
             }}
           >
-            Narration
+            Story
           </h5>
           <div className="card-body">
             <p className="card-text">
@@ -193,7 +182,7 @@ const QuestDetails = () => {
             history.push("/fixed-deposit");
           }}
         >
-          Chat
+          Join
         </a>
         <div className="card groupQuest__card h-100 Narration">
           <h5
@@ -204,12 +193,12 @@ const QuestDetails = () => {
               backgroundColor: " #6e48aa",
             }}
           >
-            Offers
+            Rewards
           </h5>
           <div className="card-body">
             <img
               src="images/offers/boat.jpg"
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "40%", height: "40%" }}
               className="card-img-top"
               alt="..."
             />

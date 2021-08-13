@@ -1,6 +1,7 @@
 .selectQuest__main-screen {
   background-color: #f5f8fb;
   display: block;
+  margin-bottom: 40px;
 }
 .select-quest-header {
   background-color: #6e48aa;

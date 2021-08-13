@@ -35,12 +35,12 @@ const SelectQuest = () => {
             <a
               href="#"
               className="btn btn-primary"
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px" ,backgroundColor:"#6e48aa"}}
               onClick={() => {
                 history.push("/detail-quest");
               }}
             >
-              Details
+              Explore Quest
             </a>
           </div>
         </div>
@@ -64,12 +64,12 @@ const SelectQuest = () => {
             <a
               href="#"
               className="btn btn-primary"
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px" ,backgroundColor:"#6e48aa"}}
               onClick={() => {
                 history.push("/detail-quest");
               }}
             >
-              Details
+              Explore Quest
             </a>
           </div>
         </div>
@@ -92,12 +92,12 @@ const SelectQuest = () => {
             </p>
             <a
               href="#"
-              className="btn btn-primary"  style={{ borderRadius: "10px" }}
+              className="btn btn-primary"  style={{ borderRadius: "10px",backgroundColor:"#6e48aa" }}
               onClick={() => {
                 history.push("/detail-quest");
               }}
             >
-              Details
+              Explore Quest
             </a>
           </div>
         </div>
