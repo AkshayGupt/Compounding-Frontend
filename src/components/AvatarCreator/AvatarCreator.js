@@ -81,19 +81,19 @@ const AvatarCreator = () => {
 
             <img
               src="images/avatars/Avatar1_cooldude.png"
-              style={{ width: "60px", height: "80px" }}
+              style={{ width: "100%", height: "80px",paddingLeft:"2rem",paddingRight:"2rem" }}
               className="card-img-top"
               alt="..."
             />
             <div className="card-body avatarimg_card-body">
               <h5
                 className="card-title avatar__card-title avatar_h5"
-                style={{ color: "#F5F8FB", borderRadius: "10px" }}
+               
               >
-                Description
+                Mohit
             </h5>
               <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
-                Mohit, CEO of his second startup, became financially independent at 26.
+                 CEO of his second startup, became financially independent at 26.
             </p>
             </div>
 
@@ -103,19 +103,18 @@ const AvatarCreator = () => {
           }}>
             <img
               src="images/avatars/Avatar2_noob_girl.png"
-              style={{ width: "60px", height: "80px" }}
+              style={{  width: "100%", height: "80px",paddingLeft:"2rem",paddingRight:"2rem"  }}
               className="card-img-top"
               alt="..."
             />
             <div className="card-body avatarimg_card-body">
               <h5
                 className="card-title avatar__card-title avatar_h5"
-                style={{ color: "#F5F8FB", borderRadius: "10px" }}
               >
-                Description
+                Keerthi
             </h5>
               <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
-                Keerthi, college student, fights regularly with parents for pocket money.
+                college student, fights regularly with parents for pocket money.
             </p>
             </div>
 
@@ -131,19 +130,18 @@ const AvatarCreator = () => {
 
             <img
               src="images/avatars/Avatar4_savvy_business_lday.png"
-              style={{ width: "60px", height: "80px" }}
+              style={{ width: "100%", height: "80px",paddingLeft:"2rem",paddingRight:"2rem" }}
               className="card-img-top"
               alt="..."
             />
             <div className="card-body avatarimg_card-body">
               <h5
                 className="card-title avatar__card-title avatar_h5"
-                style={{ color: "#F5F8FB", borderRadius: "10px" }}
               >
-                Description
+                Samantha
 </h5>
               <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
-                Philip, two years work exp, doesn’t know a thing about mutual funds.
+              financially independent, spends all her time in libraries.
 </p>
             </div>
 
@@ -153,19 +151,18 @@ const AvatarCreator = () => {
           }}>
             <img
               src="images/avatars/Avatar3_Noob.png"
-              style={{ width: "60px", height: "80px" }}
+              style={{  width: "100%", height: "80px",paddingLeft:"2rem",paddingRight:"2rem" }}
               className="card-img-top"
               alt="..."
             />
             <div className="card-body avatarimg_card-body">
               <h1
                 className="card-title avatar__card-title avatar_h5"
-                style={{ color: "#F5F8FB", borderRadius: "10px" }}
               >
-                Description
+                Philip
              </h1>
               <p style={{ fontSize: "0.7em", lineHeight: "1.5em" }}>
-                Samantha, financially independent, spends all her time in libraries.
+              two years work exp, doesn’t know a thing about mutual funds.
            </p>
             </div>
 

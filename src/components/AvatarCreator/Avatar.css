@@ -43,7 +43,7 @@
 .avatarCard_card{
   min-height: 50px;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   margin: 5px;
   padding: 5px;
   border: 1px solid #6e48aa;
@@ -61,10 +61,9 @@
 
 .avatar_h5 {
   font-size: 1rem;
-  color: #f5f8fb;
+  color: black;
 }
 
 
 .avatar__card-title {
-  background-color: #6e48aa;
 }

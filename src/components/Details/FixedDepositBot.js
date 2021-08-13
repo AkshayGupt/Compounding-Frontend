@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import ChatBot from "react-simple-chatbot";
+import createPersistedState from 'use-persisted-state';
+const useSelectedAvatarState = createPersistedState('selectedAvatar');
+
 
 const FixedDeposit = () => {
-  const [redirect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(false);  
+  
+  const [avatar, setAvatar] = useSelectedAvatarState();
+  const selectAvatarPath='/images/avatars/'+avatar+".png"
+
+
 
   const handleEnd = ({ steps, values }) => {
     setTimeout(() => {
@@ -22,9 +30,12 @@ const FixedDeposit = () => {
       // speechSynthesis={{ enable: true, lang: 'en' }}
       handleEnd={handleEnd}
       width={"100vw"}
+      botDelay={2000}
+      userAvatar={selectAvatarPath}
+      botAvatar="/images/questimages/smallgenie.png"
       height={"92vh"}
       cache={"true"}
-      cacheName={"fixeddepocache"}
+      cacheName={"newca"}
       steps={[
         {
           id: "intro",
