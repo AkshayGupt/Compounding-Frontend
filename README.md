@@ -1,4 +1,4 @@
-#Compounding
+# Compounding
 
 >##### Gamyfing Finance Management
 
