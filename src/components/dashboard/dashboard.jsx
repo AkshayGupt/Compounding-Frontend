@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./dashboard.css";
 import SimpleDialog from "./dialog";
+import DistributedTreeMap from "../asset-allocation/distributed-tree-map";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const splitter = (str) => str.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
 
@@ -158,7 +163,13 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="card dashboard__card card3">
+        <div
+          className="card dashboard__card card3"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <div>
             My Insurances &nbsp;&nbsp;
             <i class="fa fa-angle-right menu-icon"></i>
@@ -191,7 +202,13 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="card dashboard__card card2">
+        <div
+          className="card dashboard__card card2"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <div>
             Fetch my credit score &nbsp;&nbsp;
             <i class="fa fa-angle-right menu-icon"></i>
@@ -235,41 +252,88 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="card dashboard__card">
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <h3 className="card-sub-heading">
             Plan your financial goals and see how soon you can retire
           </h3>
           <img className="image" src="images/images.svg" alt="test" />
         </div>
-        <div className="card dashboard__card">
+
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
+          <DistributedTreeMap />
+        </div>
+
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <img
             className="recommented-offer"
             src="images/dashboard/1.png"
             alt="test"
           />
         </div>
-        <div className="card dashboard__card">
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <img
             className="recommented-offer"
             src="images/dashboard/2.png"
             alt="test"
           />
         </div>
-        <div className="card dashboard__card">
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <img
             className="recommented-offer"
             src="images/dashboard/3.png"
             alt="test"
           />
         </div>
-        <div className="card dashboard__card">
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <img
             className="recommented-offer"
             src="images/dashboard/4.png"
             alt="test"
           />
         </div>
-        <div className="card dashboard__card">
+        <div
+          className="card dashboard__card"
+          data-aos="zoom-in-down"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="500"
+        >
           <img
             className="recommented-offer"
             src="images/dashboard/5.png"

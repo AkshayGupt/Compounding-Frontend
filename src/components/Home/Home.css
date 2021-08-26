@@ -1,3 +1,10 @@
+#root {
+  min-height: "100vh";
+  box-sizing: "border-box";
+  margin: 0;
+  padding: 0;
+}
+
 .home-header {
   min-height: 200px;
   display: flex;
@@ -127,8 +134,8 @@
   font-size: 16px;
   /* color: black; */
   text-shadow: 1px;
-  font-family: 'Open Sans Condensed', sans-serif;
-/* font-family: 'Palette Mosaic', cursive; */
+  font-family: "Open Sans Condensed", sans-serif;
+  /* font-family: 'Palette Mosaic', cursive; */
 }
 
 .main-content {
@@ -149,4 +156,8 @@
 
 .leaderboard-card{
   box-shadow: 0px 0px 7px #6e48aa;
+}
+.btn-info {
+  background-color: #6e48aa;
+  border-color: #6e48aa;
 }

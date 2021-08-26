@@ -34,8 +34,12 @@ export default class DistributedTreeMap extends React.Component {
               y: 5,
             },
             {
-              x: "PPF, EPF, VPF, NSC, Bonds",
+              x: "PPF, EPF, VPF",
               y: 10,
+            },
+            {
+              x: "NSC,Bonds",
+              y: 15,
             },
           ],
         },
@@ -81,7 +85,7 @@ export default class DistributedTreeMap extends React.Component {
           options={this.state.options}
           series={this.state.series}
           type="treemap"
-          height={250}
+          height={350}
         />
       </div>
     );
