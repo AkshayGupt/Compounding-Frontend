@@ -147,3 +147,30 @@ export const getAllAccountBalance = (accountHolderId) => {
     // }
   }
 };
+
+export const getCardDetails = (accountHolderId) => {
+  return fetch(
+    `${API}/fusion/zetaHacks/accountHolder/${accountHolderId}/cards`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        // Authorization:`Bearer ${token}`
+      },
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+
+  //This function will return data in below fomat:
+  {
+    // {
+    //   "crn": "167410025021",
+    //   "expiryMMYY": "0726",
+    //   "maskedPan": "608271-xxxxxx-2048"
+    // }
+  }
+};
