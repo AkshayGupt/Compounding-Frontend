@@ -12,7 +12,7 @@ import QuestionsBot from "./components/Details/QuestionsBot";
 import QuestDetails from "./components/Quests/GroupQuests/QuestDetails";
 import OffersComponent from "./components/club/Offers";
 import RewardsTabs from "./components/club/rewards";
-import Dashboard from "./components/club/dashboard";
+import Dashboard from "./components/dashboard/dashboard";
 import SelectQuest from "./components/Quests/SelectQuest/SelectQuest";
 import FixedDeposit from "./components/Details/FixedDepositBot";
 import Stocks from "./components/Details/StocksBot";

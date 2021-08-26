@@ -3,9 +3,9 @@ import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CarouselComponent from "./carousel";
 import createPersistedState from "use-persisted-state";
-import DistributedTreeMap from "./distributed-tree-map";
 import DisplayScore from "../score/score";
 import "./Home.css";
+import VirtualCard from "../virtual-card/Virtual-card";
 
 const useSelectedAvatarState = createPersistedState("selectedAvatar");
 
@@ -140,6 +140,8 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+
+      <VirtualCard />
 
       <div className="main-content">
         <Link
@@ -278,10 +280,6 @@ const Home = () => {
         <div className="content-item">
           <BarGraph />
         </div> */}
-
-        <div className="content-item">
-          <DistributedTreeMap />
-        </div>
 
         <div className="content-item">
           <img
