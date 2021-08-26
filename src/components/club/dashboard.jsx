@@ -77,9 +77,11 @@ const Dashboard = () => {
                 alt="card dashboard__card cap"
               />
             </div>
-            <a href="/" class="btn btn-primary">
+            <div className="mt-2">
+            <a href="/" className="btn btn-sm p-2  btn-primary">
               Refer your friends
             </a>
+            </div>
           </div>
         </div>
         <div className="card dashboard__card card2">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import BarGraph from "./bar-graph";
 import CarouselComponent from "./carousel";
 import createPersistedState from "use-persisted-state";
 import DistributedTreeMap from "./distributed-tree-map";
@@ -143,17 +142,139 @@ const Home = () => {
       </div>
 
       <div className="main-content">
-        <Link className="game-title btn btn-info btn-block" to="/transactions" style={{width:"80%"}}>
+        <Link
+          className="game-title btn btn-info btn-block"
+          to="/transactions"
+          style={{ width: "80%" }}
+        >
           Track my expenses <i className="fas fa-coins"></i>
         </Link>
-        <br/>
-        <Link className="game-title btn btn-info btn-block" to="/youtube"  style={{width:"80%"}}>
-         Learn and Earn <i class="fas fa-graduation-cap"></i>
+        <br />
+        <Link
+          className="game-title btn btn-info btn-block"
+          to="/youtube"
+          style={{ width: "80%" }}
+        >
+          Learn and Earn <i class="fas fa-graduation-cap"></i>
         </Link>
 
+        <div className=" leaderboard-card card my-2 pt-4 px-2 mx-auto" style={{width:"95%", background:"white"}}>
+          <h4>Leaderboard</h4>
+          <i style={{fontSize:"30px"}} class="fas fa-trophy p-2"></i>
+          <div className="d-flex justify-content-around mb-3 text-white" style={{background:"#6e48aa"}}>
+            <p style={{border:"0px solid black"}} className="my-auto">
+              Points <i class="fas fa-chevron-down"></i>
+            </p >
+            <p className="my-auto">
+              Global <i class="fas fa-chevron-down"></i>
+            </p>
+            <p className="my-auto">
+              Season <i class="fas fa-chevron-down"></i>
+            </p>
+          </div>
+          <ul>
+            <li className="d-flex justify-content-between pr-5 pl-1">
+              <p className="bg-warning px-3" style={{borderRadius:"10px"}}>#1</p>
+              <p>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://w7.pngwing.com/pngs/590/236/png-transparent-computer-icons-man-icon-recruiter-business-desktop-wallpaper-thumbnail.png"
+                />
+                <span className="pl-2 pr-1">Akshay</span>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                />
+              </p>
+              <p>8965</p>
+            </li>
+            <li className="d-flex justify-content-between pr-5 pl-1">
+              <p  className=" px-3" style={{borderRadius:"10px",background:"silver"}}>#2</p>
+              <p>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://cdn.iconscout.com/icon/free/png-512/football-player-1426973-1208513.png"
+                />
+                <span className="pl-2 pr-1">Shivam</span>
+                <img
+                  style={{
+                    height: "32px",
+                  }}
+                  src="https://icons.iconarchive.com/icons/wikipedia/flags/512/US-United-States-Flag-icon.png"
+                />
+              </p>
+              <p>8965</p>
+            </li>
+            <li className="d-flex justify-content-between pr-5 pl-1">
+              <p  className=" px-3" style={{borderRadius:"10px",background:"#CD7F32"}}>#3</p>
+              <p>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5zBl8h0MsaBn6DCwTZLz9qVRy3EaeK_Neg&usqp=CAU"
+                />
+                <span className="pl-2 pr-1">Vaarun</span>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                />
+              </p>
+              <p>8965</p>
+            </li>
+            <li className="d-flex justify-content-between pr-5 pl-1">
+              <p className=" px-3" style={{borderRadius:"10px",background:"white"}}>#4</p>
+              <p>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://w7.pngwing.com/pngs/590/236/png-transparent-computer-icons-man-icon-recruiter-business-desktop-wallpaper-thumbnail.png"
+                />
+                <span className="pl-2 pr-1">Gourav</span>
+                <img
+                  style={{
+                    height: "21px",
+                  }}
+                  src="https://i.pinimg.com/originals/62/2b/89/622b892bb6997df9ac5e5490b4876c33.jpg"
+                />
+              </p>
+              <p>8965</p>
+            </li>
+            <li className="d-flex justify-content-between pr-5 pl-1">
+              <p className=" px-3" style={{borderRadius:"10px",background:"white"}}>#5</p>
+              <p>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png"
+                />
+                <span className="pl-2 pr-1">Dheeraj</span>
+                <img
+                  style={{
+                    height: "23px",
+                  }}
+                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                />
+              </p>
+              <p>8965</p>
+            </li>
+          </ul>
+        </div>
+
+{/*      
         <div className="content-item">
           <BarGraph />
-        </div>
+        </div> */}
 
         <div className="content-item">
           <DistributedTreeMap />

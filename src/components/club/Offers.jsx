@@ -36,8 +36,8 @@ export default function OffersComponent() {
         <img className="smallImages" src="/images/offers/ajio.jpg" alt="test" />
       </div>
 
-      <h5 className="section-header"> Only till mid night</h5>
-      <div className="box-container">
+      {/* <h5 className="section-header pt-3 text-dark"> Only till mid night</h5> */}
+      <div className="box-container mt-4">
         <img
           className="bigImages"
           src="/images/offers/saregama.jpeg"

@@ -11,7 +11,7 @@ const CarouselComponent = () => {
     </div>
   );
   return (
-    <Carousel interval="2000" indicators="false">
+    <Carousel interval="2000" indicators={false} controls={false} >
       <Carousel.Item>
         <div className="carousel_container advisory-one">
           <div style={{ width: "80%" }}>
