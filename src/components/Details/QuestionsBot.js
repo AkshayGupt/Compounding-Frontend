@@ -14,32 +14,41 @@ class Review extends Component {
       gender: '',
       age: '',
       salaried: false,
-      city: ''
+      city: '',
+      salary:''
     };
   }
 
-  componentWillMount() {
+  componentWillMount = ()=> {
     const { steps } = this.props;
-    const { name, gender, age, city, salaried } = steps;
+   
     console.log(JSON.stringify(steps));
-    this.setState({ name, gender, age, salaried, city });
-    localStorage.setItem("name", JSON.stringify(name))
-    localStorage.setItem("gender", JSON.stringify(gender))
-    localStorage.setItem("age", JSON.stringify(age))
-    localStorage.setItem("salaried", JSON.stringify(salaried))
-    localStorage.setItem("city", JSON.stringify(city))
+    const { name, gender, age, city, salaried, salary } = steps;
+    this.setState({name, gender, age, salaried, city});
+    if(salary){
+      this.setState({...this.state, salary });
+      localStorage.setItem("salary", JSON.stringify(salary.value));
+    }
+    localStorage.setItem("steps", JSON.stringify(steps))
+    localStorage.setItem("name", JSON.stringify(name.value))
+    localStorage.setItem("gender", JSON.stringify(gender.value))
+    localStorage.setItem("age", JSON.stringify(age.value))
+    localStorage.setItem("salaried", JSON.stringify(salaried.value))
+    
+    localStorage.setItem("city", JSON.stringify(city.value))
   }
 
   render() {
-    const { name, gender, age, city, salaried } = this.state;
+    const { name, gender, age, city, salaried, salary } = this.state;
     return (
       <div style={{ width: '100%' }}>
         <h3>Summary</h3>
-        <p>name: {name}</p>
-        <p>gender: {gender}</p>
-        <p>age: {age}</p>
-        <p>city: {city}</p>
-        <p>Salaried: {salaried}</p>
+        <p>name: {name.value}</p>
+        <p>gender: {gender.value}</p>
+        <p>age: {age.value}</p>
+        <p>city: {city.value}</p>
+        <p>Salaried: {salaried.value}</p>
+        {salary && <p>Salary: {salary.value}</p>}
       </div>
     );
   }
@@ -103,49 +112,49 @@ const QuestionBot = () => {
                     {
                       id: 'intro',
                       message: 'Let me know something about you ',
-                      trigger: '1',
+                      trigger: 'ask-name',
                     },
                     {
-                      id: '1',
+                      id: 'ask-name',
                       message: 'What is your name?',
                       trigger: 'name',
                     },
                     {
                       id: 'name',
                       user: true,
-                      trigger: '3',
+                      trigger: 'ask-gender',
                     },
                     {
-                      id: '3',
+                      id: 'ask-gender',
                       message: 'Hi {previousValue}! What is your gender?',
                       trigger: 'gender',
                     },
                     {
                       id: 'gender',
                       options: [
-                        { value: 'male', label: 'Male', trigger: '4' },
-                        { value: 'female', label: 'Female', trigger: '4' },
+                        { value: 'male', label: 'Male', trigger: 'ask-city' },
+                        { value: 'female', label: 'Female', trigger: 'ask-city' },
                       ],
                     },
                     {
-                      id: '4',
+                      id: 'ask-city',
                       message: 'What is your city?',
                       trigger: 'city'
                     },
                     {
                       id: 'city',
                       user: true,
-                      trigger: '5',
+                      trigger: 'ask-age',
                     },
                     {
-                      id: '5',
+                      id: 'ask-age',
                       message: 'How old are you?',
                       trigger: 'age',
                     },
                     {
                       id: 'age',
                       user: true,
-                      trigger: '6',
+                      trigger: 'ask-salaried',
                       validator: (value) => {
                         if (isNaN(value)) {
                           return 'value must be a number';
@@ -159,29 +168,36 @@ const QuestionBot = () => {
                       },
                     },
                     {
-                      id: '6',
+                      id: 'ask-salaried',
                       message: 'Are you a salaried employee ?',
                       trigger: 'salaried',
                     },
                     {
                       id: 'salaried',
                       options: [
-                        { value: 'true', label: 'Yes', trigger: '7' },
-                        { value: 'false', label: 'No', trigger: '7' },
+                        { value: 'true', label: 'Yes', trigger: 'ask-salary' },
+                        { value: 'false', label: 'No', trigger: 'review' },
                       ],
                     },
                     {
-                      id: '7',
-                      message: 'Thank for spending time with me!',
-                      trigger: 'redirecting',
+                      id:'ask-salary',
+                      message: 'What is your monthly salary?',
+                      trigger: 'salary'
+                    },{
+                      id:'salary',
+                      user:true,
+                      trigger:'review'
                     },
                     {
                       id: 'review',
-                      component: (
-                        <Review/>
-                      ),
+                      component: <Review/>,
                       asMessage: true,
-                      trigger:'update',
+                      trigger:'redirect',
+                    },
+                    {
+                      id: 'redirect',
+                      message: 'Thank for spending time with me!',
+                      trigger: 'redirecting',
                     },
                     {
                       id: 'update',
@@ -211,17 +227,17 @@ const QuestionBot = () => {
                     {
                       id: 'update-name',
                       update: 'name',
-                      trigger: '7',
+                      trigger: 'review',
                     },
                     {
                       id: 'update-gender',
                       update: 'gender',
-                      trigger: '7',
+                      trigger: 'review',
                     },
                     {
                       id: 'update-age',
                       update: 'age',
-                      trigger: '7',
+                      trigger: 'review',
                     },
                     {
                       id: 'end-message',
