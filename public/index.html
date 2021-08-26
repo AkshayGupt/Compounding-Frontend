@@ -67,6 +67,26 @@
       let risk;
       let ignorance;
 
+      let timeframes = ["0 4", "4 8", "8 12", "12 16", "16 20","20 24"];
+
+      let times={
+        "0 4":0,
+        "4 8":0,
+        "8 12":0,
+        "12 16":0,
+        "16 20":0,
+        "20 24":0
+      }
+
+      for(var i=0;i<timeframes.length;i++){
+        if(localStorage.getItem(timeframes[i])){
+            times[timeframes[i]] = localStorage.getItem(timeframes[i]);
+        }
+      }
+
+
+
+
       if(localStorage.getItem("dataSMS")){
         obj = JSON.parse(localStorage.getItem("dataSMS"));
         set = JSON.parse(localStorage.getItem("setSMS"));
@@ -89,9 +109,31 @@
           ptr=ptr+1;
           set.push(Jsonobject[i].refNo);
           console.log(set);
+
+          for(var j=0;j<timeframes.length;j++){
+            if(valid(Jsonobject[i].date, timeframes[j])){
+              times[timeframes[j]]++;
+              break;
+            }
+          }
         }
       }
-      // liability
+
+      var maxSlot=timeframes[0];
+      localStorage.setItem("maxSlot",timeframes[0]);
+      var i=0;
+      for(i=0;i<timeframes.length;i++){
+        console.log(i+": "+times[timeframes[i]]);
+        localStorage.setItem(timeframes[i], times[timeframes[i]]);
+        if(parseInt(times[timeframes[i]]) > parseInt(times[maxSlot])){
+          maxSlot=timeframes[i];
+          localStorage.setItem("maxSlot",timeframes[i]);
+        }
+      }
+
+      
+
+
       localStorage.setItem("dataSMS",JSON.stringify(obj));
       localStorage.setItem("ptr",JSON.stringify(ptr));
       localStorage.setItem("setSMS",JSON.stringify(set));
@@ -100,7 +142,25 @@
       localStorage.setItem("risk",(risk));
       localStorage.setItem("ignorance",(ignorance));
     }
+
+    function valid(date, slot){
+        var temp = date.split(" ");
+        var datetime = temp[3];
+        var time = parseInt(temp[3].split(":")[0]);
+        var pre = parseInt(slot.split(" ")[0]);
+        var post = parseInt(slot.split(" ")[1]);
+        console.log("date: "+date);
+        console.log("slot"+slot);
+        console.log(pre+" "+post);
+        console.log(time);
+        if(time>=pre && time<=post){
+          return true;
+        }
+        return false;
+    }
   </script>
+
+
 </head>
 
 <body>
