@@ -9,15 +9,32 @@ export default function OffersComponent() {
 
   const [show, setShow] = React.useState(false);
 
+  const [showmyntra, setShowmyntra] = React.useState(false);
+
+  
+
   const handleClose = () => {
+    
     setShow(false);
 
 
   }
   const handleShow = () => {
     setShow(true);
-    console.log('hello')
   }
+
+
+  const myntraHandleClose = () => {
+    
+    setShowmyntra(false);
+
+
+  }
+  const myntraHandleShow = () => {
+    setShowmyntra(true);
+  }
+
+
   return (
     <div className="main-container">
       <div>
@@ -35,21 +52,23 @@ export default function OffersComponent() {
         <img
           className="bigImages"
           src="/images/offers/amazon-pay-giftcard.jpg"
+          
           alt="test"
         />
-        <img className="smallImages" src="/images/offers/boat.jpg" alt="test" />
+        <img className="smallImages" src="/images/offers/boat.jpg" alt="test"  onClick={handleShow} />
 
-        <img
-          className="smallImages"
-          src="/images/offers/audible.jpg"
-          onClick={handleShow}
-          alt="test"
-        />
         <img
           className="smallImages"
           src="/images/offers/myntra.jpg"
           alt="test"
+          onClick={myntraHandleShow}
         />
+        <img
+          className="smallImages"
+          src="/images/offers/audible.jpg"
+          alt="test"
+        />
+        
         <img className="smallImages" src="/images/offers/ajio.jpg" alt="test" />
       </div>
 
@@ -90,12 +109,15 @@ export default function OffersComponent() {
       <Modal show={show}>
         <Modal.Header>
           <Modal.Title>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={handleClose}>
+              <span aria-hidden="true" style={{fontSize: '160%'}}>&times;</span>
+            </button>
             <h6>Boat Headphones</h6>
+
             <h3 style={{ color: "#1d1d1f", fontWeight: "bold" }}>increase your sound quality</h3>
             <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 1500 </h5>
             <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 2500 </h6>
             <h6 style={{ display: 'inline', color: "#b3b0b8" }}> (inclusive of all taxes)</h6>
-
           </Modal.Title>
         </Modal.Header >
 
@@ -110,15 +132,84 @@ export default function OffersComponent() {
             <li>Has a PVC cable which is durable and tangle free</li>
             <li>Compatibility and Connectivity: Compatible with Android/iOS and connectivity via 3.5mm AUX cable</li>
             <li>IPX Rating: NA, Rated Power : 3mW</li>
+            <li>Active Noise Cancellation: NA</li>
+            <li>Enjoy powerful, dynamic sound with punchy bass and clear, natural vocals with the responsive 40mm Neodymium drivers, balanced sound for a complete listening experience</li>
+            <li>1 year warranty from the date of purchase </li>
+
           </ul>
+
+          
 
         </Modal.Body>
 
 
-        <Modal.Footer>
-          <button className='btn-info' onClick={handleClose}> BUY</button>
+        <Modal.Footer style={{justifyContent:'center',borderTopLeftRadius:'20px',borderTopRightRadius:'20px',backgroundColor:'#f5f3f7'}} >
+        <div className="form-check" style={{width:'100%'}}>
+            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{color:'#0d9174'}}/>
+            <label className="form-check-label" for="flexCheckDefault" style={{color:'#0d9174'}}>
+              use 1000 freedom coins to get this at &#8377; 1500
+             </label>
+          </div>
+          <button className='btn' onClick={handleClose} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 1500</button>
         </Modal.Footer>
+      
+      
+      
       </Modal>
+
+
+      <Modal show={showmyntra}>
+        <Modal.Header>
+          <Modal.Title>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={myntraHandleClose}>
+              <span aria-hidden="true" style={{fontSize: '160%'}}>&times;</span>
+            </button>
+            <h6>Nike Shoes</h6>
+
+            <h3 style={{ color: "#1d1d1f", fontWeight: "bold" }}>run everywhere, fun everywhere</h3>
+            <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 1500 </h5>
+            <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 2500 </h6>
+            <h6 style={{ display: 'inline', color: "#b3b0b8" }}> (inclusive of all taxes)</h6>
+          </Modal.Title>
+        </Modal.Header >
+
+        <Modal.Body>
+          <img
+            className="bigImages"
+            src="/images/shoes.jpeg"
+            alt="test"
+          />
+          <h6 style={{ color: "#88878a" }}>about product </h6>
+          <ul>
+            <li>A pair of round-toe off-white sneakers, has regular styling, lace-up detail</li>
+            <li>Mesh upper</li>
+            <li>Cushioned footbed</li>
+            <li>Textured and patterned outsole</li>
+            <li>Warranty: 3 months</li>
+            <li>Warranty provided by brand/manufacturer</li>
+
+          </ul>
+
+          
+
+        </Modal.Body>
+
+
+        <Modal.Footer style={{justifyContent:'center',borderTopLeftRadius:'20px',borderTopRightRadius:'20px',backgroundColor:'#f5f3f7'}} >
+        <div className="form-check" style={{width:'100%'}}>
+            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{color:'#0d9174'}}/>
+            <label className="form-check-label" for="flexCheckDefault" style={{color:'#0d9174'}}>
+              use 1000 freedom coins to get this at &#8377; 1500
+             </label>
+          </div>
+          <button className='btn' onClick={myntraHandleClose} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 1500</button>
+        </Modal.Footer>
+      
+      
+      
+      </Modal>
+
+      
     </div>
   );
 }
