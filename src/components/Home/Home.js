@@ -5,7 +5,6 @@ import CarouselComponent from "./carousel";
 import createPersistedState from "use-persisted-state";
 import DisplayScore from "../score/score";
 import "./Home.css";
-import VirtualCard from "../virtual-card/Virtual-card";
 
 const useSelectedAvatarState = createPersistedState("selectedAvatar");
 
@@ -141,16 +140,14 @@ const Home = () => {
         </div>
       </div> */}
 
-      <VirtualCard />
-
       <div className="main-content">
-        <Link
+        {/* <Link
           className="game-title btn btn-info btn-block"
-          to="/transactions"
+          to="/manage-expense"
           style={{ width: "80%" }}
         >
-          Track my expenses <i className="fas fa-coins"></i>
-        </Link>
+          Expense Management <i className="fas fa-coins"></i>
+        </Link> */}
         <br />
         <Link
           className="game-title btn btn-info btn-block"
