@@ -1,4 +1,4 @@
-const { API } = require('../../backend');
+const { API } = require('../backend');
 
 export const createUser = (name, pan, dob, phoneNumber, email) => {
   const details = { name, pan, dob, phoneNumber, email };
