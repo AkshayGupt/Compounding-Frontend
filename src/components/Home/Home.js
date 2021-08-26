@@ -87,7 +87,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="text-center">
+      {/* <div className="text-center">
         <div className="center-container2 content-item">
           <div
             className="center-container2 mt-2"
@@ -139,7 +139,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="main-content">
         <Link
@@ -158,27 +158,30 @@ const Home = () => {
           Learn and Earn <i class="fas fa-graduation-cap"></i>
         </Link>
 
-        <div className=" leaderboard-card card my-2 pt-4 px-2 mx-auto" style={{width:"95%", background:"white"}}>
-          <h4>Leaderboard</h4>
-          <i style={{fontSize:"30px"}} class="fas fa-trophy p-2"></i>
-          <div className="d-flex justify-content-around mb-3 text-white" style={{background:"#6e48aa"}}>
+        <div className=" leaderboard-card card my-3 pt-4 px-2 mx-auto " style={{width:"90%", background:"white", borderRadius:"15px"}}>
+          <div className="d-flex justify-content-center">
+          <h5>Leaderboard</h5>
+          <i style={{fontSize:"22px"}} className="fas fa-trophy px-2 "></i>
+          </div>
+        
+          <div className="d-flex justify-content-around mb-3 text-white mt-3" style={{background:"#6e48aa",borderRadius:"10px"}}>
             <p style={{border:"0px solid black"}} className="my-auto">
               Points <i class="fas fa-chevron-down"></i>
             </p >
             <p className="my-auto">
-              Global <i class="fas fa-chevron-down"></i>
+              Friends <i class="fas fa-chevron-down"></i>
             </p>
             <p className="my-auto">
-              Season <i class="fas fa-chevron-down"></i>
+              August <i class="fas fa-chevron-down"></i>
             </p>
           </div>
           <ul>
             <li className="d-flex justify-content-between pr-5 pl-1">
-              <p className="bg-warning px-3" style={{borderRadius:"10px"}}>#1</p>
+              <p className="bg-warning px-3" style={{borderRadius:"10px", border:"1px solid black"}}>#1</p>
               <p>
                 <img
                   style={{
-                    height: "23px",
+                    height: "43px",
                   }}
                   src="https://w7.pngwing.com/pngs/590/236/png-transparent-computer-icons-man-icon-recruiter-business-desktop-wallpaper-thumbnail.png"
                 />
@@ -187,17 +190,17 @@ const Home = () => {
                   style={{
                     height: "23px",
                   }}
-                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                  // src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
                 />
               </p>
               <p>8965</p>
             </li>
             <li className="d-flex justify-content-between pr-5 pl-1">
-              <p  className=" px-3" style={{borderRadius:"10px",background:"silver"}}>#2</p>
+              <p  className=" px-3" style={{borderRadius:"10px",background:"silver",  border:"1px solid black"}}>#2</p>
               <p>
                 <img
                   style={{
-                    height: "23px",
+                    height: "40px",
                   }}
                   src="https://cdn.iconscout.com/icon/free/png-512/football-player-1426973-1208513.png"
                 />
@@ -206,17 +209,17 @@ const Home = () => {
                   style={{
                     height: "32px",
                   }}
-                  src="https://icons.iconarchive.com/icons/wikipedia/flags/512/US-United-States-Flag-icon.png"
+                  // // src="https://icons.iconarchive.com/icons/wikipedia/flags/512/US-United-States-Flag-icon.png"
                 />
               </p>
               <p>8965</p>
             </li>
             <li className="d-flex justify-content-between pr-5 pl-1">
-              <p  className=" px-3" style={{borderRadius:"10px",background:"#CD7F32"}}>#3</p>
+              <p  className=" px-3" style={{borderRadius:"10px",background:"#CD7F32", border:"1px solid black"}}>#3</p>
               <p>
                 <img
                   style={{
-                    height: "23px",
+                    height: "42px",
                   }}
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5zBl8h0MsaBn6DCwTZLz9qVRy3EaeK_Neg&usqp=CAU"
                 />
@@ -225,7 +228,7 @@ const Home = () => {
                   style={{
                     height: "23px",
                   }}
-                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                  // src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
                 />
               </p>
               <p>8965</p>
@@ -235,7 +238,7 @@ const Home = () => {
               <p>
                 <img
                   style={{
-                    height: "23px",
+                    height: "42px",
                   }}
                   src="https://w7.pngwing.com/pngs/590/236/png-transparent-computer-icons-man-icon-recruiter-business-desktop-wallpaper-thumbnail.png"
                 />
@@ -244,7 +247,7 @@ const Home = () => {
                   style={{
                     height: "21px",
                   }}
-                  src="https://i.pinimg.com/originals/62/2b/89/622b892bb6997df9ac5e5490b4876c33.jpg"
+                  // src="https://i.pinimg.com/originals/62/2b/89/622b892bb6997df9ac5e5490b4876c33.jpg"
                 />
               </p>
               <p>8965</p>
@@ -254,7 +257,7 @@ const Home = () => {
               <p>
                 <img
                   style={{
-                    height: "23px",
+                    height: "42px",
                   }}
                   src="https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png"
                 />
@@ -263,7 +266,7 @@ const Home = () => {
                   style={{
                     height: "23px",
                   }}
-                  src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
+                  // src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
                 />
               </p>
               <p>8965</p>
