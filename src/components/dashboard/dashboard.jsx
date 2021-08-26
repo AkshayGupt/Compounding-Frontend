@@ -12,16 +12,16 @@ const splitter = (str) => str.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
 const Dashboard = () => {
   const username = JSON.parse(localStorage.getItem("name"))?.value || "";
   const [currentBalance, setCurrentBalance] = useState({
-    fd: 15000,
-    mutualFund: 28000,
-    stocks: 9500,
-    epf: 6600,
-    savingAccount: 87000,
-    life: 5000,
-    health: 8000,
+    fd: 0,
+    mutualFund: 0,
+    stocks: 0,
+    epf: 0,
+    savingAccount: 0,
+    life: 0,
+    health: 0,
     loans: 0,
-    creditCards: 500,
-    expenses: 4000,
+    creditCards: 0,
+    expenses: 0,
   });
 
   const calculateNetWorth = (obj) => Object.values(obj).reduce((a, b) => a + b);

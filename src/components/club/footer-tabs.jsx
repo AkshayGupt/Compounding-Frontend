@@ -3,6 +3,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import HomeIcon from "@material-ui/icons/Home";
 import RedeemIcon from "@material-ui/icons/Redeem";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
 import { useHistory } from "react-router-dom";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import "./footer-tab.css";
@@ -27,6 +28,11 @@ const FooterTabs = () => {
         label="Dashboard"
         value="/dashboard"
         icon={<DashboardIcon />}
+      />
+      <BottomNavigationAction
+        label="Expense"
+        value="/manage-expense"
+        icon={<AccountBalanceWalletIcon />}
       />
       <BottomNavigationAction
         label="Rewards"

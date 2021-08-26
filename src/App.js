@@ -20,6 +20,7 @@ import MutualFund from "./components/Details/MutualFundBot";
 import Youtube from "./components/Main/VideoTutorial/Youtube";
 import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 import FooterTabs from "./components/club/footer-tabs";
+import ExpenseManage from "./components/expense-manage/expense-manage";
 
 function App(props) {
   return (
@@ -27,6 +28,7 @@ function App(props) {
       <Switch>
         <Route path="/" exact component={LandingScreen} />
         <Route path="/home" exact component={Home} />
+        <Route path="/manage-expense" exact component={ExpenseManage} />
         <Route path="/transactions" exact component={Transactions} />
         <Route path="/transaction/:id" exact component={TransactionView} />
         <Route path="/details" exact component={QuestionsBot} />
