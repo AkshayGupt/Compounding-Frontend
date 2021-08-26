@@ -1,6 +1,6 @@
-const { API } = require("./backend");
+const { API } = require('../../backend');
 
-const createUser = (name, pan, dob, phoneNumber, email) => {
+export const createUser = (name, pan, dob, phoneNumber, email) => {
   const details = { name, pan, dob, phoneNumber, email };
   return fetch(`${API}/user`, {
     method: "POST",
@@ -48,7 +48,7 @@ const createUser = (name, pan, dob, phoneNumber, email) => {
   }
 };
 
-const getUser = (email) => {
+export const getUser = (email) => {
   return fetch(`${API}/user/${email}`, {
     method: "GET",
     headers: {
@@ -65,7 +65,7 @@ const getUser = (email) => {
   //This function will return data in below fomat:
 };
 
-const addFunds = (accountHolderId, amount) => {
+export const addFunds = (accountHolderId, amount) => {
   return fetch(
     `${API}/fusion/zetaHacks/accountHolder/${accountHolderId}/add/${amount}`,
     {
@@ -94,7 +94,7 @@ const addFunds = (accountHolderId, amount) => {
   }
 };
 
-const deductFunds = (accountHolderId, amount) => {
+export const deductFunds = (accountHolderId, amount) => {
   return fetch(
     `${API}/fusion/zetaHacks/accountHolder/${accountHolderId}/deduct/${amount}`,
     {
@@ -123,7 +123,7 @@ const deductFunds = (accountHolderId, amount) => {
   }
 };
 
-const getAllAccountBalance = (accountHolderId) => {
+export const getAllAccountBalance = (accountHolderId) => {
   return fetch(
     `${API}/fusion/zetaHacks/accountHolder/${accountHolderId}/accounts/balance`,
     {
