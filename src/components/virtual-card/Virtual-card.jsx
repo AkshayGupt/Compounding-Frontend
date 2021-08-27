@@ -22,17 +22,20 @@ const VirtualCard = () => {
 
   useEffect(() => {
     getCardDetails(accountHolderId).then((data) => {
-      setCardInfo({ ...data });
+
+      const dataToDisplay = {
+        maskedPan: data.maskedPan || "6522 3620 4517 9167",
+        expiryMMYY: data.expiryMMYY || "12/25",
+        cardholderName: data.cardholderName || "9190100970764925",
+      };
+
+      setCardInfo({ ...dataToDisplay });
     });
   }, []);
 
   return (
     <Tilt className="Tilt" options={{ max: 20 }}>
       <CardContainer
-        // data-aos="fade-down"
-        // data-aos-offset="200"
-        // data-aos-delay="50"
-        // data-aos-duration="500"
         className="CardContainer"
       >
         <div
