@@ -44,7 +44,7 @@ export default function OffersComponent() {
 
   const buyBoatHeadPhone = () => {
 
-    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'1')
+    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'200')
     .then(() => {
       setShow(false);
     })
@@ -54,7 +54,7 @@ export default function OffersComponent() {
 
 
   const buyMyntraNikeShoes = () => {  
-    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'1')
+    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'200')
     .then(() => {
       setShowmyntra(false);
     })
@@ -65,9 +65,7 @@ export default function OffersComponent() {
   return (
     
     <div className="main-container">
-      <Confetti  style={{width:'100%'}} tweenDuration={'1000'}
-    >
-      </Confetti>
+    
       <div>
         <div className="rewards_header">
           <h5 style={{ fontSize: 25, fontWeight: "bold", fontFamily: "serif" }}>
