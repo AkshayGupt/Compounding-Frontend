@@ -19,6 +19,7 @@ const splitter = (str) => str.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
 var pre = 0;
 var post = 0;
 var maxSlot = false;
+var accountHolderId = "";
 
 if (localStorage.getItem("maxSlot")) {
   maxSlot = true;
@@ -27,15 +28,16 @@ if (localStorage.getItem("maxSlot")) {
   post = time[1];
 }
 
+if (localStorage.getItem("data")) {
+  accountHolderId = JSON.parse(localStorage.getItem("data"))["accountHolderId"];
+}
+
 const ExpenseManage = () => {
   const [balance, setBalance] = useState(-5);
   const [open, setOpen] = useState(false);
   const vertical =  'top';
   const horizontal =  'center';
 
-  //  FIXME: Fetch account holder id from localstorage
-  // localStorage.getItem('data');
-  const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
   const today = new Date();
   const requestData = {
     accountHolderId,

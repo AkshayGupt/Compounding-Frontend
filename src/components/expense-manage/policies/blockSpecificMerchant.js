@@ -4,6 +4,12 @@ import { MenuItem, Select } from "@material-ui/core";
 import { blockSpecificMcc } from "../../../utils/api";
 import "./styles.css";
 
+var accountHolderId = "";
+
+if (localStorage.getItem("data")) {
+  accountHolderId = JSON.parse(localStorage.getItem("data"))["accountHolderId"];
+}
+
 const useStyles = makeStyles({
   root: {
     width: "240px",
@@ -19,7 +25,7 @@ export default function BlockSpecificMerchant() {
 
   const today = new Date();
   const requestData = {
-    accountHolderId: "73ff54fb-bb78-42c0-a735-7e46a993139a",
+    accountHolderId,
     expiresAt: new Date(today.setMonth(today.getMonth() + 1)).toISOString(),
     effectiveFrom: new Date().toISOString(),
   };
