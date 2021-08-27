@@ -8,19 +8,13 @@ const useStyles = makeStyles({
   root: {
     width: "240px",
     display: "flex",
-    margin: "auto"
-  },
+    margin: "auto",
+  }
 });
 
-export default function TimeOfTransaction() {
+export default function BlockSpecificMerchant() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
-  const options = Array(24)
-    .fill()
-    .map((_, i) => i);
-
-console.log(options);
 
   const today = new Date();
   const requestData = {
@@ -44,10 +38,11 @@ console.log(options);
         value={value}
         onChange={handleChange}
       >
-        {options.map( i => (
-            <MenuItem value={i}>{i}</MenuItem>
-        ))
-        }
+        <MenuItem value={5921}>Alcohol Shops</MenuItem>
+        <MenuItem value={5812}>Restaurants</MenuItem>
+        <MenuItem value={5813}>Bars / Pubs</MenuItem>
+        <MenuItem value={7801}>Online Gambling</MenuItem>
+        <MenuItem value={7832}>Theatres</MenuItem>
       </Select>
     </div>
   );

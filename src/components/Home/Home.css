@@ -132,10 +132,9 @@
   display: inline-block;
   font-weight: bold;
   font-size: 16px;
-  /* color: black; */
+  margin-top: 10px;
   text-shadow: 1px;
   font-family: "Open Sans Condensed", sans-serif;
-  /* font-family: 'Palette Mosaic', cursive; */
 }
 
 .main-content {
