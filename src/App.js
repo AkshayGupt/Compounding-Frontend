@@ -12,7 +12,7 @@ import QuestionsBot from "./components/Details/QuestionsBot";
 import QuestDetails from "./components/Quests/GroupQuests/QuestDetails";
 import OffersComponent from "./components/club/Offers";
 import RewardsTabs from "./components/club/rewards";
-import Dashboard from "./components/club/dashboard";
+import Dashboard from "./components/dashboard/dashboard";
 import SelectQuest from "./components/Quests/SelectQuest/SelectQuest";
 import FixedDeposit from "./components/Details/FixedDepositBot";
 import Stocks from "./components/Details/StocksBot";
@@ -21,7 +21,7 @@ import Youtube from "./components/Main/VideoTutorial/Youtube";
 import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 import FooterTabs from "./components/club/footer-tabs";
 import Spinner from "./components/slotmachine/SlotMachine"
-
+import ExpenseManage from "./components/expense-manage/expense-manage";
 
 function App(props) {
   return (
@@ -29,6 +29,7 @@ function App(props) {
       <Switch>
         <Route path="/" exact component={LandingScreen} />
         <Route path="/home" exact component={Home} />
+        <Route path="/manage-expense" exact component={ExpenseManage} />
         <Route path="/transactions" exact component={Transactions} />
         <Route path="/transaction/:id" exact component={TransactionView} />
         <Route path="/details" exact component={QuestionsBot} />

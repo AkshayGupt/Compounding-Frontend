@@ -194,6 +194,7 @@
 .dashboard__card-title {
   font-weight: bold;
   margin: 10px;
+  height: 250px;
 }
 
 .card-sub-heading {

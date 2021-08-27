@@ -190,7 +190,7 @@ const TransactionView = ({
             />
           </div>
         </div>
-        {/* <div className="form-group">
+        <div className="form-group">
           <label for="exampleFormControlInput1">Payment Gateway</label>
           <input
             type="text"
@@ -199,7 +199,7 @@ const TransactionView = ({
             value={form.payment}
             onChange={handleChange}
           />
-        </div> */}
+        </div>
         <div className="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
           <textarea

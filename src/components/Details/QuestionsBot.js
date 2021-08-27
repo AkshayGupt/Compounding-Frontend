@@ -1,259 +1,331 @@
-import React, { Component, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom'
-import ChatBot from 'react-simple-chatbot';
+import React, { Component, useState } from "react";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+import ChatBot from "react-simple-chatbot";
 import FooterTabs from "../club/footer-tabs";
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
+import {createUser} from '../../utils/api';
 
 class Review extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: '',
-      gender: '',
-      age: '',
+      name: "",
+      gender: "",
+      dob: "",
       salaried: false,
-      city: '',
-      salary:''
+      city: "",
+      salary: "",
+      savings: "",
+      pan: "",
     };
   }
 
-  componentWillMount = ()=> {
+  componentWillMount = () => {
     const { steps } = this.props;
-   
+
     console.log(JSON.stringify(steps));
-    const { name, gender, age, city, salaried, salary } = steps;
-    this.setState({name, gender, age, salaried, city});
-    if(salary){
-      this.setState({...this.state, salary });
+    const { name, gender, dob, city, salaried, salary, savings, pan } = steps;
+    this.setState({ name, gender, dob, salaried, city, salary, savings, pan });
+    if (salary) {
+      this.setState({ ...this.state, salary });
       localStorage.setItem("salary", JSON.stringify(salary.value));
     }
-    localStorage.setItem("steps", JSON.stringify(steps))
-    localStorage.setItem("name", JSON.stringify(name.value))
-    localStorage.setItem("gender", JSON.stringify(gender.value))
-    localStorage.setItem("age", JSON.stringify(age.value))
-    localStorage.setItem("salaried", JSON.stringify(salaried.value))
-    
-    localStorage.setItem("city", JSON.stringify(city.value))
-  }
+    localStorage.setItem("steps", JSON.stringify(steps));
+    localStorage.setItem("name", JSON.stringify(name.value));
+    localStorage.setItem("gender", JSON.stringify(gender.value));
+    localStorage.setItem("dob", JSON.stringify(dob.value));
+    localStorage.setItem("salaried", JSON.stringify(salaried.value));
+    localStorage.setItem("savings", JSON.stringify(savings.value));
+    localStorage.setItem("pan", JSON.stringify(pan.value));
+    localStorage.setItem("city", JSON.stringify(city.value));
+  };
 
   render() {
-    const { name, gender, age, city, salaried, salary } = this.state;
+    const {
+      name,
+      gender,
+      dob,
+      city,
+      salaried,
+      salary,
+      savings,
+      pan,
+    } = this.state;
     return (
-      <div style={{ width: '100%' }}>
-        <h3>Summary</h3>
-        <p>name: {name.value}</p>
+      <div style={{ width: "100%" }}>
+        <p>Thank you for choosing Compounding</p>
+        {/* <p>name: {name.value}</p>
         <p>gender: {gender.value}</p>
-        <p>age: {age.value}</p>
+        <p>dob: {dob.value}</p>
         <p>city: {city.value}</p>
         <p>Salaried: {salaried.value}</p>
         {salary && <p>Salary: {salary.value}</p>}
+        <p>Savings: {savings.value}</p>
+        <p>Pan: {pan.value}</p> */}
       </div>
     );
   }
 }
 
 Review.propTypes = {
-                steps: PropTypes.object,
+  steps: PropTypes.object,
 };
 
 Review.defaultProps = {
-                steps: undefined,
+  steps: undefined,
 };
 
-const Redirecting = () =>{
-  return(
+const Redirecting = () => {
+  return (
     <>
-                <p> Redirecting to home page  </p>
-                <div class="spinner-border text-primary" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-              </>
-  )
-}
+      <p> Redirecting to home page </p>
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </>
+  );
+};
 
 const QuestionBot = () => {
-
   const [redirect, setRedirect] = useState(false);
 
   const theme = {
-                // background: '#f5f8fb',
-                // fontFamily: 'Helvetica Neue',
-                // headerBgColor: '#EF6C00',
-                // headerFontColor: '#fff',
-                // headerFontSize: '15px',
-                // botBubbleColor: '#EF6C00',
-                // botFontColor: '#fff',
-                // userBubbleColor: '#fff',
-                // userFontColor: '#4a4a4a',
-              };
+    // background: '#f5f8fb',
+    // fontFamily: 'Helvetica Neue',
+    // headerBgColor: '#EF6C00',
+    // headerFontColor: '#fff',
+    // headerFontSize: '15px',
+    // botBubbleColor: '#EF6C00',
+    // botFontColor: '#fff',
+    // userBubbleColor: '#fff',
+    // userFontColor: '#4a4a4a',
+  };
 
+  const handleEnd = ({ steps, values }) => {
+    const { name,  dob,  pan, email, phoneNumber } = steps;
+    console.log("Trying to create account...");
+    console.log(steps);
+    createUser(name.value, pan.value, dob.value, phoneNumber.value, email.value)
+    .then(data=>{
+      if(!data.error){
+        localStorage.setItem("data", JSON.stringify(data));
+        console.log(data);
+        // setRedirect(true);
+      }
+      else{
+        console.log("Error in creating account.");
+      }
+    })
+    setTimeout(() => {
+      setRedirect(true);
+    }, 2000);
+  };
 
-  const handleEnd = ({steps, values}) => {
-                setTimeout(() => {
-                  setRedirect(true);
-                }, 2000)
-              }
-
-  if(redirect){
-    return <Redirect to="/home" />
+  if (redirect) {
+    return <Redirect to="/home" />;
   }
 
-    return (
-      <div style={{background:"#6e48aa"}}>
-                <ChatBot
-                style={{borderRadius:"0px"}}
-                  headerTitle="Welcome to compounding"
-                  handleEnd={handleEnd}
-                  width={"100vw"}
-                  height={"100vh"}
-                  steps={[
-                    {
-                      id: 'intro',
-                      message: 'Let me know something about you ',
-                      trigger: 'ask-name',
-                    },
-                    {
-                      id: 'ask-name',
-                      message: 'What is your name?',
-                      trigger: 'name',
-                    },
-                    {
-                      id: 'name',
-                      user: true,
-                      trigger: 'ask-gender',
-                    },
-                    {
-                      id: 'ask-gender',
-                      message: 'Hi {previousValue}! What is your gender?',
-                      trigger: 'gender',
-                    },
-                    {
-                      id: 'gender',
-                      options: [
-                        { value: 'male', label: 'Male', trigger: 'ask-city' },
-                        { value: 'female', label: 'Female', trigger: 'ask-city' },
-                      ],
-                    },
-                    {
-                      id: 'ask-city',
-                      message: 'What is your city?',
-                      trigger: 'city'
-                    },
-                    {
-                      id: 'city',
-                      user: true,
-                      trigger: 'ask-age',
-                    },
-                    {
-                      id: 'ask-age',
-                      message: 'How old are you?',
-                      trigger: 'age',
-                    },
-                    {
-                      id: 'age',
-                      user: true,
-                      trigger: 'ask-salaried',
-                      validator: (value) => {
-                        if (isNaN(value)) {
-                          return 'value must be a number';
-                        } else if (value < 0) {
-                          return 'value must be positive';
-                        } else if (value > 120) {
-                          return `${value}? Come on!`;
-                        }
+  return (
+    <div style={{ background: "#6e48aa" }}>
+      <ChatBot
+        style={{ borderRadius: "0px" }}
+        headerTitle="Welcome to compounding"
+        handleEnd={handleEnd}
+        width={"100vw"}
+        height={"100vh"}
+        steps={[
+          {
+            id: "intro",
+            message: "Let me know something about you ",
+            trigger: "ask-name",
+          },
+          {
+            id: "ask-name",
+            message: "What is your name?",
+            trigger: "name",
+          },
+          {
+            id: "name",
+            user: true,
+            trigger: "ask-phoneNumber",
+          },
+          {
+            id: "ask-phoneNumber",
+            message: "What is your phone number?",
+            trigger: "phoneNumber",
+          },
+          {
+            id: "phoneNumber",
+            user: true,
+            trigger: "ask-email",
+          },
+          {
+            id: "ask-email",
+            message: "What is your email?",
+            trigger: "email",
+          },
+          {
+            id: "email",
+            user: true,
+            trigger: "ask-gender",
+          },
+          {
+            id: "ask-gender",
+            message: "What is your gender?",
+            trigger: "gender",
+          },
+          {
+            id: "gender",
+            options: [
+              { value: "male", label: "Male", trigger: "ask-city" },
+              { value: "female", label: "Female", trigger: "ask-city" },
+            ],
+          },
+          {
+            id: "ask-city",
+            message: "What is your city?",
+            trigger: "city",
+          },
+          {
+            id: "city",
+            user: true,
+            trigger: "ask-dob",
+          },
+          {
+            id: "ask-dob",
+            message: "Enter your dob ( format: DD-MM-YYYY) ",
+            trigger: "dob",
+          },
+          {
+            id: "dob",
+            user: true,
+            trigger: "ask-salaried",
+          },
+          // {
+          //   id: 'age',
+          //   user: true,
+          //   trigger: 'ask-salaried',
+          //   validator: (value) => {
+          //     if (isNaN(value)) {
+          //       return 'value must be a number';
+          //     } else if (value < 0) {
+          //       return 'value must be positive';
+          //     } else if (value > 120) {
+          //       return `${value}? Come on!`;
+          //     }
 
-                        return true;
-                      },
-                    },
-                    {
-                      id: 'ask-salaried',
-                      message: 'Are you a salaried employee ?',
-                      trigger: 'salaried',
-                    },
-                    {
-                      id: 'salaried',
-                      options: [
-                        { value: 'true', label: 'Yes', trigger: 'ask-salary' },
-                        { value: 'false', label: 'No', trigger: 'review' },
-                      ],
-                    },
-                    {
-                      id:'ask-salary',
-                      message: 'What is your monthly salary?',
-                      trigger: 'salary'
-                    },{
-                      id:'salary',
-                      user:true,
-                      trigger:'review'
-                    },
-                    {
-                      id: 'review',
-                      component: <Review/>,
-                      asMessage: true,
-                      trigger:'redirect',
-                    },
-                    {
-                      id: 'redirect',
-                      message: 'Thank for spending time with me!',
-                      trigger: 'redirecting',
-                    },
-                    {
-                      id: 'update',
-                      message: 'Would you like to update some field?',
-                      trigger: 'update-question',
-                    },
-                    {
-                      id: 'update-question',
-                      options: [
-                        { value: 'yes', label: 'Yes', trigger: 'update-yes' },
-                        { value: 'no', label: 'No', trigger: 'end-message' },
-                      ],
-                    },
-                    {
-                      id: 'update-yes',
-                      message: 'What field would you like to update?',
-                      trigger: 'update-fields',
-                    },
-                    {
-                      id: 'update-fields',
-                      options: [
-                        { value: 'name', label: 'Name', trigger: 'update-name' },
-                        { value: 'gender', label: 'Gender', trigger: 'update-gender' },
-                        { value: 'age', label: 'Age', trigger: 'update-age' },
-                      ],
-                    },
-                    {
-                      id: 'update-name',
-                      update: 'name',
-                      trigger: 'review',
-                    },
-                    {
-                      id: 'update-gender',
-                      update: 'gender',
-                      trigger: 'review',
-                    },
-                    {
-                      id: 'update-age',
-                      update: 'age',
-                      trigger: 'review',
-                    },
-                    {
-                      id: 'end-message',
-                      message: 'Thanks! Your data was submitted successfully!',
-                      trigger: 'redirecting'
-                    },
-                    {
-                      id: 'redirecting',
-                      component: <Redirecting />,
-                      end: true,
-                    }
-                  ]}
-                />
-
-                </div>
-    );
-  }
+          //     return true;
+          //   },
+          // },
+          {
+            id: "ask-salaried",
+            message: "Are you a salaried employee ?",
+            trigger: "salaried",
+          },
+          {
+            id: "salaried",
+            options: [
+              { value: "true", label: "Yes", trigger: "ask-salary" },
+              { value: "false", label: "No", trigger: "ask-savings" },
+            ],
+          },
+          {
+            id: "ask-salary",
+            message: "What is your monthly salary?",
+            trigger: "salary",
+          },
+          {
+            id: "salary",
+            user: true,
+            trigger: "ask-savings",
+          },
+          {
+            id: "ask-savings",
+            message: "What is your savings?",
+            trigger: "savings",
+          },
+          {
+            id: "savings",
+            user: true,
+            trigger: "ask-pan",
+          },
+          {
+            id: "ask-pan",
+            message: "What is your PAN number?",
+            trigger: "pan",
+          },
+          {
+            id: "pan",
+            user: true,
+            trigger: "review",
+          },
+          {
+            id: "review",
+            component: <Review />,
+            asMessage: true,
+            trigger: "redirect",
+          },
+          {
+            id: "redirect",
+            message: "Thank for spending time with me!",
+            trigger: "redirecting",
+          },
+          {
+            id: "update",
+            message: "Would you like to update some field?",
+            trigger: "update-question",
+          },
+          {
+            id: "update-question",
+            options: [
+              { value: "yes", label: "Yes", trigger: "update-yes" },
+              { value: "no", label: "No", trigger: "end-message" },
+            ],
+          },
+          {
+            id: "update-yes",
+            message: "What field would you like to update?",
+            trigger: "update-fields",
+          },
+          {
+            id: "update-fields",
+            options: [
+              { value: "name", label: "Name", trigger: "update-name" },
+              { value: "gender", label: "Gender", trigger: "update-gender" },
+              { value: "age", label: "Age", trigger: "update-age" },
+            ],
+          },
+          {
+            id: "update-name",
+            update: "name",
+            trigger: "review",
+          },
+          {
+            id: "update-gender",
+            update: "gender",
+            trigger: "review",
+          },
+          {
+            id: "update-age",
+            update: "age",
+            trigger: "review",
+          },
+          {
+            id: "end-message",
+            message: "Thanks! Your data was submitted successfully!",
+            trigger: "redirecting",
+          },
+          {
+            id: "redirecting",
+            component: <Redirecting />,
+            end: true,
+          },
+        ]}
+      />
+    </div>
+  );
+};
 
 export default QuestionBot;

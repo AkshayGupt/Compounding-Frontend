@@ -3,7 +3,6 @@ import { ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CarouselComponent from "./carousel";
 import createPersistedState from "use-persisted-state";
-import DistributedTreeMap from "./distributed-tree-map";
 import DisplayScore from "../score/score";
 import "./Home.css";
 
@@ -142,13 +141,13 @@ const Home = () => {
       </div> */}
 
       <div className="main-content">
-        <Link
+        {/* <Link
           className="game-title btn btn-info btn-block"
-          to="/transactions"
+          to="/manage-expense"
           style={{ width: "80%" }}
         >
-          Track my expenses <i className="fas fa-coins"></i>
-        </Link>
+          Expense Management <i className="fas fa-coins"></i>
+        </Link> */}
         <br />
         <Link
           className="game-title btn btn-info btn-block"
@@ -278,10 +277,6 @@ const Home = () => {
         <div className="content-item">
           <BarGraph />
         </div> */}
-
-        <div className="content-item">
-          <DistributedTreeMap />
-        </div>
 
         <div className="content-item">
           <img

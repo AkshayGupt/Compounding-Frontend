@@ -2,10 +2,15 @@ import React from "react";
 import DisplayScore from "../score/score";
 import "./Offers.css";
 import { Modal, closeButton } from 'react-bootstrap'
+//import useWindowSize from 'react-use/lib/useWindowSize'
 import { colors } from "@material-ui/core";
+import Confetti from 'react-confetti'
 //import Spinner from '../slotmachine/SlotMachine'
+import {deductFunds} from '../../utils/api'
 
 export default function OffersComponent() {
+
+ 
 
   const [show, setShow] = React.useState(false);
 
@@ -16,6 +21,7 @@ export default function OffersComponent() {
   const handleClose = () => {
     
     setShow(false);
+
 
 
   }
@@ -35,8 +41,33 @@ export default function OffersComponent() {
   }
 
 
+
+  const buyBoatHeadPhone = () => {
+
+    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'1')
+    .then(() => {
+      setShow(false);
+    })
+    .catch((err) => console.log(err));
+    
+  }
+
+
+  const buyMyntraNikeShoes = () => {  
+    deductFunds("73ff54fb-bb78-42c0-a735-7e46a993139a",'1')
+    .then(() => {
+      setShowmyntra(false);
+    })
+    .catch((err) => console.log(err));
+  }
+
+
   return (
+    
     <div className="main-container">
+      <Confetti  style={{width:'100%'}} tweenDuration={'1000'}
+    >
+      </Confetti>
       <div>
         <div className="rewards_header">
           <h5 style={{ fontSize: 25, fontWeight: "bold", fontFamily: "serif" }}>
@@ -115,8 +146,8 @@ export default function OffersComponent() {
             <h6>Boat Headphones</h6>
 
             <h3 style={{ color: "#1d1d1f", fontWeight: "bold" }}>increase your sound quality</h3>
-            <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 1500 </h5>
-            <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 2500 </h6>
+            <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 200 </h5>
+            <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 1000 </h6>
             <h6 style={{ display: 'inline', color: "#b3b0b8" }}> (inclusive of all taxes)</h6>
           </Modal.Title>
         </Modal.Header >
@@ -147,10 +178,10 @@ export default function OffersComponent() {
         <div className="form-check" style={{width:'100%'}}>
             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{color:'#0d9174'}}/>
             <label className="form-check-label" for="flexCheckDefault" style={{color:'#0d9174'}}>
-              use 1000 freedom coins to get this at &#8377; 1500
+              use 800 freedom coins to get this at &#8377; 200
              </label>
           </div>
-          <button className='btn' onClick={handleClose} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 1500</button>
+          <button className='btn' onClick={buyBoatHeadPhone} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 200</button>
         </Modal.Footer>
       
       
@@ -167,8 +198,8 @@ export default function OffersComponent() {
             <h6>Nike Shoes</h6>
 
             <h3 style={{ color: "#1d1d1f", fontWeight: "bold" }}>run everywhere, fun everywhere</h3>
-            <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 1500 </h5>
-            <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 2500 </h6>
+            <h5 style={{ display: 'inline', color: "#4f4e52", fontWeight: "bold" }}>&#8377; 200 </h5>
+            <h6 style={{ display: 'inline', textDecoration: 'line-through', color: "#88878a" }}>&#8377; 1000 </h6>
             <h6 style={{ display: 'inline', color: "#b3b0b8" }}> (inclusive of all taxes)</h6>
           </Modal.Title>
         </Modal.Header >
@@ -199,17 +230,15 @@ export default function OffersComponent() {
         <div className="form-check" style={{width:'100%'}}>
             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" style={{color:'#0d9174'}}/>
             <label className="form-check-label" for="flexCheckDefault" style={{color:'#0d9174'}}>
-              use 1000 freedom coins to get this at &#8377; 1500
+              use 800 freedom coins to get this at &#8377; 200
              </label>
           </div>
-          <button className='btn' onClick={myntraHandleClose} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 1500</button>
+          <button className='btn' onClick={buyMyntraNikeShoes} style={{borderRadius:'25px',width:"250px",height:'50px',backgroundColor:'#6e48aa',color:'#f5f8fb'}}> Pay  &#8377; 200</button>
         </Modal.Footer>
       
       
       
       </Modal>
-
-      
     </div>
   );
 }
