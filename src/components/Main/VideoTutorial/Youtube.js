@@ -30,6 +30,7 @@ const Youtube = () => {
               <ReactPlayer
                 url={link}
                 onEnded={updateCoins}
+                controls={true}
                 config={{
                   youtube: {
                     playerVars: {
