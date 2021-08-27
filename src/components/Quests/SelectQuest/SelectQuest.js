@@ -83,7 +83,7 @@ const SelectQuest = () => {
               The Cursed IPO
             </h5>
             <p className="card-text">
-            A mysterious startup that was developing a reverse-ageing serum for the last ten years, finally launchesld it to a raving success. The shareholders want the IPO to happen as soon as possible. But there is something shocking that is filed in the red herring prospectus.
+            A mysterious startup that was developing a age-reversing serum for the last ten years, finally launchesld it to a raving success. The shareholders want the IPO to happen as soon as possible. But there is something shocking that is filed in the red herring prospectus.
             </p>
             <a
               href="#"

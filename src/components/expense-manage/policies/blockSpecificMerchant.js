@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 export default function BlockSpecificMerchant() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const mccArr = [5921, 5812, 5813, 7801, 7832];
 
   const today = new Date();
   const requestData = {
@@ -23,26 +24,31 @@ export default function BlockSpecificMerchant() {
     effectiveFrom: new Date().toISOString(),
   };
 
-  const handleChange = (event, newValue) => {
-    console.log(newValue);
-    blockSpecificMcc({ ...requestData, mcc: newValue }).then(() => {
-      setValue(newValue);
-    });
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    if (event.target && event.target.value) {
+      blockSpecificMcc({
+        ...requestData,
+        mcc: parseInt(event.target.value),
+      }).then(() => {
+        setValue(parseInt(event.target.value));
+      });
+    }
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={value}
         onChange={handleChange}
       >
-        <MenuItem value={5921}>Alcohol Shops</MenuItem>
-        <MenuItem value={5812}>Restaurants</MenuItem>
-        <MenuItem value={5813}>Bars / Pubs</MenuItem>
-        <MenuItem value={7801}>Online Gambling</MenuItem>
-        <MenuItem value={7832}>Theatres</MenuItem>
+        <MenuItem value={mccArr[0]}>Alcohol Shops</MenuItem>
+        <MenuItem value={mccArr[1]}>Restaurants</MenuItem>
+        <MenuItem value={mccArr[2]}>Bars / Pubs</MenuItem>
+        <MenuItem value={mccArr[3]}>Online Gambling</MenuItem>
+        <MenuItem value={mccArr[4]}>Theatres</MenuItem>
       </Select>
     </div>
   );

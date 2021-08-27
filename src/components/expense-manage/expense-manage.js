@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllAccountBalance, getCardDetails } from "../../utils/api";
+import { getAllAccountBalance, blockIntervalExpense } from "../../utils/api";
 import VirtualCard from "../virtual-card/Virtual-card";
 import {
   AccountBalance,
@@ -8,9 +8,10 @@ import {
   AccountBalanceTitle,
   ButtonLink,
   ExpenseManagementHeader,
-  Insights,
 } from "./expense-manage-style";
 import TransactionPolicies from "./Transaction-policies";
+import MuiAlert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
 import { Carousel } from "react-bootstrap";
 
 const splitter = (str) => str.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
@@ -27,22 +28,57 @@ if (localStorage.getItem("maxSlot")) {
 }
 
 const ExpenseManage = () => {
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(-5);
+  const [open, setOpen] = useState(false);
+  const vertical =  'top';
+  const horizontal =  'center';
+
+  //  FIXME: Fetch account holder id from localstorage
+  // localStorage.getItem('data');
+  const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
+  const today = new Date();
+  const requestData = {
+    accountHolderId,
+    expiresAt: new Date(today.setMonth(today.getMonth() + 1)).toISOString(),
+    effectiveFrom: new Date().toISOString(),
+  };
 
   useEffect(() => {
-    //  FIXME: Fetch account holder id from localstorage
-    // localStorage.getItem('data');
-    const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
     getAllAccountBalance(accountHolderId).then((data) => {
       setBalance(data.balance);
     });
   }, []);
+
+  const blockThisInternalExpenses = () => {
+    blockIntervalExpense({
+      ...requestData,
+      period: `${pre}-${post}`,
+    }).then(() => {
+      setOpen(true);
+      setTimeout(() => {
+        setOpen(false);
+      }, 2000);
+    });
+  };
 
   return (
     <div>
       <ExpenseManagementHeader className="ExpenseManagementHeader">
         Expense Management
       </ExpenseManagementHeader>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        vertical="top"
+        horizontal="center"
+        anchorOrigin={{ vertical, horizontal }}
+        key={vertical + horizontal}
+      >
+        <MuiAlert elevation={6} variant="filled" severity="success">
+          This is a success message!
+        </MuiAlert>
+      </Snackbar>
 
       <VirtualCard />
 
@@ -51,17 +87,11 @@ const ExpenseManage = () => {
           Account Balance
         </AccountBalanceTitle>
         <AccountBalanceAmount className="AccountBalanceAmount">
-          ₹ {splitter(String(balance))}
+          ₹ {balance >= 0 ? splitter(String(balance)) : "--"}
         </AccountBalanceAmount>
       </AccountBalance>
 
-      <ButtonLink className="ButtonLink">
-        <Link style={{ color: "white", fontSize: "18px" }} to="/transactions">
-          Expense Tracker <i className="fas fa-coins"></i>
-        </Link>
-      </ButtonLink>
-
-      {maxSlot && (
+      {(maxSlot) && (
         <Carousel
           interval="2000"
           indicators={false}
@@ -76,11 +106,13 @@ const ExpenseManage = () => {
                   <h6>Most of your expenses are made between</h6>
                 </strong>
                 <h4>
-                  <i class="far fa-clock"></i> {pre}:00 - {post}:00
+                  <i class="far fa-clock"></i> {pre}
+                  :00 - {post}:00
                 </h4>
                 <p
                   className="btn  text-white mt-3"
                   style={{ background: "#6e48aa" }}
+                  onClick={(event) => blockThisInternalExpenses(event)}
                 >
                   Block your expense <i className="pl-1 fas fa-lock"></i>
                 </p>
@@ -90,14 +122,24 @@ const ExpenseManage = () => {
                 </small>
               </div>
               <br />
-
-              {/* {iconForCarousel} */}
             </div>
           </Carousel.Item>
         </Carousel>
       )}
 
       <TransactionPolicies />
+
+      <ButtonLink className="ButtonLink">
+        <Link
+          style={{
+            color: "white",
+            fontSize: "18px",
+          }}
+          to="/transactions"
+        >
+          Expense Tracker <i className="fas fa-coins"></i>
+        </Link>
+      </ButtonLink>
     </div>
   );
 };
