@@ -149,13 +149,7 @@ const Home = () => {
           Expense Management <i className="fas fa-coins"></i>
         </Link> */}
         <br />
-        <Link
-          className="game-title btn btn-info btn-block"
-          to="/youtube"
-          style={{ width: "80%" }}
-        >
-          Learn and Earn <i class="fas fa-graduation-cap"></i>
-        </Link>
+       
 
         <div className=" leaderboard-card card my-3 pt-4 px-2 mx-auto " style={{width:"90%", background:"white", borderRadius:"15px"}}>
           <div className="d-flex justify-content-center">
@@ -278,6 +272,14 @@ const Home = () => {
           <BarGraph />
         </div> */}
 
+<Link
+          className="game-title btn btn-info btn-block"
+          to="/youtube"
+          style={{ width: "80%" }}
+        >
+          Learn and Earn <i class="fas fa-graduation-cap"></i>
+        </Link>
+
         <div className="content-item">
           <img
             className="bigImages"
@@ -285,9 +287,9 @@ const Home = () => {
             alt="test"
           />
         </div>
-        <div className="content-item">
-          <CarouselComponent />
-        </div>
+          <div className="content-item">
+            <CarouselComponent />
+          </div>
       </div>
     </div>
   );

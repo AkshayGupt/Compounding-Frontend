@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardContainer, VCardChip } from "./Virtual-card-styles";
 import "./style.css";
 import Tilt from "react-tilt";
+import { getCardDetails } from "../../utils/api";
 
 const VirtualCard = () => {
   const [cardInfo, setCardInfo] = useState({
-    number: "5464 5654 5654 6454",
-    expiryDate: "01/23",
-    cardholderName: "Test User",
+    maskedPan: "",
+    expiryMMYY: "",
+    cardholderName: "",
   });
+
+  useEffect(() => {
+    //  FIXME: Fetch account holder id from localstorage
+    // localStorage.getItem('data');
+    const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
+    getCardDetails(accountHolderId).then((data) => {
+      setCardInfo({ ...data });
+    });
+  }, []);
 
   return (
     <Tilt className="Tilt" options={{ max: 20 }}>
@@ -38,11 +48,11 @@ const VirtualCard = () => {
           <img src="images/card/chip-card.png" alt="chip" />
           <span>Titanium</span>
         </VCardChip>
-        <div className="VCardNumber">{cardInfo.number}</div>
+        <div className="VCardNumber">{cardInfo.maskedPan}</div>
 
         <div className="VCardFooter">
           <div className="VCardDate">
-            <small>Valid Thru:</small> {cardInfo.expiryDate}
+            <small>Valid Thru:</small> {cardInfo.expiryMMYY}
           </div>
           <div className="VCardHolderName">{cardInfo.cardholderName}</div>
           <div className="VCardType">
