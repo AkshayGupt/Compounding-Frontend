@@ -8,10 +8,10 @@ const Youtube = () => {
   const [coins, setCoins] = useState(0);
 
   const youtubeChannelList = [
-    "https://www.youtube.com/watch?v=GHOZ6HggUvA",
-    "https://www.youtube.com/watch?v=GHOZ6HggUvA",
-    "https://www.youtube.com/watch?v=GHOZ6HggUvA",
-    "https://www.youtube.com/watch?v=GHOZ6HggUvA",
+    "https://www.youtube.com/watch?v=Xn7KWR9EOGQ",
+    "https://www.youtube.com/watch?v=LRgWGsrzMAU",
+    "https://www.youtube.com/watch?v=iJFY2p497O4",
+    "https://www.youtube.com/watch?v=1DRq8N7SpYc",
   ];
 
   const updateCoins = () => {

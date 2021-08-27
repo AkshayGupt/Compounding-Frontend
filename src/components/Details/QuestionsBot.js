@@ -5,8 +5,16 @@ import ChatBot from "react-simple-chatbot";
 import FooterTabs from "../club/footer-tabs";
 import { ThemeProvider } from "styled-components";
 import {createUser} from '../../utils/api';
+import createPersistedState from 'use-persisted-state';
+
+const useUserName = createPersistedState('username');
+
+
 
 class Review extends Component {
+
+
+
   constructor(props) {
     super(props);
 
@@ -22,8 +30,11 @@ class Review extends Component {
     };
   }
 
+ 
+
   componentWillMount = () => {
     const { steps } = this.props;
+
 
     console.log(JSON.stringify(steps));
     const { name, gender, dob, city, salaried, salary, savings, pan } = steps;
@@ -90,6 +101,8 @@ const Redirecting = () => {
 
 const QuestionBot = () => {
   const [redirect, setRedirect] = useState(false);
+  const [usernamegiven, setUserNameGiven] = useUserName('');
+
 
   const theme = {
     // background: '#f5f8fb',
@@ -104,12 +117,16 @@ const QuestionBot = () => {
   };
 
   const handleEnd = ({ steps, values }) => {
+
+    
+
     const { name,  dob,  pan, email, phoneNumber } = steps;
     console.log("Trying to create account...");
     console.log(steps);
     createUser(name.value, pan.value, dob.value, phoneNumber.value, email.value)
     .then(data=>{
       if(!data.error){
+        setUserNameGiven(name.value)
         localStorage.setItem("data", JSON.stringify(data));
         console.log(data);
         // setRedirect(true);
@@ -138,183 +155,112 @@ const QuestionBot = () => {
         steps={[
           {
             id: "intro",
-            message: "Let me know something about you ",
-            trigger: "ask-name",
-          },
-          {
-            id: "ask-name",
-            message: "What is your name?",
+            message: "Hey there, What is your name?",
             trigger: "name",
           },
           {
             id: "name",
-            user: true,
+            user:true,
+            trigger: "intro-username",
+          },
+          {
+            id: "intro-username",
+            message: 'Hey hello {previousValue}',
             trigger: "ask-phoneNumber",
           },
           {
             id: "ask-phoneNumber",
-            message: "What is your phone number?",
+            message: "Can I get your number?",
             trigger: "phoneNumber",
           },
           {
             id: "phoneNumber",
             user: true,
+            trigger: "good-deed",
+          },
+          {
+            id: "good-deed",
+            message: "I know we just met but you are amazing",
             trigger: "ask-email",
           },
           {
             id: "ask-email",
-            message: "What is your email?",
+            message: "Where can I send you emails?",
             trigger: "email",
           },
           {
             id: "email",
             user: true,
-            trigger: "ask-gender",
-          },
-          {
-            id: "ask-gender",
-            message: "What is your gender?",
-            trigger: "gender",
-          },
-          {
-            id: "gender",
-            options: [
-              { value: "male", label: "Male", trigger: "ask-city" },
-              { value: "female", label: "Female", trigger: "ask-city" },
-            ],
-          },
-          {
-            id: "ask-city",
-            message: "What is your city?",
-            trigger: "city",
-          },
-          {
-            id: "city",
-            user: true,
             trigger: "ask-dob",
           },
           {
             id: "ask-dob",
-            message: "Enter your dob ( format: DD-MM-YYYY) ",
+            message: "Can you share your dob in (dd-mm-yyy) format?",
             trigger: "dob",
           },
           {
             id: "dob",
             user: true,
-            trigger: "ask-salaried",
-          },
-          // {
-          //   id: 'age',
-          //   user: true,
-          //   trigger: 'ask-salaried',
-          //   validator: (value) => {
-          //     if (isNaN(value)) {
-          //       return 'value must be a number';
-          //     } else if (value < 0) {
-          //       return 'value must be positive';
-          //     } else if (value > 120) {
-          //       return `${value}? Come on!`;
-          //     }
-
-          //     return true;
-          //   },
-          // },
-          {
-            id: "ask-salaried",
-            message: "Are you a salaried employee ?",
-            trigger: "salaried",
-          },
-          {
-            id: "salaried",
-            options: [
-              { value: "true", label: "Yes", trigger: "ask-salary" },
-              { value: "false", label: "No", trigger: "ask-savings" },
-            ],
-          },
-          {
-            id: "ask-salary",
-            message: "What is your monthly salary?",
-            trigger: "salary",
-          },
-          {
-            id: "salary",
-            user: true,
-            trigger: "ask-savings",
-          },
-          {
-            id: "ask-savings",
-            message: "What is your savings?",
-            trigger: "savings",
-          },
-          {
-            id: "savings",
-            user: true,
             trigger: "ask-pan",
           },
           {
             id: "ask-pan",
-            message: "What is your PAN number?",
+            message: "Can you share your pan?",
             trigger: "pan",
           },
           {
             id: "pan",
             user: true,
-            trigger: "review",
+            trigger: "fast",
           },
           {
-            id: "review",
-            component: <Review />,
-            asMessage: true,
-            trigger: "redirect",
+            id: "fast",
+            message: " I would like to take things fast with you",
+            trigger: "irritate",
           },
           {
-            id: "redirect",
-            message: "Thank for spending time with me!",
-            trigger: "redirecting",
+            id: "irritate",
+            message: " I know I am a little irritating right now",
+            trigger: "lasttwoquest",
           },
           {
-            id: "update",
-            message: "Would you like to update some field?",
-            trigger: "update-question",
+            id: "lasttwoquest",
+            message: " But only last two questions",
+            trigger: "ask-salary",
           },
           {
-            id: "update-question",
-            options: [
-              { value: "yes", label: "Yes", trigger: "update-yes" },
-              { value: "no", label: "No", trigger: "end-message" },
-            ],
+            id: "ask-salary",
+            message: " What is your monthly salary?",
+            trigger: "salary-input",
           },
           {
-            id: "update-yes",
-            message: "What field would you like to update?",
-            trigger: "update-fields",
+            id: "salary-input",
+            user: true,
+            trigger: "target",
           },
           {
-            id: "update-fields",
-            options: [
-              { value: "name", label: "Name", trigger: "update-name" },
-              { value: "gender", label: "Gender", trigger: "update-gender" },
-              { value: "age", label: "Age", trigger: "update-age" },
-            ],
+            id: "target",
+            message: " What is your target savings?",
+            trigger: "target-input",
           },
           {
-            id: "update-name",
-            update: "name",
-            trigger: "review",
+            id: "target-input",
+            user: true,
+            trigger: "thanks",
           },
           {
-            id: "update-gender",
-            update: "gender",
-            trigger: "review",
+            id: "thanks",
+            message: "Wonderful. Thanks for tolerating me.",
+            trigger: "welcome",
           },
           {
-            id: "update-age",
-            update: "age",
-            trigger: "review",
+            id: "welcome",
+            message: "Welcome to Compounding,",
+            trigger: "last-message",
           },
           {
-            id: "end-message",
-            message: "Thanks! Your data was submitted successfully!",
+            id: "last-message",
+            message: "May you fly free and achieve financial freedom.",
             trigger: "redirecting",
           },
           {

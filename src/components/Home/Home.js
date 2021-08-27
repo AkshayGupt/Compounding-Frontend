@@ -205,7 +205,7 @@ const Home = () => {
                   // // src="https://icons.iconarchive.com/icons/wikipedia/flags/512/US-United-States-Flag-icon.png"
                 />
               </p>
-              <p>8965</p>
+              <p>8320</p>
             </li>
             <li className="d-flex justify-content-between pr-5 pl-1">
               <p  className=" px-3" style={{borderRadius:"10px",background:"#CD7F32", border:"1px solid black"}}>#3</p>
@@ -224,7 +224,7 @@ const Home = () => {
                   // src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
                 />
               </p>
-              <p>8965</p>
+              <p>7660</p>
             </li>
             <li className="d-flex justify-content-between pr-5 pl-1">
               <p className=" px-3" style={{borderRadius:"10px",background:"white"}}>#4</p>
@@ -243,7 +243,7 @@ const Home = () => {
                   // src="https://i.pinimg.com/originals/62/2b/89/622b892bb6997df9ac5e5490b4876c33.jpg"
                 />
               </p>
-              <p>8965</p>
+              <p>6012</p>
             </li>
             <li className="d-flex justify-content-between pr-5 pl-1">
               <p className=" px-3" style={{borderRadius:"10px",background:"white"}}>#5</p>
@@ -262,7 +262,7 @@ const Home = () => {
                   // src="https://w7.pngwing.com/pngs/908/509/png-transparent-flag-of-india-computer-icons-indian-flag-rectangle-orange.png"
                 />
               </p>
-              <p>8965</p>
+              <p>5661</p>
             </li>
           </ul>
         </div>
