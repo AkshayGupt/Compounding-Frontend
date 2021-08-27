@@ -12,6 +12,9 @@ const useStyles = makeStyles({
   },
 });
 
+const dummyAccountHolder = "dd95bd39-775e-48de-b352-36cd9b024c74";
+var accountHolderId = "" || dummyAccountHolder;
+
 export default function TimeOfTransaction() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -24,7 +27,7 @@ console.log(options);
 
   const today = new Date();
   const requestData = {
-    accountHolderId: "73ff54fb-bb78-42c0-a735-7e46a993139a",
+    accountHolderId,
     expiresAt: new Date(today.setMonth(today.getMonth() + 1)).toISOString(),
     effectiveFrom: new Date().toISOString(),
   };

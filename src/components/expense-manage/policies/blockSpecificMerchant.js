@@ -4,8 +4,10 @@ import { MenuItem, Select } from "@material-ui/core";
 import { blockSpecificMcc } from "../../../utils/api";
 import "./styles.css";
 
-var accountHolderId = "";
+const dummyAccountHolder = "dd95bd39-775e-48de-b352-36cd9b024c74";
+var accountHolderId = "" || dummyAccountHolder;
 
+// Test
 if (localStorage.getItem("data")) {
   accountHolderId = JSON.parse(localStorage.getItem("data"))["accountHolderId"];
 }
