@@ -12,17 +12,21 @@ import BlockSpecificMerchant from "./policies/blockSpecificMerchant";
 import Loader from "react-loader-spinner";
 import { TextField } from "@material-ui/core";
 
+var accountHolderId = "";
+
+if (localStorage.getItem("data")) {
+  accountHolderId = JSON.parse(localStorage.getItem("data"))["accountHolderId"];
+}
+
+
 export default function TransactionPolicies() {
   const [state, setState] = React.useState({
     maxWithdrawal: 0,
     ECOM: true,
-    // noOfTransactions: 1,
-    // blockMerchant: '',
     blockSpecificMerchant: null,
     loading: false,
   });
 
-  const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
   const today = new Date();
   const requestData = {
     accountHolderId,

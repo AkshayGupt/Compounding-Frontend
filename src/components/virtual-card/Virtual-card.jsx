@@ -3,10 +3,14 @@ import { CardContainer, VCardChip } from "./Virtual-card-styles";
 import "./style.css";
 import Tilt from "react-tilt";
 import { getCardDetails } from "../../utils/api";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
 
-// AOS.init();
+var accountHolderId = "";
+
+if (localStorage.getItem("data")) {
+  accountHolderId = JSON.parse(localStorage.getItem("data"))[
+    "accountHolderId"
+  ];
+}
 
 const VirtualCard = () => {
   const [cardInfo, setCardInfo] = useState({
@@ -16,9 +20,6 @@ const VirtualCard = () => {
   });
 
   useEffect(() => {
-    //  FIXME: Fetch account holder id from localstorage
-    // localStorage.getItem('data');
-    const accountHolderId = "73ff54fb-bb78-42c0-a735-7e46a993139a";
     getCardDetails(accountHolderId).then((data) => {
       setCardInfo({ ...data });
     });
