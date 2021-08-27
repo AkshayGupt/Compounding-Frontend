@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const [open, setOpen] = React.useState(false);
   const [total, setTotal] = React.useState(calculateNetWorth(currentBalance));
-  const [date, setDate] = React.useState("Aug 10 2021");
+  const [date, setDate] = React.useState(new Date().toString().slice(4, 15));
   const [propertyName, setPropertyName] = React.useState("");
 
   const handleClickOpen = (name) => {
@@ -49,19 +49,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard__header">
-        <div className="dropdown">
-          <button
-            class="btn btn-secondary"
-            type="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span className="dropdown-button-span">{username[0] || "?"}</span>
-            {username}
-          </button>
-        </div>
-        <div className="net-worth">
+      <div className="dashboard__header ">
+ 
+        <div className="net-worth mt-2">
           <div class="net-worth-head">
             <h5>My Net Worth</h5>
           </div>
