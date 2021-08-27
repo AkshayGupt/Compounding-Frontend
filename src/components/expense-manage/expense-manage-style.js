@@ -15,10 +15,11 @@ export const AccountBalance = styled.div`
   width: 75%;
   align-content: space-between;
   display: block;
-  margin: 15px auto;
+  margin: 25px auto;
   box-shadow: 0px 0px 10px #6e48aa;
   border-radius: 10px;
   font-weight: bold;
+  padding: 5px;
 `;
 
 export const AccountBalanceTitle = styled.div`
@@ -47,18 +48,18 @@ export const Insights = styled.div`
 export const ButtonLink = styled.div`
   text-align: center;
   width: 75%;
-  margin: 15px auto;
+  margin: 15px auto 80px;
   font-weight: bold;
   font-size: 16px;
   background-color: #6e48aa;
   border-radius: 10px;
-  height: 40px;
-  padding: 5px;
+  height: 60px;
+  padding: 15px;
 `;
 
 export const TransactionPoliciesContainer = styled.div`
   border: 1px solid;
-  margin: 10px auto 80px;
+  margin: 25px auto;
   padding: 15px;
   border: 1px solid #6e48aa;
   box-shadow: 0px 0px 10px #6e48aa;
@@ -72,6 +73,8 @@ export const TransactionPolicy = styled.div`
   border: 1px solid #6e48aa;
   box-shadow: 0px 0px 1px #6e48aa;
   border-radius: 7px;
+  display: block;
+  
 `;
 
 export const TransactionPolicyTitle = styled.div`

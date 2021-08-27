@@ -3,6 +3,10 @@ import { CardContainer, VCardChip } from "./Virtual-card-styles";
 import "./style.css";
 import Tilt from "react-tilt";
 import { getCardDetails } from "../../utils/api";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+
+// AOS.init();
 
 const VirtualCard = () => {
   const [cardInfo, setCardInfo] = useState({
@@ -22,7 +26,13 @@ const VirtualCard = () => {
 
   return (
     <Tilt className="Tilt" options={{ max: 20 }}>
-      <CardContainer className="CardContainer">
+      <CardContainer
+        // data-aos="fade-down"
+        // data-aos-offset="200"
+        // data-aos-delay="50"
+        // data-aos-duration="500"
+        className="CardContainer"
+      >
         <div
           style={{
             lineHeight: "12px",
@@ -46,7 +56,6 @@ const VirtualCard = () => {
 
         <VCardChip className="VCardChip">
           <img src="images/card/chip-card.png" alt="chip" />
-          <span>Titanium</span>
         </VCardChip>
         <div className="VCardNumber">{cardInfo.maskedPan}</div>
 
