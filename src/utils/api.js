@@ -274,3 +274,28 @@ export const blockSpecificMcc = (requestBody) => {
   //     "isRetriableFailure": null
   // }
 };
+
+export const blockIntervalExpense = (requestBody) => {
+  return fetch(`${API}/transactions/txnTime`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      // Authorization:`Bearer ${token}`
+    },
+    body: JSON.stringify(requestBody),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+
+  //This function will return data in below fomat:
+  // {
+  //     "requestID": "5a13c410-695a-4826-bfce-e43c2d5dba01",
+  //     "transferID": "20210826183321505_144009_5a13c410-695a-4826-bfce-e43c2d5dba01",
+  //     "message": null,
+  //     "status": "SUCCESS",
+  //     "isRetriableFailure": null
+  // }
+};

@@ -36,7 +36,7 @@ const Home = () => {
             src={selectAvatarPath}
             alt="user_avatar"
           />
-          <div style={{ paddingTop: 10, fontSize: 15 }}>{username}</div>
+          {/* <div style={{ paddingTop: 10, fontSize: 15 }}>{username}</div> */}
           <DisplayScore
             className="home_displayScore_container"
             coin={97}
