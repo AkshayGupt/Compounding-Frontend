@@ -19,7 +19,8 @@ const splitter = (str) => str.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,");
 var pre = 0;
 var post = 0;
 var maxSlot = false;
-var accountHolderId = "";
+const dummyAccountHolder = "dd95bd39-775e-48de-b352-36cd9b024c74";
+var accountHolderId = "" || dummyAccountHolder;
 
 if (localStorage.getItem("maxSlot")) {
   maxSlot = true;

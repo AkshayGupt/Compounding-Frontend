@@ -4,7 +4,8 @@ import "./style.css";
 import Tilt from "react-tilt";
 import { getCardDetails } from "../../utils/api";
 
-var accountHolderId = "";
+const dummyAccountHolder = "dd95bd39-775e-48de-b352-36cd9b024c74";
+var accountHolderId = "" || dummyAccountHolder;
 
 if (localStorage.getItem("data")) {
   accountHolderId = JSON.parse(localStorage.getItem("data"))[
