@@ -20,6 +20,7 @@ import MutualFund from "./components/Details/MutualFundBot";
 import Youtube from "./components/Main/VideoTutorial/Youtube";
 import AvatarCreator from "./components/AvatarCreator/AvatarCreator";
 import FooterTabs from "./components/club/footer-tabs";
+import Spinner from "./components/slotmachine/SlotMachine"
 import ExpenseManage from "./components/expense-manage/expense-manage";
 
 function App(props) {
@@ -41,6 +42,7 @@ function App(props) {
         <Route path="/mutual-fund" exact component={MutualFund} />
         <Route path="/youtube" exact component={Youtube} />
         <Route path="/avatar" exact component={AvatarCreator} />
+        {/* <Route path="/slot" exact component={Spinner} /> */}
       </Switch>
       {props.location.pathname !== "/" &&
       props.location.pathname !== "/avatar" ? (

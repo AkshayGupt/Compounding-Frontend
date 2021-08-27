@@ -3,6 +3,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import OffersComponent from "./Offers";
 import "./rewards.css";
+import {Modal,Button} from 'react-bootstrap'
 
 function RewardComponent() {
   return <OffersComponent />;
@@ -34,6 +35,10 @@ function TabPanel(props) {
 
 const RewardsTabs = () => {
   const [tabIndex, setTabIndex] = React.useState(0);
+  const [show, setShow] = React.useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -58,6 +63,7 @@ const RewardsTabs = () => {
       <TabPanel value={tabIndex} index={2}>
         {InvestmentsComponent}
       </TabPanel>
+  
     </div>
   );
 };
