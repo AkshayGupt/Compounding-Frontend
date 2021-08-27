@@ -1,68 +1,54 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Slider from "@material-ui/core/Slider";
-import Input from "@material-ui/core/Input";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
 
-const useStyles = makeStyles({
+const iOSBoxShadow =
+  '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
+
+export const MaxWithdrawal = withStyles({
   root: {
-    width: 250,
+    color: '#3880ff',
+    height: 2,
+    marginTop: '15px',
+    padding: '15px 0'
   },
-  input: {
-    width: 42,
+  thumb: {
+    height: 20,
+    width: 20,
+    backgroundColor: '#fff',
+    boxShadow: iOSBoxShadow,
+    marginTop: -14,
+    marginLeft: -14,
+    '&:focus, &:hover, &$active': {
+      boxShadow: '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.3),0 0 0 1px rgba(0,0,0,0.02)'
+    },
   },
-});
-
-export function MaxWithdrawal() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(30);
-
-  const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const handleInputChange = (event) => {
-    setValue(event.target.value === "" ? "" : Number(event.target.value));
-  };
-
-  const handleBlur = () => {
-    if (value < 0) {
-      setValue(0);
-    } else if (value > 100) {
-      setValue(100);
-    }
-  };
-
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={3} alignItems="center">
-        <Grid item >Max Withdrawal</Grid>
-        <Grid item xs>
-          <Slider
-            value={typeof value === "number" ? value : 0}
-            onChange={handleSliderChange}
-            aria-labelledby="input-slider"
-            step={1000}
-            max={50000}
-          />
-        </Grid>
-        <Grid item xs>
-          <Input
-            className={classes.input}
-            value={value}
-            margin="dense"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step: 10,
-              min: 0,
-              max: 50000,
-              type: "number",
-              "aria-labelledby": "input-slider",
-            }}
-          />
-        </Grid>
-      </Grid>
-    </div>
-  );
-}
+  active: {},
+  valueLabel: {
+    left: 'calc(-50% + 12px)',
+    top: -22,
+    '& *': {
+      background: 'transparent',
+      color: '#000',
+    },
+  },
+  track: {
+    height: 2,
+  },
+  rail: {
+    height: 2,
+    opacity: 0.5,
+    backgroundColor: '#bfbfbf',
+  },
+  mark: {
+    backgroundColor: '#bfbfbf',
+    height: 8,
+    width: 1,
+    marginTop: -3,
+  },
+  markActive: {
+    opacity: 1,
+    backgroundColor: 'currentColor',
+  },
+})(Slider);
